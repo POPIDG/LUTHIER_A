@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luthería — Taller artesanal de construcción y restauración de instrumentos. Cursos de luthería, construcción a medida y ajustes profesionales.">
+  <meta name="keywords" content="luthería, luthier, guitarra artesanal, cursos luthería, construcción instrumentos, restauración">
+  <title>Luthería | Taller de Construcción Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/ui/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR (sticky)
+  ============================================================ -->
+  <header id="navbar" role="banner">
+    <div class="navbar-inner">
+
+      <!-- Logo -->
+      <a href="#inicio" class="navbar-logo" aria-label="Luthería — Inicio">
+        <div class="logo-badge">L</div>
+        <span class="logo-name">LUTHERÍA</span>
+      </a>
+
+      <!-- Nav links (desktop) -->
+      <nav id="nav-links" aria-label="Navegación principal">
+        <a href="#inicio"       class="nav-link">Inicio</a>
+        <a href="#filosofia"    class="nav-link">Filosofía</a>
+        <a href="#servicios"    class="nav-link">Servicios</a>
+        <a href="#cursos"       class="nav-link">Cursos</a>
+        <a href="#instrumentos" class="nav-link">Instrumentos</a>
+        <a href="#maderas"      class="nav-link">Maderas</a>
+        <a href="#galeria"      class="nav-link">Galería</a>
+        <a href="#contacto"     class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Icons + hamburger -->
+      <div class="navbar-actions">
+        <!-- Account icon -->
+        <button class="icon-btn" aria-label="Cuenta">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c0-4 3.6-6 7.5-6s7.5 2 7.5 6"/>
+          </svg>
+        </button>
+        <!-- Cart icon -->
+        <button class="icon-btn" aria-label="Carrito">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="9.5" cy="20" r="1.2"/>
+            <circle cx="18" cy="20" r="1.2"/>
+            <path d="M2 3h3l2.4 12h10.8l1.8-8H6.2"/>
+          </svg>
+        </button>
+        <!-- Hamburger (mobile) -->
+        <button id="nav-burger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU
+  ============================================================ -->
+  <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
+    <a href="#inicio"       class="mobile-nav-link">Inicio</a>
+    <a href="#filosofia"    class="mobile-nav-link">Filosofía</a>
+    <a href="#servicios"    class="mobile-nav-link">Servicios</a>
+    <a href="#cursos"       class="mobile-nav-link">Cursos</a>
+    <a href="#instrumentos" class="mobile-nav-link">Instrumentos</a>
+    <a href="#maderas"      class="mobile-nav-link">Maderas</a>
+    <a href="#galeria"      class="mobile-nav-link">Galería</a>
+    <a href="#contacto"     class="mobile-nav-link">Contacto</a>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+
+    <!-- ===================== 1 · HERO ===================== -->
+    <section id="inicio" class="hero" aria-label="Inicio">
+      <!-- Background image -->
+      <div class="hero-bg img-placeholder" id="hero-parallax">
+        <img src="assets/hero/hero-home.jpg" alt="Luthier trabajando en el taller artesanal" loading="eager">
+      </div>
+      <!-- Overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Content -->
+      <div class="hero-content">
+        <span class="eyebrow eyebrow--accent" data-reveal>Taller de Luthería</span>
+        <h1 class="hero-title" data-reveal>La tradición de la luthería, llevada a la excelencia.</h1>
+        <p class="hero-subtitle" data-reveal>Creamos instrumentos únicos y formamos a quienes desean comprender el verdadero arte de construirlos. Cada guitarra nace del equilibrio entre conocimiento técnico, sensibilidad artesanal y una cuidada selección de materiales nobles.</p>
+        <div class="hero-ctas" data-reveal>
+          <a href="#filosofia" class="btn btn--primary">Conocer el Taller</a>
+          <a href="#cursos"    class="btn btn--secondary">Ver Cursos</a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#filosofia" class="scroll-indicator" aria-label="Ir a Filosofía">
+        <span class="scroll-label">Scroll</span>
+        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" stroke="currentColor" stroke-width="1.4" class="scroll-arrow" aria-hidden="true">
+          <path d="M8 2v18M3 15l5 6 5-6"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- =================== 2 · FILOSOFÍA =================== -->
+    <section id="filosofia" class="filosofia" aria-label="Nuestra Filosofía">
+      <!-- Parallax background -->
+      <div class="filosofia-bg img-placeholder" id="filo-parallax">
+        <img src="assets/hero/hero-filosofia.jpg" alt="Vista del taller de luthería" loading="lazy">
+      </div>
+      <div class="filosofia-overlay"></div>
+
+      <!-- Content -->
+      <div class="filosofia-content">
+        <span class="eyebrow eyebrow--accent" data-reveal>Nuestra Filosofía</span>
+        <h2 class="section-title section-title--light" data-reveal>Cada instrumento comienza mucho antes de ser construido.</h2>
+        <p class="section-text section-text--light" data-reveal>La luthería combina tradición, precisión y respeto por los materiales. Creemos que cada madera posee una voz propia y que cada instrumento debe reflejar la identidad de quien lo interpreta.</p>
+        <p class="section-text section-text--light" data-reveal>Trabajamos respetando los tiempos naturales de cada proceso para lograr instrumentos con carácter, equilibrio y una calidad que perdure en el tiempo.</p>
+        <div class="valores" data-reveal>
+          <span class="valor-tag">
+            <span class="valor-dot" aria-hidden="true"></span>Tradición artesanal
+          </span>
+          <span class="valor-tag">
+            <span class="valor-dot" aria-hidden="true"></span>Materiales seleccionados
+          </span>
+          <span class="valor-tag">
+            <span class="valor-dot" aria-hidden="true"></span>Diseño personalizado
+          </span>
+          <span class="valor-tag">
+            <span class="valor-dot" aria-hidden="true"></span>Excelencia sonora
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 3 · SERVICIOS =================== -->
+    <section id="servicios" class="servicios" aria-label="Servicios del Taller">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Servicios del Taller</span>
+          <h2 class="section-title">Soluciones profesionales para cada instrumento</h2>
+        </div>
+
+        <div class="services-grid" id="services-grid" data-reveal>
+
+          <!-- Servicio 01 -->
+          <article class="service-card">
+            <div class="service-icon-wrap">
+              <span class="service-num">01</span>
+              <img src="assets/iconos/servicio-01.svg" alt="" class="service-icon" aria-hidden="true">
+            </div>
+            <h3 class="service-title">Construcción a medida</h3>
+            <p class="service-text">Diseño y fabricación artesanal de instrumentos personalizados.</p>
+          </article>
+
+          <!-- Servicio 02 -->
+          <article class="service-card">
+            <div class="service-icon-wrap">
+              <span class="service-num">02</span>
+              <img src="assets/iconos/servicio-02.svg" alt="" class="service-icon" aria-hidden="true">
+            </div>
+            <h3 class="service-title">Restauración</h3>
+            <p class="service-text">Recuperación de instrumentos respetando su identidad histórica y sonora.</p>
+          </article>
+
+          <!-- Servicio 03 -->
+          <article class="service-card">
+            <div class="service-icon-wrap">
+              <span class="service-num">03</span>
+              <img src="assets/iconos/servicio-03.svg" alt="" class="service-icon" aria-hidden="true">
+            </div>
+            <h3 class="service-title">Reparaciones</h3>
+            <p class="service-text">Correcciones estructurales y mantenimiento especializado.</p>
+          </article>
+
+          <!-- Servicio 04 -->
+          <article class="service-card">
+            <div class="service-icon-wrap">
+              <span class="service-num">04</span>
+              <img src="assets/iconos/servicio-04.svg" alt="" class="service-icon" aria-hidden="true">
+            </div>
+            <h3 class="service-title">Ajustes profesionales</h3>
+            <p class="service-text">Calibración, entonación y optimización del instrumento.</p>
+          </article>
+
+        </div>
+
+        <div class="services-cta" data-reveal>
+          <a href="#contacto" class="btn btn--primary">Ver todos los servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 4 · CURSOS =================== -->
+    <section id="cursos" class="cursos" aria-label="Academia de Luthería">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Academia de Luthería</span>
+          <h2 class="section-title">Aprendé el oficio de la mano de un luthier profesional.</h2>
+          <p class="section-text">Nuestros programas están orientados a aficionados, músicos y futuros luthiers que buscan comprender el oficio mediante una experiencia práctica y personalizada.</p>
+        </div>
+
+        <!-- Carrusel de cursos — 2 cards visibles, deslizá para navegar -->
+        <div class="carousel-track" id="courses-track" role="list">
+
+        <!-- Slide 1: DESTACADO -->
+        <article class="course-card course-card--featured" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <span class="course-badge badge--primary">DESTACADO</span>
+            <img src="assets/cursos/instrumento-medida.jpg" alt="Curso Instrumento a tu Medida" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Instrumento a tu Medida</h3>
+            <p class="course-desc">Construí una guitarra completamente personalizada mientras aprendés cada etapa del proceso de construcción.</p>
+            <ul class="course-includes" aria-label="El curso incluye">
+              <li><span class="check" aria-hidden="true">✓</span>Material didáctico.</li>
+              <li><span class="check" aria-hidden="true">✓</span>Seguimiento individual.</li>
+              <li><span class="check" aria-hidden="true">✓</span>Asistencia permanente.</li>
+            </ul>
+            <div class="course-footer">
+              <div class="price-placeholder">Precio · espacio reservado</div>
+              <button class="btn btn--primary btn--full">Conocer el Curso Completo</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="course-card" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <span class="course-badge badge--secondary">NUEVO</span>
+            <img src="assets/cursos/fundamentos.jpg" alt="Curso Fundamentos de Construcción" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Fundamentos de Construcción</h3>
+            <p class="course-desc">Ideal para quienes desean comenzar en la luthería.</p>
+            <div class="course-footer">
+              <div class="price-placeholder">Precio · espacio reservado</div>
+              <button class="btn btn--primary btn--full">Ver Más</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="course-card" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <img src="assets/cursos/guitarra-acustica.jpg" alt="Curso Construcción de Guitarra Acústica" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Construcción de Guitarra Acústica</h3>
+            <p class="course-desc">Fabricación integral de una guitarra artesanal.</p>
+            <div class="course-footer">
+              <div class="price-placeholder">Precio · espacio reservado</div>
+              <button class="btn btn--primary btn--full">Ver Más</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 4 -->
+        <article class="course-card" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <img src="assets/cursos/materiales.jpg" alt="Curso Acústica y Selección de Materiales" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Acústica y Selección de Materiales</h3>
+            <p class="course-desc">Comprendé cómo cada madera influye en el sonido.</p>
+            <div class="course-footer">
+              <div class="price-placeholder">Precio · espacio reservado</div>
+              <button class="btn btn--primary btn--full">Ver Más</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 5 -->
+        <article class="course-card" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <img src="assets/cursos/terminaciones.jpg" alt="Curso Terminaciones Premium" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Terminaciones Premium</h3>
+            <p class="course-desc">Acabados y detalles propios de instrumentos de alta gama.</p>
+            <div class="course-footer">
+              <div class="price-placeholder">Precio · espacio reservado</div>
+              <button class="btn btn--primary btn--full">Ver Más</button>
+            </div>
+          </div>
+        </article>
+
+        </div>
+
+        <!-- Progress bar de cursos -->
+        <div class="inst-progress" id="courses-progress" role="progressbar" aria-label="Posición en el carrusel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="inst-progress-thumb" id="courses-progress-thumb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ 5 · BIBLIOTECA DE INSTRUMENTOS ================ -->
+    <section id="instrumentos" class="instrumentos" aria-label="Biblioteca de Instrumentos">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Biblioteca de Instrumentos</span>
+          <h2 class="section-title">Explorá el universo de los instrumentos.</h2>
+          <p class="section-text">Una biblioteca interactiva donde podrás descubrir las características, historia y proceso constructivo de distintos instrumentos.</p>
+        </div>
+
+        <!-- Instruments carousel — exactamente 4 cards visibles, deslizá para navegar -->
+        <div class="inst-track" id="inst-track" role="list">
+
+        <div class="inst-card" data-id="guitarra-clasica" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/guitarra-clasica.jpg" alt="Guitarra Clásica" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Guitarra Clásica</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="guitarra-acustica" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/guitarra-acustica.jpg" alt="Guitarra Acústica" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Guitarra Acústica</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="guitarra-electrica" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/guitarra-electrica.jpg" alt="Guitarra Eléctrica" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Guitarra Eléctrica</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="bajo" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/bajo.jpg" alt="Bajo" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Bajo</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="ukelele" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/ukelele.jpg" alt="Ukelele" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Ukelele</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="chelo" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/chelo.jpg" alt="Chelo" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Chelo</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="violin" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/violin.jpg" alt="Violín" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Violín</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+        <div class="inst-card" data-id="piano-cola" role="listitem">
+          <div class="inst-img img-placeholder img-placeholder--dark">
+            <img src="assets/instrumentos/piano-cola.jpg" alt="Piano de cola" loading="lazy">
+          </div>
+          <div class="inst-footer">
+            <span class="inst-name">Piano de cola</span>
+            <span class="inst-sign" aria-hidden="true">+</span>
+          </div>
+        </div>
+
+      </div>
+
+        <!-- Progress bar — indica la posición dentro del total de cards -->
+        <div class="inst-progress" id="inst-progress" role="progressbar" aria-label="Posición en el carrusel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="inst-progress-thumb" id="inst-progress-thumb"></div>
+        </div>
+
+        <!-- Instrument detail panel (populated by JS) -->
+        <div id="inst-ficha" class="inst-ficha" aria-live="polite" aria-label="Ficha del instrumento"></div>
+      </div>
+    </section>
+
+    <!-- =================== 6 · MADERAS =================== -->
+    <section id="maderas" class="maderas" aria-label="Biblioteca de Maderas">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Maderas</span>
+          <h2 class="section-title">El sonido comienza en la elección de la madera.</h2>
+          <p class="section-text">Explorá una biblioteca interactiva con las especies más utilizadas en luthería y descubrí cómo influyen en el carácter sonoro y estético de cada instrumento.</p>
+        </div>
+
+        <div class="accordion" id="woods-accordion">
+
+          <!-- Madera 1: Cedro -->
+          <div class="wood-item" data-wood="0">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-0">
+              <span class="wood-header-left">
+                <span class="wood-idx">01</span>
+                <span class="wood-name">Cedro</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-0" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/cedro.jpg" alt="Veta macro del Cedro" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madera 2: Abeto -->
+          <div class="wood-item" data-wood="1">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-1">
+              <span class="wood-header-left">
+                <span class="wood-idx">02</span>
+                <span class="wood-name">Abeto</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-1" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/abeto.jpg" alt="Veta macro del Abeto" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madera 3: Caoba -->
+          <div class="wood-item" data-wood="2">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-2">
+              <span class="wood-header-left">
+                <span class="wood-idx">03</span>
+                <span class="wood-name">Caoba</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-2" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/caoba.jpg" alt="Veta macro de la Caoba" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madera 4: Nogal -->
+          <div class="wood-item" data-wood="3">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-3">
+              <span class="wood-header-left">
+                <span class="wood-idx">04</span>
+                <span class="wood-name">Nogal</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-3" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/nogal.jpg" alt="Veta macro del Nogal" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madera 5: Arce -->
+          <div class="wood-item" data-wood="4">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-4">
+              <span class="wood-header-left">
+                <span class="wood-idx">05</span>
+                <span class="wood-name">Arce</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-4" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/arce.jpg" alt="Veta macro del Arce" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madera 6: Ébano -->
+          <div class="wood-item" data-wood="5">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-5">
+              <span class="wood-header-left">
+                <span class="wood-idx">06</span>
+                <span class="wood-name">Ébano</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-5" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <img src="assets/maderas/ebano.jpg" alt="Veta macro del Ébano" loading="lazy">
+                </div>
+                <div class="wood-info">
+                  <dl class="wood-fields">
+                    <div class="field-row"><dt>Procedencia</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Propiedades físicas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>a completar</dd></div>
+                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>a completar</dd></div>
+                  </dl>
+                  <div class="wood-indicators">
+                    <span class="indicator-tag">Calidez</span>
+                    <span class="indicator-tag">Proyección</span>
+                    <span class="indicator-tag">Sustain</span>
+                    <span class="indicator-tag">Rigidez</span>
+                    <span class="indicator-tag">Estabilidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </section>
+
+    <!-- =================== 7 · GALERÍA =================== -->
+    <section id="galeria" class="galeria" aria-label="Galería">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Galería</span>
+          <h2 class="section-title">Cada instrumento cuenta una historia.</h2>
+          <p class="section-text">Una selección de imágenes que muestran el proceso artesanal y el resultado final de cada proyecto.</p>
+        </div>
+
+        <!-- Masonry grid -->
+        <div class="gallery-grid" id="gallery-grid" role="list">
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-01.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:3/4">
+              <img src="assets/galeria/galeria-01.jpg" alt="Proceso artesanal en el taller de luthería 1" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 1">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-02.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:1/1">
+              <img src="assets/galeria/galeria-02.jpg" alt="Proceso artesanal en el taller de luthería 2" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 2">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-03.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:4/5">
+              <img src="assets/galeria/galeria-03.jpg" alt="Proceso artesanal en el taller de luthería 3" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 3">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-04.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:3/4">
+              <img src="assets/galeria/galeria-04.jpg" alt="Proceso artesanal en el taller de luthería 4" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 4">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-05.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:1/1">
+              <img src="assets/galeria/galeria-05.jpg" alt="Proceso artesanal en el taller de luthería 5" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 5">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-06.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:4/5">
+              <img src="assets/galeria/galeria-06.jpg" alt="Proceso artesanal en el taller de luthería 6" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 6">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-07.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:3/4">
+              <img src="assets/galeria/galeria-07.jpg" alt="Proceso artesanal en el taller de luthería 7" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 7">+</button>
+          </div>
+
+          <div class="gallery-item" data-src="assets/galeria/galeria-08.jpg" role="listitem" data-reveal>
+            <div class="gallery-img-wrap img-placeholder" style="aspect-ratio:1/1">
+              <img src="assets/galeria/galeria-08.jpg" alt="Proceso artesanal en el taller de luthería 8" loading="lazy">
+            </div>
+            <button class="gallery-expand" aria-label="Ampliar imagen 8">+</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 8 · CONTACTO =================== -->
+    <section id="contacto" class="contacto" aria-label="Contacto">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--accent">Contacto</span>
+          <h2 class="section-title section-title--light">Comenzá tu próximo proyecto.</h2>
+          <p class="section-text section-text--light">Ya sea que desees construir tu primer instrumento, restaurar una guitarra o formar parte de nuestros cursos, estaremos encantados de acompañarte.</p>
+        </div>
+
+        <div class="contact-grid" id="contact-grid">
+
+          <!-- Left column: info + CTA -->
+          <div class="contact-info" data-reveal>
+            <div class="contact-ctas">
+              <button class="btn btn--primary">Reservar una Entrevista</button>
+              <button class="btn btn--secondary">Solicitar Información</button>
+            </div>
+            <dl class="contact-details">
+              <div class="contact-row">
+                <dt>Dirección</dt>
+                <dd>a completar</dd>
+              </div>
+              <div class="contact-row">
+                <dt>Horarios</dt>
+                <dd>a completar</dd>
+              </div>
+              <div class="contact-row">
+                <dt>WhatsApp</dt>
+                <dd>a completar</dd>
+              </div>
+              <div class="contact-row">
+                <dt>Correo electrónico</dt>
+                <dd>a completar</dd>
+              </div>
+              <div class="contact-row">
+                <dt>Redes sociales</dt>
+                <dd>a completar</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Right column: form -->
+          <form id="contact-form" class="contact-form" novalidate data-reveal>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
+              <span class="form-error" id="error-nombre" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
+              <span class="form-error" id="error-apellido" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
+              <span class="form-error" id="error-email" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
+              <span class="form-error" id="error-telefono" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos sobre tu proyecto"></textarea>
+              <span class="form-error" id="error-mensaje" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Enviar</button>
+            <p class="form-success" id="form-success" aria-live="polite"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#inicio" class="navbar-logo" aria-label="Luthería — Inicio">
+          <div class="logo-badge">L</div>
+          <span class="logo-name">LUTHERÍA</span>
+        </a>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+          <a href="#inicio"       class="footer-link">Inicio</a>
+          <a href="#filosofia"    class="footer-link">Filosofía</a>
+          <a href="#servicios"    class="footer-link">Servicios</a>
+          <a href="#cursos"       class="footer-link">Cursos</a>
+          <a href="#instrumentos" class="footer-link">Instrumentos</a>
+          <a href="#maderas"      class="footer-link">Maderas</a>
+          <a href="#galeria"      class="footer-link">Galería</a>
+          <a href="#contacto"     class="footer-link">Contacto</a>
+        </nav>
+
+        <div class="footer-socials" aria-label="Redes sociales">
+          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Luthería &middot; Taller de construcción artesanal. Todos los derechos reservados.</p>
+        <button id="footer-top-btn" class="back-top-link" aria-label="Volver al inicio">Volver arriba &#8593;</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       LIGHTBOX
+  ============================================================ -->
+  <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Imagen ampliada" hidden>
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Imagen ampliada" class="lightbox-img">
+      <div id="lightbox-placeholder" class="lightbox-placeholder img-placeholder img-placeholder--dark"></div>
+    </div>
+    <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar">&#10005;</button>
+  </div>
+
+  <!-- ============================================================
+       BACK TO TOP (floating)
+  ============================================================ -->
+  <button id="back-top" class="back-top" aria-label="Volver arriba">&#8593;</button>
+
+  <!-- ============================================================
+       SCRIPTS (order: animations first, then features, then main)
+  ============================================================ -->
+  <script src="js/animations.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/accordion.js"></script>
+  <script src="js/masonry.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

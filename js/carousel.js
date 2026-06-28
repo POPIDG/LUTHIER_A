@@ -1,0 +1,263 @@
+/**
+ * carousel.js
+ * Horizontal drag-to-scroll carousels with arrow navigation.
+ * Used by: Courses section, Instruments section.
+ */
+
+(function () {
+  'use strict';
+
+  /**
+   * Vincula una barra de progreso continua a un track scrolleable.
+   * @param {HTMLElement} track   - El contenedor con overflow-x: auto.
+   * @param {string}      thumbId - ID del elemento thumb de la barra.
+   * @param {string}      barId   - ID del contenedor de la barra (para aria).
+   */
+  function initProgressBar(track, thumbId, barId) {
+    var thumb = document.getElementById(thumbId);
+    var bar   = document.getElementById(barId);
+    if (!thumb || !track) return;
+
+    function update() {
+      var maxScroll  = track.scrollWidth - track.clientWidth;
+      var progress   = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
+      var thumbRatio = track.clientWidth / track.scrollWidth;
+      var thumbPct   = thumbRatio * 100;
+      var leftPct    = progress * (100 - thumbPct);
+      thumb.style.width = thumbPct + '%';
+      thumb.style.left  = leftPct  + '%';
+      if (bar) bar.setAttribute('aria-valuenow', Math.round(progress * 100));
+    }
+
+    track.addEventListener('scroll', update, { passive: true });
+    requestAnimationFrame(update);
+  }
+
+  /**
+   * Carrusel genérico: drag-to-scroll + barra de progreso.
+   * @param {string} trackId   - ID del track.
+   * @param {string} thumbId   - ID del thumb de la progress bar.
+   * @param {string} barId     - ID del contenedor de la progress bar.
+   */
+  function initCarousel(trackId, thumbId, barId) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+
+    /* ── Drag to scroll ── */
+    var isDragging = false;
+    var startX     = 0;
+    var startLeft  = 0;
+
+    track.addEventListener('pointerdown', function (e) {
+      isDragging = true;
+      startX     = e.pageX;
+      startLeft  = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(e.pointerId);
+    });
+
+    track.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+      track.scrollLeft = startLeft - (e.pageX - startX);
+    });
+
+    track.addEventListener('pointerup', function () {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    track.addEventListener('pointercancel', function () {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    /* ── Progress bar ── */
+    initProgressBar(track, thumbId, barId);
+  }
+
+  /* ── Instrument carousel with dots + detail panel ── */
+
+  function initInstrumentCarousel() {
+    var track = document.getElementById('inst-track');
+    var ficha = document.getElementById('inst-ficha');
+
+    if (!track) return;
+
+    /* Drag to scroll */
+    var isDragging = false;
+    var hasDragged = false;
+    var startX = 0;
+    var startLeft = 0;
+
+    track.addEventListener('pointerdown', function (e) {
+      isDragging = true;
+      hasDragged = false;
+      startX = e.pageX;
+      startLeft = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 5) hasDragged = true;
+      track.scrollLeft = startLeft - dx;
+    });
+    track.addEventListener('pointerup', function () {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+    track.addEventListener('pointercancel', function () {
+      isDragging = false;
+      hasDragged = false;
+      track.classList.remove('is-dragging');
+    });
+
+    /* Progress bar compartida */
+    initProgressBar(track, 'inst-progress-thumb', 'inst-progress');
+
+    /* Instrument data for ficha panel */
+    var instruments = {
+      'guitarra-clasica':  { name: 'Guitarra Clásica',  img: 'assets/instrumentos/guitarra-clasica.jpg' },
+      'guitarra-acustica': { name: 'Guitarra Acústica',  img: 'assets/instrumentos/guitarra-acustica.jpg' },
+      'guitarra-electrica':{ name: 'Guitarra Eléctrica', img: 'assets/instrumentos/guitarra-electrica.jpg' },
+      'bajo':              { name: 'Bajo',               img: 'assets/instrumentos/bajo.jpg' },
+      'ukelele':           { name: 'Ukelele',            img: 'assets/instrumentos/ukelele.jpg' },
+      'chelo':             { name: 'Chelo',              img: 'assets/instrumentos/chelo.jpg' },
+      'violin':            { name: 'Violín',             img: 'assets/instrumentos/violin.jpg' },
+      'piano-cola':        { name: 'Piano de cola',      img: 'assets/instrumentos/piano-cola.jpg' }
+    };
+
+    var activeId = null;
+
+    function openFicha(id, card) {
+      var data = instruments[id];
+      if (!data || !ficha) return;
+
+      /* Reset all cards */
+      document.querySelectorAll('.inst-card').forEach(function (c) {
+        c.classList.remove('is-active');
+        var sign = c.querySelector('.inst-sign');
+        if (sign) sign.textContent = '+';
+      });
+
+      /* Activate clicked card */
+      card.classList.add('is-active');
+      var sign = card.querySelector('.inst-sign');
+      if (sign) sign.textContent = '−';
+      activeId = id;
+
+      ficha.innerHTML =
+        '<div class="ficha-inner">' +
+          '<div class="ficha-img img-placeholder img-placeholder--dark">' +
+            '<img src="' + data.img + '" alt="' + data.name + '" loading="lazy">' +
+          '</div>' +
+          '<div class="ficha-content">' +
+            '<button class="ficha-close" aria-label="Cerrar ficha">&#10005;</button>' +
+            '<span class="ficha-label">Ficha técnica</span>' +
+            '<h3 class="ficha-title">' + data.name + '</h3>' +
+            '<dl class="ficha-fields">' +
+              '<div class="ficha-row"><dt>Historia</dt><dd>a completar</dd></div>' +
+              '<div class="ficha-row"><dt>Tipo de construcción</dt><dd>a completar</dd></div>' +
+              '<div class="ficha-row"><dt>Maderas utilizadas</dt><dd>a completar</dd></div>' +
+              '<div class="ficha-row"><dt>Tiempo estimado de fabricación</dt><dd>a completar</dd></div>' +
+              '<div class="ficha-row"><dt>Nivel de complejidad</dt><dd>a completar</dd></div>' +
+            '</dl>' +
+          '</div>' +
+        '</div>';
+
+      ficha.classList.add('is-open');
+
+      /* Close button */
+      ficha.querySelector('.ficha-close').addEventListener('click', closeFicha);
+
+      /* Smooth scroll to ficha */
+      setTimeout(function () {
+        ficha.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    function closeFicha() {
+      ficha.classList.remove('is-open');
+      ficha.innerHTML = '';
+      document.querySelectorAll('.inst-card').forEach(function (c) {
+        c.classList.remove('is-active');
+        var sign = c.querySelector('.inst-sign');
+        if (sign) sign.textContent = '+';
+      });
+      activeId = null;
+    }
+
+    /* Card click handler — ignore if pointer was dragging */
+    track.addEventListener('click', function (e) {
+      if (hasDragged) { hasDragged = false; return; }
+      var card = e.target.closest('.inst-card');
+      if (!card) return;
+
+      var id = card.dataset.id;
+      if (id === activeId) {
+        closeFicha();
+      } else {
+        openFicha(id, card);
+      }
+    });
+  }
+
+  /* ── Exact card fitting: only show complete cards, never a peek ── */
+
+  /**
+   * Measures the track width, calculates how many cards of at least minW
+   * fit perfectly, then sets each card's flex-basis to an exact pixel value
+   * so no partial card is ever visible.
+   *
+   * @param {string} trackId   - ID of the scroll track element.
+   * @param {string} cardSel   - CSS selector for cards inside the track.
+   * @param {number} gap       - Gap between cards in px (must match CSS).
+   * @param {number} minW      - Minimum card width in px before count drops.
+   * @param {number} [maxN]    - Optional cap on number of visible cards.
+   */
+  function fitCards(trackId, cardSel, gap, minW, maxN) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+    var w = track.clientWidth;
+    if (!w) return;
+
+    /* How many cards of at least minW fit with their gaps? */
+    var n = Math.max(1, Math.floor((w + gap) / (minW + gap)));
+    if (maxN) n = Math.min(n, maxN);
+
+    /* Divide remaining width equally — floor avoids fractional-px peek */
+    var cardW = Math.floor((w - gap * (n - 1)) / n);
+
+    track.querySelectorAll(cardSel).forEach(function (card) {
+      card.style.flex = '0 0 ' + cardW + 'px';
+    });
+
+    /* Trigger progress bar recalculation via scroll event */
+    requestAnimationFrame(function () {
+      track.dispatchEvent(new Event('scroll'));
+    });
+  }
+
+  /* ── Init ── */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Fit cards first so progress bars initialize with correct dimensions */
+    var fitTimer;
+    function fitAll() {
+      fitCards('courses-track', '.course-card', 26, 260);
+      fitCards('inst-track',    '.inst-card',   18, 152, 4);
+    }
+    fitAll();
+
+    /* Re-fit on resize (debounced 80 ms) */
+    window.addEventListener('resize', function () {
+      clearTimeout(fitTimer);
+      fitTimer = setTimeout(fitAll, 80);
+    }, { passive: true });
+
+    initCarousel('courses-track', 'courses-progress-thumb', 'courses-progress');
+    initInstrumentCarousel();
+  });
+
+}());
