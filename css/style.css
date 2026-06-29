@@ -509,6 +509,8 @@ ul { list-style: none; }
     rgba(255,255,255,.03) 0 22px,
     rgba(255,255,255,.055) 22px 44px
   );
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .filosofia-overlay {

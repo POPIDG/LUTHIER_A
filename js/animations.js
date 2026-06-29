@@ -47,7 +47,7 @@
 
       if (filoBg && filosec) {
         var rect = filosec.getBoundingClientRect();
-        filoBg.style.transform = 'translateY(' + (rect.top * -0.12) + 'px)';
+        filoBg.style.transform = 'translateY(' + (rect.top * -0.18) + 'px)';
       }
     }
 
