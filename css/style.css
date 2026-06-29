@@ -431,7 +431,7 @@ ul { list-style: none; }
 .hero-content {
   position: relative;
   z-index: 3;
-  margin-left: 0;
+  margin-left: 120px;
   margin-right: auto;
   max-width: 660px;
   text-align: left;
