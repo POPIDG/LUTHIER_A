@@ -657,8 +657,8 @@ ul { list-style: none; }
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   /* Break out of container padding so the carousel uses full container width */
-  margin-left: calc(-1 * var(--pad-x));
-  margin-right: calc(-1 * var(--pad-x));
+  margin-left: calc(0,5 * var(--pad-x));
+  margin-right: calc(0,5 * var(--pad-x));
   padding: 6px 0 20px;
   cursor: grab;
   scrollbar-width: none;
@@ -796,8 +796,8 @@ ul { list-style: none; }
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   /* Break out of container padding so the carousel uses full container width */
-  margin-left: calc(-1 * var(--pad-x));
-  margin-right: calc(-1 * var(--pad-x));
+  margin-left: calc(0,5 * var(--pad-x));
+  margin-right: calc(0,5 * var(--pad-x));
   padding: 4px 0 20px;
   cursor: grab;
   scrollbar-width: none;
@@ -857,7 +857,7 @@ ul { list-style: none; }
   background: rgba(27,38,50,.15);
   border-radius: 2px;
   /* Match carousel track width: break out of container padding */
-  margin: 10px calc(-1 * var(--pad-x)) 28px;
+  margin: 10px calc(0,5 * var(--pad-x)) 28px;
   overflow: hidden;
 }
 
