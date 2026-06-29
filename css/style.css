@@ -518,7 +518,7 @@ ul { list-style: none; }
 .filosofia-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(27,38,50,.84);
+  background: rgba(19, 23, 27, 0.84);
 }
 
 .filosofia-content {
