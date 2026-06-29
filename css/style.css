@@ -525,7 +525,9 @@ ul { list-style: none; }
   position: relative;
   z-index: 3;
   max-width: 900px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+  margin-left: 120px;
+  margin-right: auto;
   padding: clamp(96px, 13vh, 168px) var(--pad-x);
 }
 
