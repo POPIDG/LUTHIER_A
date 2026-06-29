@@ -528,7 +528,8 @@ ul { list-style: none; }
   /*margin: 0 auto;*/
   margin-left: 120px;
   margin-right: auto;
-  padding: clamp(96px, 13vh, 168px) var(--pad-x);
+  padding: 130px var(--pad-x) 130px;
+  /*padding: clamp(96px, 13vh, 168px) var(--pad-x);*/
 }
 
 .filosofia-content .section-title {
