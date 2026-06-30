@@ -87,10 +87,12 @@
       var firstCard = track.querySelector('.inst-card');
       var gap = 18;
       if (firstCard) {
-        var style = getComputedStyle(track);
-        gap = parseFloat(style.columnGap || style.gap || 18);
+        var trackStyle = getComputedStyle(track);
+        var parsedGap = parseFloat(trackStyle.columnGap || trackStyle.gap || 18);
+        gap = Number.isFinite(parsedGap) ? parsedGap : 18;
         var cardWidth = firstCard.getBoundingClientRect().width;
-        track.scrollBy({ left: direction === 'next' ? cardWidth + gap : -(cardWidth + gap), behavior: 'smooth' });
+        var step = cardWidth + gap;
+        track.scrollBy({ left: direction === 'next' ? step : -step, behavior: 'smooth' });
       } else {
         track.scrollBy({ left: direction === 'next' ? track.clientWidth * 0.9 : -(track.clientWidth * 0.9), behavior: 'smooth' });
       }
