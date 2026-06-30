@@ -734,7 +734,7 @@ ul { list-style: none; }
 
 .course-stars {
   color: var(--accent);
-  font-size: 15px;
+  font-size: 25px;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
@@ -783,7 +783,7 @@ ul { list-style: none; }
 
 .price-placeholder {
   font-family: ui-monospace, monospace;
-  font-size: 11px;
+  font-size: 25px;
   letter-spacing: .06em;
   color: var(--text-muted);
   border: 1px dashed rgba(27,38,50,.28);
