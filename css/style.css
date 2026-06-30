@@ -890,7 +890,7 @@ ul { list-style: none; }
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin: 0 0 24px;
+  margin: 24px 0 24px;
 }
 
 .inst-nav-btn {
@@ -911,7 +911,8 @@ ul { list-style: none; }
 }
 
 .inst-nav-btn:hover {
-  background: var(--accent);
+  background: transparent;
+  border: var (--accent) 1px solid;
   color: var(--dark);
   transform: translateY(-4px);
 }
