@@ -21,7 +21,8 @@
   --text-pale: #cdd4dc;
   --border-light: rgba(27,38,50,.08);
   --border-white: rgba(255,255,255,.1);
-  --serif: 'Cormorant Garamond', Georgia, serif;
+  --serif: 'Faculty Glyphic', Georgia, serif;
+  --heading-font: 'Faculty Glyphic', Georgia, serif;
   --sans:  'Jost', sans-serif;
   --ease: cubic-bezier(.2,.8,.2,1);
   --t: .3s ease;
@@ -49,6 +50,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
 }
 
 img {
@@ -136,8 +141,8 @@ ul { list-style: none; }
 .eyebrow--accent  { color: var(--accent); }
 
 .section-title {
-  font-family: var(--serif);
-  font-weight: 600;
+  font-family: var(--heading-font);
+  font-weight: 400;
   font-size: clamp(30px, 4.4vw, 54px);
   line-height: 1.08;
   letter-spacing: -.01em;
@@ -191,8 +196,9 @@ ul { list-style: none; }
   box-shadow: 0 14px 34px rgba(255,177,98,.32);
 }
 .btn--secondary {
-  background: var(--accent);
-  color: var(--dark);
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--bg);
 }
 .btn--secondary:hover {
   transform: scale(1.04);
@@ -441,7 +447,7 @@ ul { list-style: none; }
 
 .hero-title {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(42px, 7vw, 98px);
   line-height: 1.02;
   letter-spacing: -.015em;
@@ -626,7 +632,7 @@ ul { list-style: none; }
 
 .service-title {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 24px;
   margin: 18px 0 12px;
   color: var(--dark);
@@ -734,7 +740,7 @@ ul { list-style: none; }
 
 .course-title {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 25px;
   line-height: 1.12;
   margin: 0 0 12px;
@@ -843,7 +849,7 @@ ul { list-style: none; }
 
 .inst-name {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 19px;
   color: var(--dark);
 }
@@ -949,7 +955,7 @@ ul { list-style: none; }
 
 .ficha-title {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(30px, 3.6vw, 46px);
   margin: 0 0 28px;
   color: #F4F0E8;
@@ -1031,7 +1037,7 @@ ul { list-style: none; }
 
 .wood-name {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(22px, 2.6vw, 30px);
   color: var(--dark);
 }
