@@ -23,7 +23,8 @@
   --border-white: rgba(255,255,255,.1);
   --serif: 'Faculty Glyphic', Georgia, serif;
   --heading-font: 'Faculty Glyphic', Georgia, serif;
-  --sans:  'Jost', sans-serif;
+  --body-font: 'Montserrat', sans-serif;
+  --sans:  'Montserrat', sans-serif;
   --ease: cubic-bezier(.2,.8,.2,1);
   --t: .3s ease;
   --r: 12px;
@@ -44,7 +45,7 @@ html {
 }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--body-font);
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -176,7 +177,7 @@ ul { list-style: none; }
   padding: 16px 32px;
   border: none;
   border-radius: var(--r);
-  font-family: var(--sans);
+  font-family: var(--body-font);
   font-size: 15px;
   font-weight: 500;
   letter-spacing: .03em;
