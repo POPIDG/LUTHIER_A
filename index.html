@@ -313,11 +313,6 @@
         </article>
 
         </div>
-
-        <!-- Progress bar de cursos -->
-        <div class="inst-progress" id="courses-progress" role="progressbar" aria-label="Posición en el carrusel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <div class="inst-progress-thumb" id="courses-progress-thumb"></div>
-        </div>
       </div>
     </section>
 
@@ -418,6 +413,15 @@
         <!-- Progress bar — indica la posición dentro del total de cards -->
         <div class="inst-progress" id="inst-progress" role="progressbar" aria-label="Posición en el carrusel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="inst-progress-thumb" id="inst-progress-thumb"></div>
+        </div>
+
+        <div class="inst-nav-controls" aria-label="Navegación del carrusel">
+          <button type="button" class="inst-nav-btn" data-dir="prev" aria-label="Ver instrumentos anteriores">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button type="button" class="inst-nav-btn" data-dir="next" aria-label="Ver instrumentos siguientes">
+            <span aria-hidden="true">→</span>
+          </button>
         </div>
 
         <!-- Instrument detail panel (populated by JS) -->

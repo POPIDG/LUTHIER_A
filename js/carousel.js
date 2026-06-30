@@ -83,6 +83,25 @@
 
     if (!track) return;
 
+    function scrollTrack(direction) {
+      var firstCard = track.querySelector('.inst-card');
+      var gap = 18;
+      if (firstCard) {
+        var style = getComputedStyle(track);
+        gap = parseFloat(style.columnGap || style.gap || 18);
+        var cardWidth = firstCard.getBoundingClientRect().width;
+        track.scrollBy({ left: direction === 'next' ? cardWidth + gap : -(cardWidth + gap), behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: direction === 'next' ? track.clientWidth * 0.9 : -(track.clientWidth * 0.9), behavior: 'smooth' });
+      }
+    }
+
+    document.querySelectorAll('.inst-nav-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        scrollTrack(btn.dataset.dir);
+      });
+    });
+
     /* Drag to scroll */
     var isDragging = false;
     var hasDragged = false;
