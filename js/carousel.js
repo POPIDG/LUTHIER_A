@@ -80,29 +80,89 @@
   function initInstrumentCarousel() {
     var track = document.getElementById('inst-track');
     var ficha = document.getElementById('inst-ficha');
+    var pagination = document.getElementById('inst-pagination');
 
     if (!track) return;
 
-    function scrollTrack(direction) {
-      var firstCard = track.querySelector('.inst-card');
-      var gap = 18;
-      if (firstCard) {
-        var trackStyle = getComputedStyle(track);
-        var parsedGap = parseFloat(trackStyle.columnGap || trackStyle.gap || 18);
-        gap = Number.isFinite(parsedGap) ? parsedGap : 18;
-        var cardWidth = firstCard.getBoundingClientRect().width;
-        var step = cardWidth + gap;
-        track.scrollBy({ left: direction === 'next' ? step : -step, behavior: 'smooth' });
-      } else {
-        track.scrollBy({ left: direction === 'next' ? track.clientWidth * 0.9 : -(track.clientWidth * 0.9), behavior: 'smooth' });
-      }
+    function getGap() {
+      var trackStyle = getComputedStyle(track);
+      var parsedGap = parseFloat(trackStyle.columnGap || trackStyle.gap || 18);
+      return Number.isFinite(parsedGap) ? parsedGap : 18;
     }
 
-    document.querySelectorAll('.inst-nav-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        scrollTrack(btn.dataset.dir);
+    function getVisibleCardCount() {
+      var cards = track.querySelectorAll('.inst-card');
+      if (!cards.length) return 1;
+
+      var rect = track.getBoundingClientRect();
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        var cardRect = card.getBoundingClientRect();
+        if (cardRect.right - 1 > rect.left && cardRect.left + 1 < rect.right) {
+          visibleCount += 1;
+        }
       });
-    });
+
+      return Math.max(1, visibleCount || 1);
+    }
+
+    function getPageStep() {
+      var firstCard = track.querySelector('.inst-card');
+      if (!firstCard) return Math.max(1, track.clientWidth * 0.9);
+
+      var cardWidth = firstCard.getBoundingClientRect().width;
+      var visibleCount = getVisibleCardCount();
+      var gap = getGap();
+      return Math.max(1, visibleCount * cardWidth + Math.max(0, visibleCount - 1) * gap);
+    }
+
+    function renderPagination() {
+      if (!pagination) return;
+
+      var cards = track.querySelectorAll('.inst-card');
+      if (!cards.length) {
+        pagination.innerHTML = '';
+        return;
+      }
+
+      var visibleCount = getVisibleCardCount();
+      var totalPages = Math.max(1, Math.ceil(cards.length / visibleCount));
+      pagination.innerHTML = '';
+
+      for (var i = 0; i < totalPages; i += 1) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'inst-dot';
+        dot.setAttribute('aria-label', 'Ir a la página ' + (i + 1));
+        dot.dataset.page = String(i);
+        dot.addEventListener('click', function () {
+          var pageIndex = Number(this.dataset.page);
+          var maxScroll = track.scrollWidth - track.clientWidth;
+          var targetLeft = Math.min(maxScroll, pageIndex * getPageStep());
+          track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+        });
+        pagination.appendChild(dot);
+      }
+
+      updatePagination();
+    }
+
+    function updatePagination() {
+      if (!pagination) return;
+      var dots = pagination.querySelectorAll('.inst-dot');
+      if (!dots.length) return;
+
+      var totalPages = dots.length;
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var currentPage = maxScroll > 0 ? Math.round(track.scrollLeft / getPageStep()) : 0;
+      currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
+
+      dots.forEach(function (dot, index) {
+        var isActive = index === currentPage;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+    }
 
     /* Drag to scroll */
     var isDragging = false;
@@ -134,8 +194,9 @@
       track.classList.remove('is-dragging');
     });
 
-    /* Progress bar compartida */
-    initProgressBar(track, 'inst-progress-thumb', 'inst-progress');
+    renderPagination();
+    track.addEventListener('scroll', updatePagination, { passive: true });
+    window.addEventListener('resize', renderPagination, { passive: true });
 
     /* Instrument data for ficha panel */
     var instruments = {

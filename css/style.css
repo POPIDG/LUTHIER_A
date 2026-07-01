@@ -891,62 +891,51 @@ ul { list-style: none; }
   transform: rotate(45deg);
 }
 
-/* Progress bar */
-.inst-progress {
-  position: relative;
-  height: 3px;
-  background: rgba(27,38,50,.15);
-  border-radius: 2px;
-  /* Match carousel track width: break out of container padding */
-  margin: 10px calc(0,5 * var(--pad-x)) 14px;
-  overflow: hidden;
-}
-
-.inst-progress-thumb {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: var(--primary);
-  border-radius: 2px;
-  transition: left .12s ease, width .12s ease;
-  will-change: left, width;
-}
-
-.inst-nav-controls {
+/* Page indicator dots */
+.inst-pagination {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin: 24px 0 24px;
-}
-
-.inst-nav-btn {
-  width: 52px;
-  height: 52px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 600;
+  gap: 10px;
+  margin: 6px 0 24px;
+}
+
+.inst-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(27, 38, 50, 0.24);
   cursor: pointer;
-  box-shadow: 0 10px 28px rgba(27,38,50,.3);
-  transition: all var(--t);
+  transition: transform var(--t), background-color var(--t), opacity var(--t);
 }
 
-.inst-nav-btn:hover {
-  background: transparent;
-  border: var (--accent) 1px solid;
-  color: var(--dark);
-  transform: translateY(-4px);
+.inst-dot:hover {
+  transform: scale(1.1);
+  background: rgba(27, 38, 50, 0.42);
 }
 
-.inst-nav-btn:focus-visible {
+.inst-dot.is-active {
+  background: var(--primary);
+  transform: scale(1.16);
+}
+
+.inst-dot:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .inst-pagination {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .inst-dot {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 /* Instrument detail panel */
