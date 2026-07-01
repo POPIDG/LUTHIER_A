@@ -505,7 +505,8 @@ ul { list-style: none; }
 ============================================================ */
 .filosofia {
   position: relative;
-  background: var(--bg);
+  background-image: linear-gradient(rgba(238, 233, 223, 0.9), rgba(238, 233, 223, 0.9)), url("assets/hero/hero-background.jpg");
+  background-repeat: no-repeat;
   color: var(--text);
   padding: var(--pad-y) 0;
 }
@@ -597,7 +598,9 @@ ul { list-style: none; }
    3 · SERVICIOS
 ============================================================ */
 .servicios {
-  background: var(--bg);
+  position: relative;
+  background-image: linear-gradient(rgba(238, 233, 223, 0.9), rgba(238, 233, 223, 0.9)), url("assets/hero/hero-background.jpg");
+  background-repeat: no-repeat;
   padding: var(--pad-y) 50px;
 }
 
