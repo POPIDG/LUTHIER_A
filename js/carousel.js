@@ -211,9 +211,13 @@
 
     /* Card click handler — ignore if pointer was dragging */
     track.addEventListener('click', function (e) {
-      if (hasDragged) { hasDragged = false; return; }
       var card = e.target.closest('.inst-card');
       if (!card) return;
+
+      if (hasDragged) {
+        hasDragged = false;
+        return;
+      }
 
       var id = card.dataset.id;
       if (id === activeId) {
@@ -221,6 +225,18 @@
       } else {
         openFicha(id, card);
       }
+    });
+
+    document.querySelectorAll('.inst-card').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.inst-nav-btn')) return;
+        var id = this.dataset.id;
+        if (id === activeId) {
+          closeFicha();
+        } else {
+          openFicha(id, this);
+        }
+      });
     });
   }
 
