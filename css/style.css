@@ -677,7 +677,7 @@ ul { list-style: none; }
    4 · CURSOS
 ============================================================ */
 .cursos {
-  background: #1B2632;
+  background: #a67244;
   padding: var(--pad-y) 0;
   overflow: hidden;
 }

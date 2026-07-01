@@ -364,15 +364,13 @@
       activeId = null;
     }
 
-    /* Card click handler — ignore if pointer was dragging */
-    track.addEventListener('click', function (e) {
-      var card = e.target.closest('.inst-card');
-      if (!card) return;
-
-      if (hasDragged) {
-        hasDragged = false;
-        return;
+    function toggleFichaForCard(card, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
       }
+
+      if (!card) return;
 
       var id = card.dataset.id;
       if (id === activeId) {
@@ -380,29 +378,28 @@
       } else {
         openFicha(id, card);
       }
-    });
+    }
 
     document.querySelectorAll('.inst-card').forEach(function (card) {
       card.addEventListener('click', function (e) {
         if (e.target.closest('.inst-nav-btn') || e.target.closest('.inst-sign')) return;
-        var id = this.dataset.id;
-        if (id === activeId) {
-          closeFicha();
-        } else {
-          openFicha(id, this);
-        }
+        toggleFichaForCard(this, e);
       });
 
       var trigger = card.querySelector('.inst-sign');
       if (trigger) {
-        trigger.addEventListener('click', function (e) {
+        trigger.addEventListener('pointerdown', function (e) {
+          e.preventDefault();
           e.stopPropagation();
-          var id = card.dataset.id;
-          if (id === activeId) {
-            closeFicha();
-          } else {
-            openFicha(id, card);
-          }
+        });
+
+        trigger.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        trigger.addEventListener('click', function (e) {
+          toggleFichaForCard(card, e);
         });
       }
     });
