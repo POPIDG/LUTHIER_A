@@ -827,7 +827,7 @@ ul { list-style: none; }
 .inst-card {
   flex: 0 0 calc((100% - 54px) / 4);
   scroll-snap-align: start;
-  border-radius: 16px;
+  border-radius: 0%
   overflow: hidden;
   cursor: pointer;
   background: var(--card-bg);
@@ -1044,7 +1044,7 @@ ul { list-style: none; }
 .wood-item {
   background: var(--card-bg);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
   transition: box-shadow var(--t);
 }
@@ -1181,13 +1181,13 @@ ul { list-style: none; }
   position: relative;
   break-inside: avoid;
   margin-bottom: 18px;
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
 }
 
 .gallery-img-wrap {
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 0;
   transition: transform .5s ease;
 }
 .gallery-item:hover .gallery-img-wrap {
