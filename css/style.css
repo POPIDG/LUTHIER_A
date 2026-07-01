@@ -931,10 +931,21 @@ ul { list-style: none; }
 .inst-sign {
   font-size: 18px;
   color: var(--primary);
-  transition: transform var(--t);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--t), color var(--t);
+}
+.inst-sign:hover {
+  color: var(--accent);
 }
 .inst-card.is-active .inst-sign {
   transform: rotate(45deg);
+  color: var(--accent);
 }
 
 /* Page indicator dots */

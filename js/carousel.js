@@ -298,21 +298,31 @@
 
     var activeId = null;
 
+    function setCardState(card, id, isActive) {
+      var sign = card ? card.querySelector('.inst-sign') : null;
+      if (sign) {
+        sign.textContent = isActive ? '−' : '+';
+        sign.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
+      card.classList.toggle('is-active', isActive);
+      if (isActive) {
+        card.setAttribute('data-active-id', id);
+      } else {
+        card.removeAttribute('data-active-id');
+      }
+    }
+
     function openFicha(id, card) {
       var data = instruments[id];
       if (!data || !ficha) return;
 
       /* Reset all cards */
       document.querySelectorAll('.inst-card').forEach(function (c) {
-        c.classList.remove('is-active');
-        var sign = c.querySelector('.inst-sign');
-        if (sign) sign.textContent = '+';
+        setCardState(c, c.dataset.id, false);
       });
 
       /* Activate clicked card */
-      card.classList.add('is-active');
-      var sign = card.querySelector('.inst-sign');
-      if (sign) sign.textContent = '−';
+      setCardState(card, id, true);
       activeId = id;
 
       ficha.innerHTML =
@@ -349,9 +359,7 @@
       ficha.classList.remove('is-open');
       ficha.innerHTML = '';
       document.querySelectorAll('.inst-card').forEach(function (c) {
-        c.classList.remove('is-active');
-        var sign = c.querySelector('.inst-sign');
-        if (sign) sign.textContent = '+';
+        setCardState(c, c.dataset.id, false);
       });
       activeId = null;
     }
@@ -376,7 +384,7 @@
 
     document.querySelectorAll('.inst-card').forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.inst-nav-btn')) return;
+        if (e.target.closest('.inst-nav-btn') || e.target.closest('.inst-sign')) return;
         var id = this.dataset.id;
         if (id === activeId) {
           closeFicha();
@@ -384,6 +392,19 @@
           openFicha(id, this);
         }
       });
+
+      var trigger = card.querySelector('.inst-sign');
+      if (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var id = card.dataset.id;
+          if (id === activeId) {
+            closeFicha();
+          } else {
+            openFicha(id, card);
+          }
+        });
+      }
     });
   }
 
