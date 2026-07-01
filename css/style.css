@@ -703,6 +703,52 @@ ul { list-style: none; }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-track.is-dragging { cursor: grabbing; }
 
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: transform var(--t), background-color var(--t), opacity var(--t);
+}
+
+.carousel-dot:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-dot.is-active {
+  background: var(--accent);
+  transform: scale(1.16);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .carousel-pagination {
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 /* JS sets exact pixel width to show only complete cards — this is the CSS fallback */
 .course-card {
   flex: 0 0 calc((100% - 26px) / 2);
@@ -1131,7 +1177,7 @@ ul { list-style: none; }
 
 .wood-img-wrap {
   aspect-ratio: 4/3;
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
 }
 

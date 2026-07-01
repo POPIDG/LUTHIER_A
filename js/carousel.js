@@ -39,7 +39,7 @@
    * @param {string} thumbId   - ID del thumb de la progress bar.
    * @param {string} barId     - ID del contenedor de la progress bar.
    */
-  function initCarousel(trackId, thumbId, barId) {
+  function initCarousel(trackId, thumbId, barId, paginationId) {
     var track = document.getElementById(trackId);
     if (!track) return;
 
@@ -73,6 +73,92 @@
 
     /* ── Progress bar ── */
     initProgressBar(track, thumbId, barId);
+
+    if (paginationId) {
+      var pagination = document.getElementById(paginationId);
+      if (pagination) {
+        function getGap() {
+          var trackStyle = getComputedStyle(track);
+          var parsedGap = parseFloat(trackStyle.columnGap || trackStyle.gap || 26);
+          return Number.isFinite(parsedGap) ? parsedGap : 26;
+        }
+
+        function getVisibleCardCount() {
+          var cards = track.querySelectorAll('.course-card');
+          if (!cards.length) return 1;
+
+          var rect = track.getBoundingClientRect();
+          var visibleCount = 0;
+          cards.forEach(function (card) {
+            var cardRect = card.getBoundingClientRect();
+            if (cardRect.right - 1 > rect.left && cardRect.left + 1 < rect.right) {
+              visibleCount += 1;
+            }
+          });
+
+          return Math.max(1, visibleCount || 1);
+        }
+
+        function getPageStep() {
+          var firstCard = track.querySelector('.course-card');
+          if (!firstCard) return Math.max(1, track.clientWidth * 0.9);
+
+          var cardWidth = firstCard.getBoundingClientRect().width;
+          var visibleCount = getVisibleCardCount();
+          var gap = getGap();
+          return Math.max(1, visibleCount * cardWidth + Math.max(0, visibleCount - 1) * gap);
+        }
+
+        function renderPagination() {
+          var cards = track.querySelectorAll('.course-card');
+          if (!cards.length) {
+            pagination.innerHTML = '';
+            return;
+          }
+
+          var visibleCount = getVisibleCardCount();
+          var totalPages = Math.max(1, Math.ceil(cards.length / visibleCount));
+          pagination.innerHTML = '';
+
+          for (var i = 0; i < totalPages; i += 1) {
+            var dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'carousel-dot';
+            dot.setAttribute('aria-label', 'Ir a la página ' + (i + 1));
+            dot.dataset.page = String(i);
+            dot.addEventListener('click', function () {
+              var pageIndex = Number(this.dataset.page);
+              var maxScroll = track.scrollWidth - track.clientWidth;
+              var targetLeft = Math.min(maxScroll, pageIndex * getPageStep());
+              track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+            });
+            pagination.appendChild(dot);
+          }
+
+          updatePagination();
+        }
+
+        function updatePagination() {
+          var dots = pagination.querySelectorAll('.carousel-dot');
+          if (!dots.length) return;
+
+          var totalPages = dots.length;
+          var maxScroll = track.scrollWidth - track.clientWidth;
+          var currentPage = maxScroll > 0 ? Math.round(track.scrollLeft / getPageStep()) : 0;
+          currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
+
+          dots.forEach(function (dot, index) {
+            var isActive = index === currentPage;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-current', isActive ? 'page' : 'false');
+          });
+        }
+
+        renderPagination();
+        track.addEventListener('scroll', updatePagination, { passive: true });
+        window.addEventListener('resize', renderPagination, { passive: true });
+      }
+    }
   }
 
   /* ── Instrument carousel with dots + detail panel ── */
@@ -354,7 +440,7 @@
       fitTimer = setTimeout(fitAll, 80);
     }, { passive: true });
 
-    initCarousel('courses-track', 'courses-progress-thumb', 'courses-progress');
+    initCarousel('courses-track', 'courses-progress-thumb', 'courses-progress', 'courses-pagination');
     initInstrumentCarousel();
   });
 
