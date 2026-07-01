@@ -543,6 +543,7 @@ ul { list-style: none; }
   font-weight: 500;
   font-size: clamp(32px, 5vw, 62px);
   line-height: 1.08;
+  text-align: center;
 }
 
 .filosofia-content .section-text {
@@ -582,7 +583,7 @@ ul { list-style: none; }
 ============================================================ */
 .servicios {
   background: var(--bg);
-  padding: var(--pad-y) 0;
+  padding: var(--pad-y) 50px;
 }
 
 .services-grid {
@@ -593,10 +594,10 @@ ul { list-style: none; }
 }
 
 .service-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-light);
-  border-radius: var(--rl);
-  padding: 34px 28px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 34px 20px;
   transition: transform var(--t), box-shadow var(--t);
 }
 .service-card:hover {
@@ -604,8 +605,8 @@ ul { list-style: none; }
   box-shadow: 0 24px 50px rgba(27,38,50,.1);
 }
 
-.service-icon-wrap {
-  position: relative;
+/*.service-icon-wrap {
+  position: cen;
   width: 64px;
   height: 64px;
   border-radius: 14px;
@@ -614,7 +615,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   margin-bottom: 26px;
-}
+}*/
 
 .service-num {
   font-family: var(--serif);
@@ -622,7 +623,7 @@ ul { list-style: none; }
   color: var(--accent);
 }
 
-.service-icon {
+/*.service-icon {
   position: absolute;
   width: 32px;
   height: 32px;
@@ -637,14 +638,16 @@ ul { list-style: none; }
   font-size: 24px;
   margin: 18px 0 12px;
   color: var(--dark);
+  
 }
 
 .service-text {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--text-2);
+  
 }
 
 .services-cta {
@@ -655,7 +658,7 @@ ul { list-style: none; }
    4 · CURSOS
 ============================================================ */
 .cursos {
-  background: var(--bg-alt);
+  background: #1B2632;
   padding: var(--pad-y) 0;
   overflow: hidden;
 }
@@ -726,7 +729,7 @@ ul { list-style: none; }
 .badge--secondary { background: var(--accent); color: var(--dark); }
 
 .course-body {
-  padding: 26px 26px 28px;
+  padding: 24px 24px 26px;
   display: flex;
   flex-direction: column;
   flex: 1;
