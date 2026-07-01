@@ -113,12 +113,18 @@
           var cards = track.querySelectorAll('.course-card');
           if (!cards.length) {
             pagination.innerHTML = '';
+            pagination.hidden = true;
             return;
           }
 
           var visibleCount = getVisibleCardCount();
           var totalPages = Math.max(1, Math.ceil(cards.length / visibleCount));
           pagination.innerHTML = '';
+
+          if (totalPages <= 1) {
+            pagination.hidden = true;
+            return;
+          }
 
           for (var i = 0; i < totalPages; i += 1) {
             var dot = document.createElement('button');
@@ -135,14 +141,23 @@
             pagination.appendChild(dot);
           }
 
+          pagination.hidden = false;
           updatePagination();
         }
 
         function updatePagination() {
           var dots = pagination.querySelectorAll('.carousel-dot');
-          if (!dots.length) return;
+          if (!dots.length) {
+            pagination.hidden = true;
+            return;
+          }
 
           var totalPages = dots.length;
+          if (totalPages <= 1) {
+            pagination.hidden = true;
+            return;
+          }
+
           var maxScroll = track.scrollWidth - track.clientWidth;
           var currentPage = maxScroll > 0 ? Math.round(track.scrollLeft / getPageStep()) : 0;
           currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
@@ -152,6 +167,7 @@
             dot.classList.toggle('is-active', isActive);
             dot.setAttribute('aria-current', isActive ? 'page' : 'false');
           });
+          pagination.hidden = false;
         }
 
         renderPagination();
@@ -208,12 +224,18 @@
       var cards = track.querySelectorAll('.inst-card');
       if (!cards.length) {
         pagination.innerHTML = '';
+        pagination.hidden = true;
         return;
       }
 
       var visibleCount = getVisibleCardCount();
       var totalPages = Math.max(1, Math.ceil(cards.length / visibleCount));
       pagination.innerHTML = '';
+
+      if (totalPages <= 1) {
+        pagination.hidden = true;
+        return;
+      }
 
       for (var i = 0; i < totalPages; i += 1) {
         var dot = document.createElement('button');
@@ -230,15 +252,24 @@
         pagination.appendChild(dot);
       }
 
+      pagination.hidden = false;
       updatePagination();
     }
 
     function updatePagination() {
       if (!pagination) return;
       var dots = pagination.querySelectorAll('.inst-dot');
-      if (!dots.length) return;
+      if (!dots.length) {
+        pagination.hidden = true;
+        return;
+      }
 
       var totalPages = dots.length;
+      if (totalPages <= 1) {
+        pagination.hidden = true;
+        return;
+      }
+
       var maxScroll = track.scrollWidth - track.clientWidth;
       var currentPage = maxScroll > 0 ? Math.round(track.scrollLeft / getPageStep()) : 0;
       currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
@@ -248,6 +279,7 @@
         dot.classList.toggle('is-active', isActive);
         dot.setAttribute('aria-current', isActive ? 'page' : 'false');
       });
+      pagination.hidden = false;
     }
 
     /* Drag to scroll */
@@ -448,7 +480,7 @@
     var fitTimer;
     function fitAll() {
       fitCards('courses-track', '.course-card', 26, 260);
-      fitCards('inst-track',    '.inst-card',   18, 152, 4);
+      fitCards('inst-track',    '.inst-card',   18, 260);
     }
     fitAll();
 

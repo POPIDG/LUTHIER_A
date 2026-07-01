@@ -259,8 +259,8 @@ ul { list-style: none; }
   right: 0;
   z-index: 90;
   height: var(--nav-h);
-  background: rgba(27,38,50,.92);
-  backdrop-filter: blur(12px);
+  background: rgba(163, 81, 57, 0.2);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
@@ -283,8 +283,8 @@ ul { list-style: none; }
 }
 
 .logo-badge {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -312,7 +312,7 @@ ul { list-style: none; }
   font-family: var(--sans);
   font-size: 13.5px;
   letter-spacing: .04em;
-  color: #cfd6de;
+  color: var(--bg);
   cursor: pointer;
   transition: color .25s ease;
 }
@@ -563,7 +563,7 @@ ul { list-style: none; }
 .filosofia-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(12, 17, 21, .86) 0%, rgba(12, 17, 21, .6) 55%, rgba(12, 17, 21, .78) 100%);
+  background: linear-gradient(90deg, rgba(128, 83, 17, 0.938) 0%, rgba(122, 79, 13, 0.733) 55%, rgba(85, 54, 14, 0.822) 100%);
 }
 
 .filosofia-banner-content {
@@ -639,7 +639,7 @@ ul { list-style: none; }
 .service-num {
   font-family: var(--serif);
   font-size: 26px;
-  color: var(--accent);
+  color: #A35139;
 }
 
 /*.service-icon {
@@ -711,6 +711,11 @@ ul { list-style: none; }
   margin-top: 6px;
 }
 
+.carousel-pagination[hidden],
+.inst-pagination[hidden] {
+  display: none !important;
+}
+
 .carousel-dot {
   width: 10px;
   height: 10px;
@@ -758,12 +763,12 @@ ul { list-style: none; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 14px 34px rgba(27,38,50,.1);
+  box-shadow: 0 14px 34px rgba(85, 62, 13, 0.1);
   transition: transform var(--t), box-shadow var(--t);
 }
 .course-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 28px 58px rgba(27,38,50,.18);
+  box-shadow: 0 28px 58px rgba(83, 63, 19, 0.18);
 }
 
 .course-img {
@@ -853,8 +858,8 @@ ul { list-style: none; }
   font-family: ui-monospace, monospace;
   font-size: 25px;
   letter-spacing: .06em;
-  color: var(--text-muted);
-  border: 1px dashed rgba(27,38,50,.28);
+  color: var(--dark);
+  border: 2px dashed rgba(129, 63, 43, 0.28);
   border-radius: 8px;
   padding: 8px 12px;
   margin-bottom: 16px;
