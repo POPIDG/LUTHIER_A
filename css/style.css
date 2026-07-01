@@ -831,13 +831,15 @@ ul { list-style: none; }
   gap: 18px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  /* Break out of container padding so the carousel uses full container width */
+  position: relative;
+  z-index: 2;
   margin-left: calc(0,5 * var(--pad-x));
   margin-right: calc(0,5 * var(--pad-x));
   padding: 4px 0 20px;
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-x;
 }
 .inst-track::-webkit-scrollbar { display: none; }
 .inst-track.is-dragging { cursor: grabbing; }
@@ -852,6 +854,9 @@ ul { list-style: none; }
   background: var(--card-bg);
   border: 2px solid transparent;
   transition: transform var(--t), border-color var(--t);
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
 }
 .inst-card:hover { transform: translateY(-6px); }
 .inst-card.is-active { border-color: var(--primary); }
@@ -951,6 +956,8 @@ ul { list-style: none; }
   overflow: hidden;
   animation: fadeup .45s var(--ease);
   display: none;
+  position: relative;
+  z-index: 4;
 }
 .inst-ficha.is-open {
   display: block;
