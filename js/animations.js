@@ -32,9 +32,9 @@
   /* ── Parallax ───────────────────────────────────────────── */
 
   function initParallax() {
-    var heroBg   = document.getElementById('hero-parallax');
-    var filoBg   = document.getElementById('filo-parallax');
-    var filosec  = document.getElementById('filosofia');
+    var heroBg = document.getElementById('hero-parallax');
+    var filoBg = document.getElementById('filo-parallax');
+    var bannerSection = document.getElementById('banner');
 
     if (!heroBg && !filoBg) return;
 
@@ -45,8 +45,8 @@
         heroBg.style.transform = 'translateY(' + (y * 0.12) + 'px)';
       }
 
-      if (filoBg && filosec) {
-        var rect = filosec.getBoundingClientRect();
+      if (filoBg && bannerSection) {
+        var rect = bannerSection.getBoundingClientRect();
         filoBg.style.transform = 'translateY(' + (rect.top * -0.18) + 'px)';
       }
     }
