@@ -16,6 +16,14 @@
   var items           = [];
   var currentIndex    = 0;
 
+  function showPlaceholder() {
+    if (lightboxHolder) lightboxHolder.hidden = false;
+  }
+
+  function hidePlaceholder() {
+    if (lightboxHolder) lightboxHolder.hidden = true;
+  }
+
   function openLightbox(index) {
     currentIndex = index;
     var item = items[index];
@@ -23,6 +31,16 @@
 
     var src = item.dataset.src || '';
     if (lightboxImg) {
+      lightboxImg.hidden = true;
+      showPlaceholder();
+      lightboxImg.onload = function () {
+        lightboxImg.hidden = false;
+        hidePlaceholder();
+      };
+      lightboxImg.onerror = function () {
+        lightboxImg.hidden = true;
+        showPlaceholder();
+      };
       lightboxImg.src = src;
       lightboxImg.alt = item.querySelector('img') ? item.querySelector('img').alt : '';
     }
@@ -38,7 +56,11 @@
     if (!lightbox) return;
     lightbox.hidden = true;
     document.body.style.overflow = '';
-    if (lightboxImg) lightboxImg.src = '';
+    if (lightboxImg) {
+      lightboxImg.src = '';
+      lightboxImg.hidden = true;
+    }
+    hidePlaceholder();
   }
 
   function navigate(dir) {

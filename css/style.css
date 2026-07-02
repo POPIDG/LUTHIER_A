@@ -259,7 +259,7 @@ ul { list-style: none; }
   right: 0;
   z-index: 90;
   height: var(--nav-h);
-  background: rgba(163, 81, 57, 0.2);
+  background: rgba(70, 28, 12, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,.08);
@@ -563,7 +563,7 @@ ul { list-style: none; }
 .filosofia-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(128, 83, 17, 0.938) 0%, rgba(122, 79, 13, 0.733) 55%, rgba(85, 54, 14, 0.822) 100%);
+  background: linear-gradient(90deg, rgba(70, 28, 12, 0.95) 0%, rgba(70, 28, 12, 0.70) 55%, rgba(70, 28, 12, 0.80) 100%);
 }
 
 .filosofia-banner-content {
@@ -647,9 +647,9 @@ ul { list-style: none; }
   width: 32px;
   height: 32px;
   object-fit: contain;
-  display: none; /* shown when image loads */
+  display: none; /* shown when image loads 
 
-.service-icon[src]:not([src=""]) { display: block; }
+.service-icon[src]:not([src=""]) { display: block; }*/
 
 .service-title {
   font-family: var(--serif);
@@ -677,7 +677,7 @@ ul { list-style: none; }
    4 · CURSOS
 ============================================================ */
 .cursos {
-  background: #a67244;
+  background: #461c0c;
   padding: var(--pad-y) 0;
   overflow: hidden;
 }
@@ -686,6 +686,29 @@ ul { list-style: none; }
   max-width: 760px;
   margin-bottom: 18px;
 }
+
+.cursos .section-header {
+    text-align: center;
+}
+
+.cursos .section-header .eyebrow {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Título H2 */
+.cursos .section-header h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Texto */
+.cursos .section-header p {
+  color: #e6d8c8;
+  text-align: center;
+}
+
 
 .carousel-track {
   display: flex;
@@ -818,7 +841,7 @@ ul { list-style: none; }
   font-size: 25px;
   line-height: 1.12;
   margin: 0 0 12px;
-  color: var(--dark);
+  color: var(--);
 }
 
 .course-desc {
@@ -1306,7 +1329,7 @@ ul { list-style: none; }
    8 · CONTACTO
 ============================================================ */
 .contacto {
-  background: var(--dark);
+  background: #461c0c;
   color: var(--bg);
   padding: var(--pad-y) 0;
 }
@@ -1361,8 +1384,8 @@ ul { list-style: none; }
 
 /* Contact form */
 .contact-form {
-  background: var(--dark-2);
-  border: 1px solid rgba(255,255,255,.08);
+  background: #ffb0622d;
+  border: 1px solid #ffb0626e;
   border-radius: var(--rxl);
   padding: clamp(26px, 3.5vw, 44px);
   display: flex;
@@ -1388,8 +1411,8 @@ ul { list-style: none; }
   width: 100%;
   padding: 14px 16px;
   border-radius: 11px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: #1a242f;
+  border: 1px solid #ffb0626e;
+  background: #301308;
   color: var(--bg);
   font-size: 15px;
   outline: none;
@@ -1426,7 +1449,7 @@ ul { list-style: none; }
    FOOTER
 ============================================================ */
 .footer {
-  background: var(--dark-3);
+  background: #161616;
   color: var(--text-light);
   padding: clamp(56px, 8vh, 80px) 0 36px;
 }
@@ -1566,6 +1589,8 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .lightbox-close {
