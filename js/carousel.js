@@ -318,17 +318,63 @@
 
     /* Instrument data for ficha panel */
     var instruments = {
-      'guitarra-clasica':  { name: 'Guitarra Clásica',  cardImg: 'assets/instrumentos/guitarra-clasica.png', fichaImg: 'assets/instrumentos/guitarra-clasica.png' },
-      'guitarra-acustica': { name: 'Guitarra Acústica',  cardImg: 'assets/instrumentos/guitarra-acustica.png', fichaImg: 'assets/instrumentos/guitarra-acustica.png' },
-      'guitarra-electrica':{ name: 'Guitarra Eléctrica', cardImg: 'assets/instrumentos/guitarra-electrica.png', fichaImg: 'assets/instrumentos/guitarra-electrica.png' },
-      'bajo':              { name: 'Bajo',               cardImg: 'assets/instrumentos/bajo.png', fichaImg: 'assets/instrumentos/bajo.png' },
-      'ukelele':           { name: 'Ukelele',            cardImg: 'assets/instrumentos/ukelele.png', fichaImg: 'assets/instrumentos/ukelele.png' },
-      'chelo':             { name: 'Chelo',              cardImg: 'assets/instrumentos/chelo.png', fichaImg: 'assets/instrumentos/chelo.png' },
-      'violin':            { name: 'Violín',             cardImg: 'assets/instrumentos/violin.png', fichaImg: 'assets/instrumentos/violin.png' },
-      'piano-cola':        { name: 'Piano de cola',      cardImg: 'assets/instrumentos/piano-cola.png', fichaImg: 'assets/instrumentos/piano-cola.png' }
+      'guitarra-clasica':  { name: 'Guitarra Clásica' },
+      'guitarra-acustica': { name: 'Guitarra Acústica' },
+      'guitarra-electrica':{ name: 'Guitarra Eléctrica' },
+      'bajo':              { name: 'Bajo' },
+      'ukelele':           { name: 'Ukelele' },
+      'chelo':             { name: 'Chelo' },
+      'violin':            { name: 'Violín' },
+      'piano-cola':        { name: 'Piano de cola' }
     };
 
     var activeId = null;
+    var imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+
+    function getImageCandidates(id, kind) {
+      var suffixes = kind === 'ficha' ? ['-ficha', '-detalle', ''] : ['-card', '-pequena', '-mini', ''];
+      var candidates = [];
+
+      suffixes.forEach(function (suffix) {
+        imageExtensions.forEach(function (ext) {
+          candidates.push('assets/instrumentos/' + id + suffix + '.' + ext);
+        });
+      });
+
+      candidates.push('assets/instrumentos/' + id + '.jpg');
+      candidates.push('assets/instrumentos/' + id + '.png');
+
+      return candidates.filter(function (value, index, self) {
+        return self.indexOf(value) === index;
+      });
+    }
+
+    function setImageWithCandidates(img, candidates, altText) {
+      if (!img) return;
+
+      var index = 0;
+
+      function tryNext() {
+        if (index >= candidates.length) {
+          img.removeAttribute('src');
+          img.alt = altText || 'Instrumento';
+          return;
+        }
+
+        var nextSrc = candidates[index];
+        index += 1;
+
+        img.onload = function () {
+          img.alt = altText || 'Instrumento';
+        };
+        img.onerror = function () {
+          tryNext();
+        };
+        img.src = nextSrc;
+      }
+
+      tryNext();
+    }
 
     function syncCardImages() {
       document.querySelectorAll('.inst-card').forEach(function (card) {
@@ -339,8 +385,7 @@
         var img = card.querySelector('.inst-img img');
         if (!img) return;
 
-        img.src = data.cardImg || data.fichaImg || img.getAttribute('src') || '';
-        img.alt = data.name || img.getAttribute('alt') || 'Instrumento';
+        setImageWithCandidates(img, getImageCandidates(id, 'card'), data.name || 'Instrumento');
       });
     }
 
@@ -376,7 +421,7 @@
       ficha.innerHTML =
         '<div class="ficha-inner">' +
           '<div class="ficha-img img-placeholder img-placeholder--dark">' +
-            '<img src="' + (data.fichaImg || data.cardImg || '') + '" alt="' + data.name + '" loading="lazy">' +
+            '<img src="" alt="' + data.name + '" loading="lazy">' +
           '</div>' +
           '<div class="ficha-content">' +
             '<button class="ficha-close" aria-label="Cerrar ficha">&#10005;</button>' +
@@ -391,6 +436,11 @@
             '</dl>' +
           '</div>' +
         '</div>';
+
+      var fichaImg = ficha.querySelector('.ficha-img img');
+      if (fichaImg) {
+        setImageWithCandidates(fichaImg, getImageCandidates(id, 'ficha'), data.name || 'Instrumento');
+      }
 
       ficha.classList.add('is-open');
 
