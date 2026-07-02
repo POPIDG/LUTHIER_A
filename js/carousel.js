@@ -318,17 +318,33 @@
 
     /* Instrument data for ficha panel */
     var instruments = {
-      'guitarra-clasica':  { name: 'Guitarra Clásica',  img: 'assets/instrumentos/guitarra-clasica.jpg' },
-      'guitarra-acustica': { name: 'Guitarra Acústica',  img: 'assets/instrumentos/guitarra-acustica.jpg' },
-      'guitarra-electrica':{ name: 'Guitarra Eléctrica', img: 'assets/instrumentos/guitarra-electrica.jpg' },
-      'bajo':              { name: 'Bajo',               img: 'assets/instrumentos/bajo.jpg' },
-      'ukelele':           { name: 'Ukelele',            img: 'assets/instrumentos/ukelele.jpg' },
-      'chelo':             { name: 'Chelo',              img: 'assets/instrumentos/chelo.jpg' },
-      'violin':            { name: 'Violín',             img: 'assets/instrumentos/violin.jpg' },
-      'piano-cola':        { name: 'Piano de cola',      img: 'assets/instrumentos/piano-cola.jpg' }
+      'guitarra-clasica':  { name: 'Guitarra Clásica',  cardImg: 'assets/instrumentos/guitarra-clasica.png', fichaImg: 'assets/instrumentos/guitarra-clasica.png' },
+      'guitarra-acustica': { name: 'Guitarra Acústica',  cardImg: 'assets/instrumentos/guitarra-acustica.png', fichaImg: 'assets/instrumentos/guitarra-acustica.png' },
+      'guitarra-electrica':{ name: 'Guitarra Eléctrica', cardImg: 'assets/instrumentos/guitarra-electrica.png', fichaImg: 'assets/instrumentos/guitarra-electrica.png' },
+      'bajo':              { name: 'Bajo',               cardImg: 'assets/instrumentos/bajo.png', fichaImg: 'assets/instrumentos/bajo.png' },
+      'ukelele':           { name: 'Ukelele',            cardImg: 'assets/instrumentos/ukelele.png', fichaImg: 'assets/instrumentos/ukelele.png' },
+      'chelo':             { name: 'Chelo',              cardImg: 'assets/instrumentos/chelo.png', fichaImg: 'assets/instrumentos/chelo.png' },
+      'violin':            { name: 'Violín',             cardImg: 'assets/instrumentos/violin.png', fichaImg: 'assets/instrumentos/violin.png' },
+      'piano-cola':        { name: 'Piano de cola',      cardImg: 'assets/instrumentos/piano-cola.png', fichaImg: 'assets/instrumentos/piano-cola.png' }
     };
 
     var activeId = null;
+
+    function syncCardImages() {
+      document.querySelectorAll('.inst-card').forEach(function (card) {
+        var id = card.dataset.id;
+        var data = instruments[id];
+        if (!data) return;
+
+        var img = card.querySelector('.inst-img img');
+        if (!img) return;
+
+        img.src = data.cardImg || data.fichaImg || img.getAttribute('src') || '';
+        img.alt = data.name || img.getAttribute('alt') || 'Instrumento';
+      });
+    }
+
+    syncCardImages();
 
     function setCardState(card, id, isActive) {
       var sign = card ? card.querySelector('.inst-sign') : null;
@@ -360,7 +376,7 @@
       ficha.innerHTML =
         '<div class="ficha-inner">' +
           '<div class="ficha-img img-placeholder img-placeholder--dark">' +
-            '<img src="' + data.img + '" alt="' + data.name + '" loading="lazy">' +
+            '<img src="' + (data.fichaImg || data.cardImg || '') + '" alt="' + data.name + '" loading="lazy">' +
           '</div>' +
           '<div class="ficha-content">' +
             '<button class="ficha-close" aria-label="Cerrar ficha">&#10005;</button>' +
