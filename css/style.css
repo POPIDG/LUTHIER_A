@@ -410,6 +410,7 @@ ul { list-style: none; }
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: var(--dark);
 }
@@ -440,17 +441,16 @@ ul { list-style: none; }
 .hero-content {
   position: relative;
   z-index: 3;
-  margin-left: 120px;
-  margin-right: auto;
-  max-width: 660px;
-  text-align: left;
+  margin: 0 auto;
+  max-width: 760px;
+  text-align: center;
   padding: 130px var(--pad-x) 130px;
 }
 
 .hero-title {
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(42px, 7vw, 98px);
+  font-weight: 600;
+  font-size: clamp(50px, 7vw, 98px);
   line-height: 1.02;
   letter-spacing: -.015em;
   color: #EEE9DF;
@@ -459,39 +459,19 @@ ul { list-style: none; }
 
 .hero-subtitle {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.75;
   color: #EEE9DF;
-  margin: 0 0 38px;
+  margin: 0 auto 38px;
   max-width: 560px;
 }
 
 .hero-ctas {
   display: flex;
   gap: 16px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-/* Right-side hero image (desktop only — hidden at 980px and below in responsive.css) */
-.hero-image {
-  position: relative;
-  z-index: 3;
-  flex-shrink: 0;
-  align-self: stretch;
-  display: flex;
-  align-items: flex-end;
   justify-content: center;
-  max-width: min(38vw, 480px);
-  margin-right: var(--pad-x);
-  padding: 60px 0;
-}
-.hero-image img {
-  width: 100%;
-  height: auto;
-  max-height: 78vh;
-  object-fit: contain;
+  flex-wrap: wrap;
 }
 
 .scroll-indicator {
@@ -534,7 +514,7 @@ ul { list-style: none; }
   position: absolute;
   left: 0;
   right: 0;
-  top: -80px;
+  top: -100px;
   bottom: 0;
   z-index: 0;
   background-image: url("../assets/hero/hero-background.png");
@@ -946,7 +926,10 @@ ul { list-style: none; }
    5 · INSTRUMENTOS
 ============================================================ */
 .instrumentos {
-  background: var(--bg);
+  background-color: #5c2511;
+  background-image: url("../assets/instrumentos/instrumentos-background.png");
+  background-repeat: no-repeat;
+  background-position: left top;
   padding: var(--pad-y) 0;
   overflow: hidden;
 }
@@ -1222,8 +1205,31 @@ ul { list-style: none; }
    6 · MADERAS
 ============================================================ */
 .maderas {
-  background: var(--bg-alt);
+  position: relative;
+  background-color: var(--bg-alt);
+  background-image: url("../assets/instrumentos/instrumentos-background.png");
+  background-repeat: no-repeat;
+  background-position: left center;
   padding: var(--pad-y) 0;
+}
+
+/* Torn-paper edge bleeds down over the top of Galería */
+.maderas::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  height: 420px;
+  z-index: 2;
+  background-image: url("../assets/instrumentos/instrumentos-background.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.maderas .container {
+  position: relative;
+  z-index: 3;
 }
 
 .accordion {
@@ -1234,7 +1240,7 @@ ul { list-style: none; }
 
 .wood-item {
   background: rgba(255, 255, 255, 0.25); /* Ajustá el último valor entre 0 y 1 */
-  border: 1px solid var(--border-light);
+  /* border: 1px solid var(--border-light); */
   border-radius: 0;
   overflow: hidden;
   transition: box-shadow var(--t);
@@ -1498,10 +1504,10 @@ ul { list-style: none; }
   color: var(--accent);
 }
 .contact-row dd {
-  font-family: ui-monospace, monospace;
-  font-size: 12px;
+  font-family: var(--sans);
+  font-size: 14px;
   letter-spacing: .04em;
-  color: #9aa4b0;
+  color: #ffffff;
   margin: 0;
 }
 

@@ -26,9 +26,6 @@
 
   /* Instrument carousel arrows: desktop only */
   .inst-nav-btn { display: none; }
-
-  /* Hero right-side image: desktop only */
-  .hero-image { display: none; }
 }
 
 /* ── 820px: Collapse 2-column layouts ────────────────────── */
@@ -99,7 +96,7 @@
   /* Hero CTAs: side by side → stacked */
   .hero-ctas {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .hero-ctas .btn {
     width: 100%;
