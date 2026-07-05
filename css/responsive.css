@@ -6,14 +6,29 @@
 /* ── 980px: Collapse nav → hamburger ─────────────────────── */
 @media (max-width: 980px) {
 
+  .servicios .section-header,
+  .cursos .section-header,
+  .galeria .section-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .servicios .service-card,
+  .cursos .course-body,
+  .cursos .course-footer {
+    text-align: center;
+  }
+
   #nav-links { display: none; }
 
   .hamburger { display: flex; }
 
-  /* Hero text left-aligned on mobile */
-  .hero-content { text-align: left; }
-  .hero-ctas    { justify-content: flex-start; }
-  .hero-subtitle { margin-left: 0; }
+  /* Instrument carousel arrows: desktop only */
+  .inst-nav-btn { display: none; }
+
+  /* Hero right-side image: desktop only */
+  .hero-image { display: none; }
 }
 
 /* ── 820px: Collapse 2-column layouts ────────────────────── */
@@ -22,11 +37,6 @@
   /* Services: 4 → 2 columns */
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Contact: 2 → 1 column */
-  .contact-grid {
-    grid-template-columns: 1fr;
   }
 
   /* Gallery: 4 → 2 columns */
@@ -51,6 +61,20 @@
 
 /* ── 560px: Collapse remaining multi-column layouts ─────── */
 @media (max-width: 560px) {
+
+  .servicios .section-header,
+  .cursos .section-header,
+  .galeria .section-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .servicios .service-card,
+  .cursos .course-body,
+  .cursos .course-footer {
+    text-align: center;
+  }
 
   /* Services: 2 → 1 column */
   .services-grid {

@@ -103,6 +103,25 @@
     });
   }
 
+  /* Reveal the contact form when "Reservar una Entrevista" is clicked */
+  function initReservarToggle() {
+    var btn  = document.getElementById('btn-reservar-entrevista');
+    var form = document.getElementById('contact-form');
+    if (!btn || !form) return;
+
+    btn.addEventListener('click', function () {
+      var isOpen = form.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      if (isOpen) {
+        setTimeout(function () {
+          form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', initForm);
+  document.addEventListener('DOMContentLoaded', initReservarToggle);
 
 }());

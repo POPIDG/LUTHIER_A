@@ -316,6 +316,30 @@
     track.addEventListener('scroll', updatePagination, { passive: true });
     window.addEventListener('resize', renderPagination, { passive: true });
 
+    /* ── Prev/next arrows (desktop only) ── */
+    var prevBtn = document.getElementById('inst-prev');
+    var nextBtn = document.getElementById('inst-next');
+
+    function updateNavButtons() {
+      if (!prevBtn && !nextBtn) return;
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      if (prevBtn) prevBtn.disabled = track.scrollLeft <= 1;
+      if (nextBtn) nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+    }
+
+    function scrollByPage(direction) {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var target = Math.max(0, Math.min(maxScroll, track.scrollLeft + direction * getPageStep()));
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { scrollByPage(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { scrollByPage(1); });
+
+    track.addEventListener('scroll', updateNavButtons, { passive: true });
+    window.addEventListener('resize', updateNavButtons, { passive: true });
+    updateNavButtons();
+
     /* Instrument data for ficha panel */
     var instruments = {
       'guitarra-clasica':  { name: 'Guitarra Clásica' },

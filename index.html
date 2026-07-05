@@ -13,7 +13,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
   <!-- Styles -->
@@ -103,13 +103,19 @@
 
       <!-- Content -->
       <div class="hero-content">
-        <span class="eyebrow eyebrow--accent" data-reveal>TRADICIÓN Y EXPERIENCIA</span>
+        <span class="eyebrow eyebrow--accent" data-reveal>PARA TRASCENDER GENERACIONES</span>
         <h1 class="hero-title" data-reveal>Luthería de autor</h1>
-        <p class="hero-subtitle" data-reveal>Creamos instrumentos únicos y formamos a quienes desean comprender el verdadero arte de construirlos. Equilibrio entre conocimiento técnico, sensibilidad artesanal y una cuidada selección de materiales nobles.</p>
+        <p class="hero-subtitle" data-reveal>Creamos instrumentos únicos y formamos a quienes desean comprender el verdadero arte de construirlos.
+        </p>
         <div class="hero-ctas" data-reveal>
           <a href="#filosofia" class="btn btn--primary">Conocer el Taller</a>
           <a href="#cursos"    class="btn btn--secondary">Ver Cursos</a>
         </div>
+      </div>
+
+      <!-- Right-side image (desktop only) -->
+      <div class="hero-image" data-reveal>
+        <img src="assets/hero/hero-instrumento.png" alt="" loading="eager">
       </div>
 
       <!-- Scroll indicator -->
@@ -136,7 +142,6 @@
           <!-- Servicio 01 -->
           <article class="service-card">
             <div class="service-icon-wrap">
-              <span class="service-num">01</span>
               <img src="assets/iconos/servicio-01.svg" alt="" class="service-icon" aria-hidden="true">
             </div>
             <h3 class="service-title">Construcción</h3>
@@ -146,7 +151,6 @@
           <!-- Servicio 02 -->
           <article class="service-card">
             <div class="service-icon-wrap">
-              <span class="service-num">02</span>
               <img src="assets/iconos/servicio-02.svg" alt="" class="service-icon" aria-hidden="true">
             </div>
             <h3 class="service-title">Restauración</h3>
@@ -156,7 +160,6 @@
           <!-- Servicio 03 -->
           <article class="service-card">
             <div class="service-icon-wrap">
-              <span class="service-num">03</span>
               <img src="assets/iconos/servicio-03.svg" alt="" class="service-icon" aria-hidden="true">
             </div>
             <h3 class="service-title">Reparaciones</h3>
@@ -166,7 +169,6 @@
           <!-- Servicio 04 -->
           <article class="service-card">
             <div class="service-icon-wrap">
-              <span class="service-num">04</span>
               <img src="assets/iconos/servicio-04.svg" alt="" class="service-icon" aria-hidden="true">
             </div>
             <h3 class="service-title">Ajustes</h3>
@@ -237,6 +239,27 @@
         <!-- Carrusel de cursos — 2 cards visibles, deslizá para navegar -->
         <div class="carousel-track" id="courses-track" role="list">
 
+
+
+        <!-- Slide 2 -->
+        <article class="course-card" role="listitem">
+          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
+            <span class="course-badge badge--secondary">NUEVO</span>
+            <img src="assets/cursos/CURSO_B.jpg" alt="Curso Fundamentos de Construcción" loading="lazy">
+          </div>
+          <div class="course-body">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="course-title">Fundamentos de Construcción</h3>
+            <p class="course-desc">Ideal para quienes desean comenzar en la luthería.</p>
+            <div class="course-footer">
+              <div class="price-placeholder">$35000/mes</div>
+              <a href="Curso%20Luther%C3%ADa.dc.html" class="btn btn--primary btn--full">Ver Más</a>
+            </div>
+          </div>
+        </article>
+
+       
+
         <!-- Slide 1: DESTACADO -->
         <article class="course-card course-card--featured" role="listitem">
           <div class="course-img img-placeholder" style="aspect-ratio:4/3">
@@ -254,59 +277,11 @@
             </ul> -->
             <div class="course-footer">
               <div class="price-placeholder">$50000/mes</div>
-              <button class="btn btn--primary btn--full">Ver Más</button>
+              <a href="Curso%20Luther%C3%ADa.dc.html" class="btn btn--primary btn--full">Ver Más</a>
             </div>
           </div>
         </article>
 
-        <!-- Slide 2 -->
-        <article class="course-card" role="listitem">
-          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
-            <span class="course-badge badge--secondary">NUEVO</span>
-            <img src="assets/cursos/CURSO_B.jpg" alt="Curso Fundamentos de Construcción" loading="lazy">
-          </div>
-          <div class="course-body">
-            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;</div>
-            <h3 class="course-title">Fundamentos de Construcción</h3>
-            <p class="course-desc">Ideal para quienes desean comenzar en la luthería.</p>
-            <div class="course-footer">
-              <div class="price-placeholder">$35000/mes</div>
-              <button class="btn btn--primary btn--full">Ver Más</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Slide 3 -->
-        <!--<article class="course-card" role="listitem">
-          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
-            <img src="assets/cursos/CURSO_C.jpg" alt="Curso Construcción de Guitarra Acústica" loading="lazy">
-          </div>
-          <div class="course-body">
-            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <h3 class="course-title">Construcción de Guitarra Acústica</h3>
-            <p class="course-desc">Fabricación integral de una guitarra artesanal.</p>
-            <div class="course-footer">
-              <div class="price-placeholder">$45000/mes</div>
-              <button class="btn btn--primary btn--full">Ver Más</button>
-            </div>
-          </div>
-        </article> -->
-        
-        <!-- Slide 4 -->
-        <article class="course-card" role="listitem">
-          <div class="course-img img-placeholder" style="aspect-ratio:4/3">
-            <img src="assets/cursos/CURSO_D.jpg" alt="Curso Acústica y Selección de Materiales" loading="lazy">
-          </div>
-          <div class="course-body">
-            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <h3 class="course-title">Acústica y Selección de Materiales</h3>
-            <p class="course-desc">Comprendé cómo cada madera influye en el sonido.</p>
-            <div class="course-footer">
-              <div class="price-placeholder">$40000/mes</div>
-              <button class="btn btn--primary btn--full">Ver Más</button>
-            </div>
-          </div>
-        </article>
 
         <!-- Slide 5 -->
         <article class="course-card" role="listitem">
@@ -319,7 +294,7 @@
             <p class="course-desc">Acabados y detalles propios de instrumentos de alta gama.</p>
             <div class="course-footer">
               <div class="price-placeholder">$40000/mes</div>
-              <button class="btn btn--primary btn--full">Ver Más</button>
+              <a href="Curso%20Luther%C3%ADa.dc.html" class="btn btn--primary btn--full">Ver Más</a>
             </div>
           </div>
         </article>
@@ -340,6 +315,9 @@
         </div>
 
         <!-- Instruments carousel — exactamente 4 cards visibles, deslizá para navegar -->
+        <div class="inst-carousel">
+        <button type="button" class="inst-nav-btn inst-nav-btn--prev" id="inst-prev" aria-label="Instrumento anterior">&#8249;</button>
+
         <div class="inst-track" id="inst-track" role="list">
 
         <div class="inst-card" data-id="guitarra-clasica" role="listitem">
@@ -423,6 +401,9 @@
         </div>
 
       </div>
+
+        <button type="button" class="inst-nav-btn inst-nav-btn--next" id="inst-next" aria-label="Instrumento siguiente">&#8250;</button>
+        </div>
 
         <div class="inst-pagination" id="inst-pagination" aria-label="Navegación por páginas del carrusel"></div>
 
@@ -736,8 +717,8 @@
           <!-- Left column: info + CTA -->
           <div class="contact-info" data-reveal>
             <div class="contact-ctas">
-              <button class="btn btn--primary">Reservar una Entrevista</button>
-              <button class="btn btn--secondary">Solicitar Información</button>
+              <button type="button" id="btn-reservar-entrevista" class="btn btn--primary" aria-expanded="false" aria-controls="contact-form">Reservar una Entrevista</button>
+              <button type="button" class="btn btn--secondary">Solicitar Información</button>
             </div>
             <dl class="contact-details">
               <div class="contact-row">
