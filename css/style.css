@@ -177,7 +177,7 @@ ul { list-style: none; }
   gap: 9px;
   padding: 16px 32px;
   border: none;
-  border-radius: var(--r);
+  border-radius: 2px;
   font-family: var(--body-font);
   font-size: 15px;
   font-weight: 500;
@@ -832,7 +832,7 @@ ul { list-style: none; }
 .badge--secondary { background: var(--accent); color: var(--dark); }
 
 .course-body {
-  padding: 24px 24px 26px;
+  padding: 22px 22px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -859,8 +859,8 @@ ul { list-style: none; }
 
 .course-desc {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 14.5px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--text-2);
   margin: 0 0 18px;
@@ -896,11 +896,11 @@ ul { list-style: none; }
 }
 
 .price-placeholder {
-  font-family: ui-monospace, monospace;
+  font-family: var(--serif);
   font-size: 25px;
   letter-spacing: .06em;
   color: var(--dark);
-  border: 2px dashed rgba(129, 63, 43, 0.28);
+  /*border: 2px dashed rgba(129, 63, 43, 0.28);*/
   border-radius: 8px;
   padding: 8px 12px;
   margin-bottom: 16px;
@@ -926,12 +926,28 @@ ul { list-style: none; }
    5 · INSTRUMENTOS
 ============================================================ */
 .instrumentos {
+  position: relative;
   background-color: #5c2511;
+  padding: var(--pad-y) 0;
+}
+
+/* Torn-paper edge bleeds up over the bottom of Cursos */
+.instrumentos::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80px;
+  bottom: 0;
+  z-index: 0;
   background-image: url("../assets/instrumentos/instrumentos-background.png");
   background-repeat: no-repeat;
   background-position: left top;
-  padding: var(--pad-y) 0;
-  overflow: hidden;
+}
+
+.instrumentos .container {
+  position: relative;
+  z-index: 1;
 }
 
 .instrumentos .section-header { margin-bottom: 42px; }
