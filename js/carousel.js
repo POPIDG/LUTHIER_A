@@ -49,6 +49,7 @@
     var startLeft  = 0;
 
     track.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('a, button')) return;
       isDragging = true;
       startX     = e.pageX;
       startLeft  = track.scrollLeft;
@@ -289,6 +290,7 @@
     var startLeft = 0;
 
     track.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('a, button')) return;
       isDragging = true;
       hasDragged = false;
       startX = e.pageX;

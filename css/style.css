@@ -15,7 +15,7 @@
   --card-bg:   #F6F2EA;
   --text:      #0f151b;
   --text-2:    #56616e;
-  --text-3:    #4a5360;
+  --text-3:    #191c20;
   --text-muted:#8a8275;
   --text-light:#c4ccd4;
   --text-pale: #cdd4dc;
@@ -860,9 +860,9 @@ ul { list-style: none; }
 .course-desc {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
-  color: var(--text-2);
+  color: var(--text-3);
   margin: 0 0 18px;
   text-align: center;
 }
