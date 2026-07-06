@@ -10,8 +10,8 @@
   --dark:      #1B2632;
   --dark-2:    #202d3a;
   --dark-3:    #141c25;
-  --primary:   #A35139;
-  --accent:    #FFB162;
+  --primary:   #c76d44;
+  --accent:    #FFB162; 
   --card-bg:   #F6F2EA;
   --text:      #0f151b;
   --text-2:    #56616e;
@@ -134,7 +134,7 @@ ul { list-style: none; }
   display: inline-block;
   font-family: var(--sans);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .26em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -195,7 +195,7 @@ ul { list-style: none; }
   background: var(--accent);
   color: var(--dark);
   transform: scale(1.04);
-  box-shadow: 0 14px 34px rgba(255,177,98,.32);
+  box-shadow: 0 14px 34px rgba(255,177,98,.32); 
 }
 .btn--secondary {
   background: transparent;
@@ -418,7 +418,7 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute;
   inset: -12% 0;
-  /background-color: #243340;
+  background-color: #243340;
   background-image: repeating-linear-gradient(
     135deg,
     rgba(255,255,255,.035) 0 18px,
@@ -1529,9 +1529,9 @@ ul { list-style: none; }
 
 /* Contact form — hidden until "Reservar una Entrevista" is clicked */
 .contact-form {
-  background: #ffb0622d;
-  border: 1px solid #ffb0626e;
-  border-radius: var(--rxl);
+  background: #3013089c;
+  border: 1px solid #38170af6;
+  border-radius:2px;
   padding: clamp(26px, 3.5vw, 44px);
   display: none;
   flex-direction: column;
@@ -1562,8 +1562,8 @@ ul { list-style: none; }
   width: 100%;
   padding: 14px 16px;
   border-radius: 11px;
-  border: 1px solid #ffb0626e;
-  background: #301308;
+  border: 1px solid #38170af6;
+  background: #2c1207;
   color: var(--bg);
   font-size: 15px;
   outline: none;
