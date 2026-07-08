@@ -122,6 +122,27 @@
     }, { passive: true });
   }
 
+  /* ── Promo bar (hides on scroll down, reappears on scroll up) ── */
+
+  function initPromoBar() {
+    var promo  = document.getElementById('promo-bar');
+    var navbar = document.getElementById('navbar');
+    if (!promo) return;
+
+    var lastY     = window.scrollY || 0;
+    var THRESHOLD = 40;
+
+    window.addEventListener('scroll', function () {
+      var y    = window.scrollY || 0;
+      var hide = y > lastY && y > THRESHOLD;
+
+      promo.classList.toggle('is-hidden', hide);
+      if (navbar) navbar.classList.toggle('promo-hidden', hide);
+
+      lastY = y;
+    }, { passive: true });
+  }
+
   /* ── Init ─────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -129,6 +150,7 @@
     initMobileMenu();
     initBackToTop();
     initNavbarScroll();
+    initPromoBar();
   });
 
 }());

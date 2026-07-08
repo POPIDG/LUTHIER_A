@@ -31,6 +31,7 @@
   --rl: 18px;
   --rxl: 22px;
   --nav-h: 72px;
+  --promo-h: 40px;
   --pad-x: clamp(20px, 5vw, 72px);
   --pad-y: clamp(90px, 12vh, 150px);
 }
@@ -250,11 +251,38 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   PROMO BAR (hide on scroll)
+============================================================ */
+.promo-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--promo-h);
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  padding: 0 var(--pad-x);
+  transition: transform .35s var(--ease), background var(--t);
+}
+.promo-bar:hover { background: var(--accent); color: var(--dark); }
+.promo-bar.is-hidden { transform: translateY(-100%); }
+
+/* ============================================================
    NAVBAR
 ============================================================ */
 #navbar {
   position: fixed;
-  top: 0;
+  top: var(--promo-h);
   left: 0;
   right: 0;
   z-index: 90;
@@ -263,7 +291,9 @@ ul { list-style: none; }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: top .35s var(--ease), box-shadow .3s ease;
 }
+#navbar.promo-hidden { top: 0; }
 
 .navbar-inner {
   display: flex;
@@ -1773,7 +1803,7 @@ ul { list-style: none; }
 .back-top {
   position: fixed;
   right: 26px;
-  bottom: 26px;
+  bottom: 92px;
   z-index: 80;
   width: 52px;
   height: 52px;
@@ -1802,3 +1832,28 @@ ul { list-style: none; }
   color: var(--dark);
   transform: translateY(-4px);
 }
+
+/* ============================================================
+   WHATSAPP (floating button)
+============================================================ */
+.whatsapp-float {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 81;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(27,38,50,.3);
+  transition: all var(--t);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(37,211,102,.4);
+}
+.whatsapp-float svg { width: 26px; height: 26px; }
