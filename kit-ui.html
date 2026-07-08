@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit UI | Luthería</title>
+
+  <!-- Google Fonts (mismas del sitio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio (sin modificar, sin duplicar) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/curso-detalle.css">
+  <!-- Layout exclusivo de esta guía -->
+  <link rel="stylesheet" href="css/kit-ui.css">
+</head>
+<body>
+
+  <header class="kit-header">
+    <a href="index.html" class="kit-back">&larr; Volver al sitio</a>
+    <h1>Kit UI</h1>
+    <p>Guía de estilos de Luthería — variables y clases reales del proyecto, tal como se usan en index.html y curso-instrumento-a-medida.html.</p>
+  </header>
+
+  <main class="kit-main">
+
+    <!-- =================== COLORES =================== -->
+    <section class="kit-section" id="colores">
+      <h2>Colores</h2>
+
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:var(--bg)"></div><div class="swatch-info"><span class="swatch-name">--bg</span><span class="swatch-value">#EEE9DF</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--bg-alt)"></div><div class="swatch-info"><span class="swatch-name">--bg-alt</span><span class="swatch-value">#C9C1B1</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--dark)"></div><div class="swatch-info"><span class="swatch-name">--dark</span><span class="swatch-value">#1B2632</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--dark-2)"></div><div class="swatch-info"><span class="swatch-name">--dark-2</span><span class="swatch-value">#202d3a</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--dark-3)"></div><div class="swatch-info"><span class="swatch-name">--dark-3</span><span class="swatch-value">#141c25</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--primary)"></div><div class="swatch-info"><span class="swatch-name">--primary</span><span class="swatch-value">#c76d44</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--accent)"></div><div class="swatch-info"><span class="swatch-name">--accent</span><span class="swatch-value">#FFB162</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--card-bg)"></div><div class="swatch-info"><span class="swatch-name">--card-bg</span><span class="swatch-value">#F6F2EA</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text)"></div><div class="swatch-info"><span class="swatch-name">--text</span><span class="swatch-value">#0f151b</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text-2)"></div><div class="swatch-info"><span class="swatch-name">--text-2</span><span class="swatch-value">#56616e</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text-3)"></div><div class="swatch-info"><span class="swatch-name">--text-3</span><span class="swatch-value">#191c20</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text-muted)"></div><div class="swatch-info"><span class="swatch-name">--text-muted</span><span class="swatch-value">#8a8275</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text-light)"></div><div class="swatch-info"><span class="swatch-name">--text-light</span><span class="swatch-value">#c4ccd4</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--text-pale)"></div><div class="swatch-info"><span class="swatch-name">--text-pale</span><span class="swatch-value">#cdd4dc</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--dark); position:relative;"><div style="position:absolute; inset:0; background:var(--border-light);"></div></div><div class="swatch-info"><span class="swatch-name">--border-light</span><span class="swatch-value">rgba(27,38,50,.08)</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--dark); position:relative;"><div style="position:absolute; inset:0; background:var(--border-white);"></div></div><div class="swatch-info"><span class="swatch-name">--border-white</span><span class="swatch-value">rgba(255,255,255,.1)</span></div></div>
+      </div>
+
+      <p class="kit-note">Variables definidas en css/style.css :root (líneas 8–23).</p>
+    </section>
+
+    <!-- =================== TIPOGRAFÍA =================== -->
+    <section class="kit-section" id="tipografia">
+      <h2>Tipografía</h2>
+
+      <div class="kit-type-sample">
+        <span class="kit-type-label">.section-title — var(--heading-font) / Bricolage Grotesque</span>
+        <h2 class="section-title" style="margin:0;">Diseñá la guitarra que imaginaste</h2>
+      </div>
+
+      <div class="kit-type-sample">
+        <span class="kit-type-label">.section-text — var(--body-font) / Montserrat</span>
+        <p class="section-text">Cada proyecto avanza respetando los tiempos de aprendizaje y construcción del alumno.</p>
+      </div>
+
+      <div class="kit-type-sample">
+        <span class="kit-type-label">.eyebrow.eyebrow--primary</span>
+        <span class="eyebrow eyebrow--primary">El curso combina</span>
+      </div>
+
+      <div class="kit-type-sample">
+        <span class="kit-type-label">.eyebrow.eyebrow--accent</span>
+        <span class="eyebrow eyebrow--accent">Instrumento a tu medida</span>
+      </div>
+
+      <p class="kit-note">--heading-font y --serif apuntan a la misma fuente (Bricolage Grotesque); --body-font y --sans apuntan a la misma fuente (Montserrat). Ambos pares de variables conviven hoy en style.css.</p>
+    </section>
+
+    <!-- =================== BOTONES =================== -->
+    <section class="kit-section" id="botones">
+      <h2>Botones</h2>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row">
+          <a href="#" class="btn btn--primary">Conocer el Taller</a>
+        </div>
+        <code class="kit-code">&lt;a href="#filosofia" class="btn btn--primary"&gt;Conocer el Taller&lt;/a&gt;</code>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--dark">
+          <a href="#" class="btn btn--secondary">Ver Cursos</a>
+        </div>
+        <code class="kit-code">&lt;a href="#cursos" class="btn btn--secondary"&gt;Ver Cursos&lt;/a&gt;
+&lt;!-- .btn--secondary usa color: var(--bg), por eso en el sitio
+     siempre aparece sobre un fondo oscuro (hero) --&gt;</code>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row">
+          <a href="#" class="btn btn--primary btn--full">Ver Más</a>
+        </div>
+        <code class="kit-code">&lt;a href="curso-instrumento-a-medida.html" class="btn btn--primary btn--full"&gt;Ver Más&lt;/a&gt;</code>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row">
+          <button type="button" class="btn btn--primary">Reservar una Entrevista</button>
+        </div>
+        <code class="kit-code">&lt;button type="button" class="btn btn--primary"&gt;Reservar una Entrevista&lt;/button&gt;</code>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--dark">
+          <button type="button" class="btn btn--secondary">Solicitar Información</button>
+        </div>
+        <code class="kit-code">&lt;button type="button" class="btn btn--secondary"&gt;Solicitar Información&lt;/button&gt;</code>
+      </div>
+    </section>
+
+    <!-- =================== CARDS =================== -->
+    <section class="kit-section" id="cards">
+      <h2>Cards</h2>
+      <!-- pendiente -->
+    </section>
+
+    <!-- =================== ANIMACIONES =================== -->
+    <section class="kit-section" id="animaciones">
+      <h2>Animaciones</h2>
+      <!-- pendiente -->
+    </section>
+
+  </main>
+
+</body>
+</html>

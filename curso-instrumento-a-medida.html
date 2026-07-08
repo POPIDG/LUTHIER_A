@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curso Instrumento a tu Medida — Diseñá y construí tu propia guitarra a medida junto a un luthier profesional.">
+  <meta name="keywords" content="luthería, curso guitarra a medida, construcción instrumentos, taller luthier">
+  <title>Instrumento a tu Medida | Luthería</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/ui/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Styles (mismos del sitio principal, sin modificar) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Estilos exclusivos de esta página de detalle -->
+  <link rel="stylesheet" href="css/curso-detalle.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR (sticky) — igual que index.html
+  ============================================================ -->
+  <header id="navbar" role="banner">
+    <div class="navbar-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar-logo" aria-label="Luthería — Inicio">
+        <div class="logo-badge"> <img src="./assets/logo/TRASTES.png"> </div>
+      </a>
+
+      <!-- Nav links (desktop) -->
+      <nav id="nav-links" aria-label="Navegación principal">
+        <a href="index.html#inicio"       class="nav-link">Inicio</a>
+        <a href="index.html#filosofia"    class="nav-link">Filosofía</a>
+        <a href="index.html#servicios"    class="nav-link">Servicios</a>
+        <a href="index.html#cursos"       class="nav-link">Cursos</a>
+        <a href="index.html#instrumentos" class="nav-link">Instrumentos</a>
+        <a href="index.html#maderas"      class="nav-link">Maderas</a>
+        <a href="index.html#galeria"      class="nav-link">Galería</a>
+        <a href="index.html#contacto"     class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Icons + hamburger -->
+      <div class="navbar-actions">
+        <!-- Account icon -->
+        <button class="icon-btn" aria-label="Cuenta">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c0-4 3.6-6 7.5-6s7.5 2 7.5 6"/>
+          </svg>
+        </button>
+        <!-- Cart icon -->
+        <button class="icon-btn" aria-label="Carrito">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="9.5" cy="20" r="1.2"/>
+            <circle cx="18" cy="20" r="1.2"/>
+            <path d="M2 3h3l2.4 12h10.8l1.8-8H6.2"/>
+          </svg>
+        </button>
+        <!-- Hamburger (mobile) -->
+        <button id="nav-burger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU — igual que index.html
+  ============================================================ -->
+  <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
+    <a href="index.html#inicio"       class="mobile-nav-link">Inicio</a>
+    <a href="index.html#filosofia"    class="mobile-nav-link">Filosofía</a>
+    <a href="index.html#servicios"    class="mobile-nav-link">Servicios</a>
+    <a href="index.html#cursos"       class="mobile-nav-link">Cursos</a>
+    <a href="index.html#instrumentos" class="mobile-nav-link">Instrumentos</a>
+    <a href="index.html#maderas"      class="mobile-nav-link">Maderas</a>
+    <a href="index.html#galeria"      class="mobile-nav-link">Galería</a>
+    <a href="index.html#contacto"     class="mobile-nav-link">Contacto</a>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+
+    <!-- =================== 1 · HERO =================== -->
+    <section id="curso-hero" class="hero" aria-label="Instrumento a tu Medida">
+      <!-- Background image -->
+      <div class="hero-bg img-placeholder" id="hero-parallax">
+        <img src="assets/cursos/curso-a/seccion1-fondo-taller.jpg" alt="Foto del taller — luthier trabajando" loading="eager">
+      </div>
+      <!-- Overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Content -->
+      <div class="hero-content">
+        <span class="eyebrow eyebrow--accent" data-reveal>INSTRUMENTO A TU MEDIDA</span>
+        <h1 class="hero-title" data-reveal>Diseñá la guitarra que siempre imaginaste.</h1>
+        <p class="hero-subtitle" data-reveal>Mucho más que un curso. Una experiencia de creación personalizada donde aprenderás cada etapa del proceso de construcción mientras desarrollás un instrumento único.</p>
+
+        <dl class="contact-details curso-hero-details" data-reveal>
+          <div class="contact-row">
+            <dt>Duración estimada</dt>
+            <dd>6 a 10 meses</dd>
+          </div>
+          <div class="contact-row">
+            <dt>Modalidad</dt>
+            <dd>Presencial personalizada</dd>
+          </div>
+        </dl>
+
+        <div class="hero-ctas" data-reveal>
+          <a href="#reservar" class="btn btn--primary">Reservá tu lugar</a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#modalidad" class="scroll-indicator" aria-label="Ir a Modalidad">
+        <span class="scroll-label"></span>
+        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" stroke="currentColor" stroke-width="1.4" class="scroll-arrow" aria-hidden="true">
+          <path d="M8 2v18M3 15l5 6 5-6"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- =================== 2 · MODALIDAD =================== -->
+    <section id="modalidad" class="filosofia" aria-label="Modalidad de trabajo">
+      <div class="container">
+        <div class="filosofia-layout">
+          <div class="curso-modalidad-images" data-reveal>
+            <div class="filosofia-media img-placeholder">
+              <img src="assets/cursos/curso-a/seccion2-taller-1.jpg" alt="Alumno trabajando en el taller" loading="lazy">
+            </div>
+            <div class="filosofia-media img-placeholder">
+              <img src="assets/cursos/curso-a/seccion2-taller-2.jpg" alt="Detalle de herramientas y maderas" loading="lazy">
+            </div>
+          </div>
+
+          <div class="filosofia-copy" data-reveal>
+            <span class="eyebrow eyebrow--primary">El curso combina</span>
+            <h2 class="section-title">¿Cómo es la modalidad de trabajo?</h2>
+            <p class="section-text">Cada proyecto avanza respetando los tiempos de aprendizaje y construcción del alumno.</p>
+            <ul class="course-includes">
+              <li><span class="check" aria-hidden="true">&#10003;</span>Clases prácticas en taller.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Seguimiento personalizado.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Material de consulta.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Asistencia técnica permanente.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Correcciones y revisiones durante cada etapa.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 3 · CRONOGRAMA =================== -->
+    <section id="cronograma" class="cursos" aria-label="Cronograma general">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Paso a paso</span>
+          <h2 class="section-title section-title--light">Cronograma general</h2>
+        </div>
+
+        <ol class="curso-timeline" data-reveal>
+          <li class="curso-timeline-item">
+            <span class="curso-timeline-tag">Mes 1</span>
+            <p class="curso-timeline-text">Diseño del proyecto y selección de materiales.</p>
+          </li>
+          <li class="curso-timeline-item">
+            <span class="curso-timeline-tag">Meses 2 y 3</span>
+            <p class="curso-timeline-text">Preparación de piezas estructurales.</p>
+          </li>
+          <li class="curso-timeline-item">
+            <span class="curso-timeline-tag">Meses 4 y 5</span>
+            <p class="curso-timeline-text">Construcción y ensamblado del instrumento.</p>
+          </li>
+          <li class="curso-timeline-item">
+            <span class="curso-timeline-tag">Meses 6 y 7</span>
+            <p class="curso-timeline-text">Perfilado, calibración y detalles constructivos.</p>
+          </li>
+          <li class="curso-timeline-item">
+            <span class="curso-timeline-tag">Meses 8 a 10</span>
+            <p class="curso-timeline-text">Terminaciones, acabado final y puesta a punto.</p>
+          </li>
+        </ol>
+
+        <p class="section-text section-text--light" style="text-align:center; margin-top:28px;">Los tiempos pueden variar según la complejidad del proyecto y la disponibilidad del alumno.</p>
+      </div>
+    </section>
+
+    <!-- =================== 4 · INCLUYE =================== -->
+    <section id="incluye" class="filosofia" aria-label="Qué incluye el curso">
+      <div class="container">
+        <div class="filosofia-layout">
+          <div class="filosofia-media img-placeholder" data-reveal>
+            <img src="assets/cursos/curso-a/seccion4-materiales.jpg" alt="Maderas, plantillas y herramientas del curso" loading="lazy">
+          </div>
+
+          <div class="filosofia-copy" data-reveal>
+            <span class="eyebrow eyebrow--primary">Materiales y recursos</span>
+            <h2 class="section-title">Todo lo que incluye el curso</h2>
+            <ul class="course-includes">
+              <li><span class="check" aria-hidden="true">&#10003;</span>Acceso completo al taller profesional.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Uso de herramientas especializadas.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Asesoramiento en selección de maderas.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Guías técnicas impresas y digitales.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Plantillas y documentación de trabajo.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Seguimiento individual del proyecto.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Espacios de consulta en plataforma virtual.</li>
+              <li><span class="check" aria-hidden="true">&#10003;</span>Evaluación técnica y sonora final.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 5 · TESTIMONIOS =================== -->
+    <section id="testimonios" class="cursos" aria-label="Testimonios">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Lo que dicen nuestros alumnos</span>
+          <h2 class="section-title section-title--light">Testimonios</h2>
+        </div>
+      </div>
+
+      <div class="curso-testimonials-viewport" data-reveal>
+        <div class="curso-testimonials-track">
+
+          <div class="curso-testimonial-card">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Construir mi propia guitarra cambió por completo mi forma de entender la música. El acompañamiento fue excepcional durante todo el proceso."</p>
+            <div class="curso-testimonial-author">— Martín G.</div>
+          </div>
+          <div class="curso-testimonial-card">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"La calidad del taller y la dedicación en cada detalle superaron ampliamente mis expectativas."</p>
+            <div class="curso-testimonial-author">— Laura S.</div>
+          </div>
+          <div class="curso-testimonial-card">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Nunca imaginé poder construir un instrumento de este nivel. La experiencia fue tan valiosa como el resultado final."</p>
+            <div class="curso-testimonial-author">— Diego R.</div>
+          </div>
+          <div class="curso-testimonial-card">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Cada etapa fue una lección. Salí con un instrumento propio y con conocimiento para toda la vida."</p>
+            <div class="curso-testimonial-author">— Carla V.</div>
+          </div>
+          <div class="curso-testimonial-card">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"El seguimiento personalizado hace toda la diferencia. Recomiendo la experiencia sin dudarlo."</p>
+            <div class="curso-testimonial-author">— Nicolás P.</div>
+          </div>
+
+          <!-- Duplicado (aria-hidden) para que el carrusel continuo no muestre cortes -->
+          <div class="curso-testimonial-card" aria-hidden="true">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Construir mi propia guitarra cambió por completo mi forma de entender la música. El acompañamiento fue excepcional durante todo el proceso."</p>
+            <div class="curso-testimonial-author">— Martín G.</div>
+          </div>
+          <div class="curso-testimonial-card" aria-hidden="true">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"La calidad del taller y la dedicación en cada detalle superaron ampliamente mis expectativas."</p>
+            <div class="curso-testimonial-author">— Laura S.</div>
+          </div>
+          <div class="curso-testimonial-card" aria-hidden="true">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Nunca imaginé poder construir un instrumento de este nivel. La experiencia fue tan valiosa como el resultado final."</p>
+            <div class="curso-testimonial-author">— Diego R.</div>
+          </div>
+          <div class="curso-testimonial-card" aria-hidden="true">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"Cada etapa fue una lección. Salí con un instrumento propio y con conocimiento para toda la vida."</p>
+            <div class="curso-testimonial-author">— Carla V.</div>
+          </div>
+          <div class="curso-testimonial-card" aria-hidden="true">
+            <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="curso-testimonial-quote">"El seguimiento personalizado hace toda la diferencia. Recomiendo la experiencia sin dudarlo."</p>
+            <div class="curso-testimonial-author">— Nicolás P.</div>
+          </div>
+
+        </div>
+      </div>
+      <p class="curso-testimonials-hint">Pasá el cursor o tocá una tarjeta para detener</p>
+    </section>
+
+    <!-- =================== 6 · FAQ =================== -->
+    <section id="faq" class="maderas" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Antes de empezar</span>
+          <h2 class="section-title">Preguntas frecuentes</h2>
+        </div>
+
+        <div class="accordion" id="woods-accordion">
+
+          <div class="wood-item" data-wood="0">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-0">
+              <span class="wood-header-left">
+                <span class="wood-idx">01</span>
+                <span class="wood-name">¿Necesito conocimientos previos?</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-0" hidden>
+              <p class="section-text">No. El programa está diseñado para acompañar tanto a principiantes como a aficionados con experiencia.</p>
+            </div>
+          </div>
+
+          <div class="wood-item" data-wood="1">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-1">
+              <span class="wood-header-left">
+                <span class="wood-idx">02</span>
+                <span class="wood-name">¿Puedo elegir cualquier diseño?</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-1" hidden>
+              <p class="section-text">Sí. El proyecto se desarrolla en función de tus objetivos y preferencias.</p>
+            </div>
+          </div>
+
+          <div class="wood-item" data-wood="2">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-2">
+              <span class="wood-header-left">
+                <span class="wood-idx">03</span>
+                <span class="wood-name">¿Qué ocurre si necesito más tiempo?</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-2" hidden>
+              <p class="section-text">Cada instrumento tiene sus propios tiempos. El acompañamiento contempla las particularidades de cada proyecto.</p>
+            </div>
+          </div>
+
+          <div class="wood-item" data-wood="3">
+            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-3">
+              <span class="wood-header-left">
+                <span class="wood-idx">04</span>
+                <span class="wood-name">¿Las herramientas están incluidas?</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="wood-panel-3" hidden>
+              <p class="section-text">Sí. El taller dispone del equipamiento necesario para todas las etapas del proceso.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 7 · RESERVAR =================== -->
+    <section id="reservar" class="contacto" aria-label="Reservá tu lugar">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--accent">El primer paso hacia tu instrumento ideal</span>
+          <h2 class="section-title section-title--light">Reservá tu lugar</h2>
+          <p class="section-text section-text--light">Las vacantes son limitadas para garantizar un seguimiento personalizado de cada alumno.</p>
+        </div>
+
+        <div class="contact-grid" id="contact-grid">
+          <form id="contact-form" class="contact-form is-open" novalidate data-reveal>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
+              <span class="form-error" id="error-nombre" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
+              <span class="form-error" id="error-apellido" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
+              <span class="form-error" id="error-email" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
+              <span class="form-error" id="error-telefono" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos qué instrumento imaginás..."></textarea>
+              <span class="form-error" id="error-mensaje" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Quiero construir mi guitarra</button>
+            <p class="form-success" id="form-success" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER — igual que index.html
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+       <a href="index.html" class="navbar-logo" aria-label="Luthería — Inicio">
+        <div class="logo-badge"> <img src="./assets/logo/TRASTES.png"> </div>
+       </a>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+          <a href="index.html#inicio"       class="footer-link">Inicio</a>
+          <a href="index.html#filosofia"    class="footer-link">Filosofía</a>
+          <a href="index.html#servicios"    class="footer-link">Servicios</a>
+          <a href="index.html#cursos"       class="footer-link">Cursos</a>
+          <a href="index.html#instrumentos" class="footer-link">Instrumentos</a>
+          <a href="index.html#maderas"      class="footer-link">Maderas</a>
+          <a href="index.html#galeria"      class="footer-link">Galería</a>
+          <a href="index.html#contacto"     class="footer-link">Contacto</a>
+        </nav>
+
+        <div class="footer-socials" aria-label="Redes sociales">
+          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Luthería &middot; Taller de construcción artesanal. Todos los derechos reservados.</p>
+        <a href="kit-ui.html" class="back-top-link">Kit UI</a>
+        <button id="footer-top-btn" class="back-top-link" aria-label="Volver al inicio">Volver arriba &#8593;</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BACK TO TOP (floating)
+  ============================================================ -->
+  <button id="back-top" class="back-top" aria-label="Volver arriba">&#8593;</button>
+
+  <!-- ============================================================
+       SCRIPTS — reutilizados de index.html sin modificar
+  ============================================================ -->
+  <script src="js/animations.js"></script>
+  <script src="js/accordion.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
