@@ -143,6 +143,34 @@
     }, { passive: true });
   }
 
+  /* ── Video banner play/pause toggle ───────────────────────── */
+
+  function initVideoBanner() {
+    var video = document.getElementById('video-banner-media');
+    var btn   = document.getElementById('video-banner-toggle');
+    if (!video || !btn) return;
+
+    var iconPause = btn.querySelector('.icon-pause');
+    var iconPlay  = btn.querySelector('.icon-play');
+
+    function setState(playing) {
+      iconPause.hidden = !playing;
+      iconPlay.hidden  = playing;
+      btn.setAttribute('aria-pressed', String(!playing));
+      btn.setAttribute('aria-label', playing ? 'Pausar video' : 'Reproducir video');
+    }
+
+    btn.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+        setState(true);
+      } else {
+        video.pause();
+        setState(false);
+      }
+    });
+  }
+
   /* ── Init ─────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -151,6 +179,7 @@
     initBackToTop();
     initNavbarScroll();
     initPromoBar();
+    initVideoBanner();
   });
 
 }());

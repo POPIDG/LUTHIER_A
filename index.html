@@ -101,7 +101,10 @@
     <section id="inicio" class="hero" aria-label="Inicio">
       <!-- Background image -->
       <div class="hero-bg img-placeholder" id="hero-parallax">
-        <img src="assets/hero/hero-home.png" alt="Luthier trabajando en el taller artesanal" loading="eager">
+        <picture>
+          <source media="(max-width: 560px)" srcset="assets/hero/hero-home-mobile.png">
+          <img src="assets/hero/hero-home.png" alt="Luthier trabajando en el taller artesanal" loading="eager">
+        </picture>
       </div>
       <!-- Overlay -->
       <div class="hero-overlay"></div>
@@ -195,7 +198,7 @@
 
           <div class="filosofia-copy" data-reveal>
             <span class="eyebrow eyebrow--primary">Nuestra Filosofía</span>
-            <h2 class="section-title">Cada instrumento comienza mucho antes de ser construido.</h2>
+            <h2 class="section-title">Los instrumento nacen mucho antes de ser construidos.</h2>
             <p class="section-text">La luthería combina tradición, precisión y respeto por los materiales. Creemos que cada madera posee una voz propia y que cada instrumento debe reflejar la identidad de quien lo interpreta.</p>
             <p class="section-text">Trabajamos respetando los tiempos naturales de cada proceso para lograr instrumentos con carácter, equilibrio y una calidad que perdure en el tiempo.</p>
           </div>
@@ -423,35 +426,31 @@
 
         <div class="accordion" id="woods-accordion">
 
-          <!-- Madera 1: Cedro -->
-          <div class="wood-item" data-wood="0">
-            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-0">
+          <!-- Madera 1: Cedro (abierta por defecto) -->
+          <div class="wood-item is-open" data-wood="0">
+            <button class="wood-header" aria-expanded="true" aria-controls="wood-panel-0">
               <span class="wood-header-left">
                 <span class="wood-idx">01</span>
                 <span class="wood-name">Cedro</span>
               </span>
               <span class="wood-toggle" aria-hidden="true">+</span>
             </button>
-            <div class="wood-panel" id="wood-panel-0" hidden>
+            <div class="wood-panel" id="wood-panel-0">
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/cedro.png" alt="Veta macro del Cedro" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Procedencia</dt><dd>América Central y Sudamérica</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Liviana y fácil de tallar</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Respuesta rápida y cálida</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Tapas armónicas y mástiles</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Instrumentos de cuerda pulsada</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">01</span>
+                    <h3 class="wood-overlay-name">Cedro</h3>
+                    <p class="wood-overlay-desc">Respuesta rápida y cálida.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -470,22 +469,18 @@
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/abeto.png" alt="Veta macro del Abeto" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Procedencia</dt><dd>Europa, Norteamérica y Asia</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Gran estabilidad y resistencia estructura</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Sonido brillante con gran proyección</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Tapas armónicas en instrumentos acústicos</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Instrumentos de cuerda de alta calidad</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">02</span>
+                    <h3 class="wood-overlay-name">Abeto</h3>
+                    <p class="wood-overlay-desc">Sonido brillante con gran proyección.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -504,22 +499,18 @@
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/caoba.png" alt="Veta macro de la Caoba" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Procedencia</dt><dd>América Central, Sudamérica y el Caribe</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Densidad media, resistente y muy estable</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Cálido, equilibrado</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Cuerpos, mástiles y aros y fondos de instrumentos acústicos</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Instrumentos de cuerda</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">03</span>
+                    <h3 class="wood-overlay-name">Caoba</h3>
+                    <p class="wood-overlay-desc">Cálido, equilibrado.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -538,22 +529,18 @@
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/nogal.png" alt="Veta macro del Nogal" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Europa, Norteamérica y Asia Occidental</dt><dd>a completar</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Densidad media a alta, resistente, estable</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Graves definidos, medios claros y agudos suaves</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Cuerpos, aros y fondos de instrumentos acústicos</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Modelos de cuerda artesanales y de gama alta</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">04</span>
+                    <h3 class="wood-overlay-name">Nogal</h3>
+                    <p class="wood-overlay-desc">Graves definidos, medios claros y agudos suaves.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -572,22 +559,18 @@
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/arce.png" alt="Veta macro del Arce" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Procedencia</dt><dd>Europa, Norteamérica y Asia</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Densidad media a alta, muy resistente, estable</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Sonido brillante, definido y articulado</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Fondos, aros, mástiles, diapasones laminados y tapas decorativas</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Instrumentos de cuerda de alta calidad</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">05</span>
+                    <h3 class="wood-overlay-name">Arce</h3>
+                    <p class="wood-overlay-desc">Sonido brillante, definido y articulado.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -606,22 +589,18 @@
               <div class="wood-panel-inner">
                 <div class="wood-img-wrap img-placeholder">
                   <img src="assets/maderas/ebano.png" alt="Veta macro del Ébano" loading="lazy">
-                </div>
-                <div class="wood-info">
-                  <dl class="wood-fields">
-                    <div class="field-row"><dt>Procedencia</dt><dd>África, India y el sudeste asiático</dd></div>
-                    <div class="field-row"><dt>Propiedades físicas</dt><dd>Densa, pesada y extremadamente dura</dd></div>
-                    <div class="field-row"><dt>Comportamiento acústico</dt><dd>Definido, preciso y con transmisión de las vibraciones</dd></div>
-                    <div class="field-row"><dt>Aplicaciones recomendadas</dt><dd>Diapasones, puentes, cejuelas, cordales, clavijas</dd></div>
-                    <div class="field-row"><dt>Instrumentos donde se utiliza</dt><dd>Instrumentos de cuerda de alta gama.</dd></div>
-                  </dl>
-                  <!--<div class="wood-indicators">
-                    <span class="indicator-tag">Calidez</span>
-                    <span class="indicator-tag">Proyección</span>
-                    <span class="indicator-tag">Sustain</span>
-                    <span class="indicator-tag">Rigidez</span>
-                    <span class="indicator-tag">Estabilidad</span>
-                  </div>-->
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">06</span>
+                    <h3 class="wood-overlay-name">Ébano</h3>
+                    <p class="wood-overlay-desc">Definido, preciso y con transmisión de las vibraciones.</p>
+                    <div class="wood-overlay-tags">
+                      <span class="indicator-tag">Calidez</span>
+                      <span class="indicator-tag">Proyección</span>
+                      <span class="indicator-tag">Sustain</span>
+                      <span class="indicator-tag">Rigidez</span>
+                      <span class="indicator-tag">Estabilidad</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -701,6 +680,20 @@
 
         </div>
       </div>
+    </section>
+
+    <!-- =================== 8·5 · VIDEO ==================== -->
+    <section id="video-banner" class="video-banner" aria-label="Video del taller">
+      <video class="video-banner-media" id="video-banner-media" src="assets/video/banner-taller.mp4" autoplay muted loop playsinline></video>
+      <button type="button" class="video-banner-toggle" id="video-banner-toggle" aria-label="Pausar video" aria-pressed="false">
+        <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <rect x="5" y="4" width="5" height="16"/>
+          <rect x="14" y="4" width="5" height="16"/>
+        </svg>
+        <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+          <path d="M7 4l14 8-14 8V4z"/>
+        </svg>
+      </button>
     </section>
 
     <!-- =================== 9 · CONTACTO =================== -->

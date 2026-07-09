@@ -20,7 +20,8 @@
       if (!btn || !panel) return;
 
       btn.addEventListener('click', function () {
-        var isOpen = item.classList.contains('is-open');
+        /* One item must always stay open — clicking the open item does nothing */
+        if (item.classList.contains('is-open')) return;
 
         /* Close all items */
         items.forEach(function (other) {
@@ -31,12 +32,10 @@
           if (otherBtn)   otherBtn.setAttribute('aria-expanded', 'false');
         });
 
-        /* If this item was closed, open it */
-        if (!isOpen) {
-          item.classList.add('is-open');
-          panel.hidden = false;
-          btn.setAttribute('aria-expanded', 'true');
-        }
+        /* Open the clicked item */
+        item.classList.add('is-open');
+        panel.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
       });
     });
   }

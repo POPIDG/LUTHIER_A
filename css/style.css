@@ -7,15 +7,15 @@
 :root {
   --bg:        #EEE9DF;
   --bg-alt:    #C9C1B1;
-  --dark:      #1B2632;
-  --dark-2:    #202d3a;
-  --dark-3:    #141c25;
+  --dark:      #161616;
+  --dark-2:    #161616;
+  --dark-3:    #161616;
   --primary:   #c76d44;
   --accent:    #FFB162; 
   --card-bg:   #F6F2EA;
-  --text:      #0f151b;
+  --text:      #161616;
   --text-2:    #56616e;
-  --text-3:    #191c20;
+  --text-3:    #161616;
   --text-muted:#8a8275;
   --text-light:#c4ccd4;
   --text-pale: #cdd4dc;
@@ -440,7 +440,7 @@ ul { list-style: none; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   background: var(--dark);
 }
@@ -456,25 +456,25 @@ ul { list-style: none; }
   );
 }
 
-/*
-.hero-overlay {
+
+/*.hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     95deg,
-    rgba(27,38,50,.9) 0%,
-    rgba(27,38,50,.55) 48%,
-    rgba(27,38,50,.2) 100%
-  );
-}*/
+    rgb(161, 61, 21) 0%,
+    rgba(180, 65, 30, 0.342) 48%,
+    rgba(50, 35, 27, 0.096) 100%
+  }*/
 
 .hero-content {
   position: relative;
   z-index: 3;
-  margin: 0 auto;
+  margin: 0;
   max-width: 760px;
-  text-align: center;
-  padding: 130px var(--pad-x) 130px;
+  text-align: left;
+  padding: 130px var(--pad-x) 80px;
+  margin-left: 60px;
 }
 
 .hero-title {
@@ -493,14 +493,14 @@ ul { list-style: none; }
   font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.75;
   color: #EEE9DF;
-  margin: 0 auto 38px;
+  margin: 0 0 38px;
   max-width: 560px;
 }
 
 .hero-ctas {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -581,7 +581,7 @@ ul { list-style: none; }
 
 .filosofia-media {
   position: relative;
-  min-height: 430px;
+  aspect-ratio: 450 / 320; /* matches hero-filosofia.jpg's natural ratio so it's never cropped */
   border-radius: 0;
   overflow: hidden;
   box-shadow: 0 24px 50px rgba(27, 38, 50, .16);
@@ -634,10 +634,6 @@ ul { list-style: none; }
   .filosofia-layout {
     grid-template-columns: 1fr;
   }
-
-  .filosofia-media {
-    min-height: 320px;
-  }
 }
 
 /* ============================================================
@@ -674,7 +670,7 @@ ul { list-style: none; }
 .service-card {
   background: rgba(255, 255, 255, 0);
   border: 1px solid rgba(255,255,255,0);
-  border-radius: 0px;
+  border-radius: 2px;
   padding: 34px 20px;
   transition: transform var(--t), box-shadow var(--t), background var(--t);
   text-align: center;
@@ -682,7 +678,7 @@ ul { list-style: none; }
 .service-card:hover {
   transform: translateY(-7px);
   box-shadow: 0 24px 50px rgba(27,38,50,.16);
-  background: rgba(255,255,255,.08);
+  background: #c76d4423;
 }
 
 .service-icon-wrap {
@@ -822,7 +818,7 @@ ul { list-style: none; }
   flex: 0 0 calc((100% - 26px) / 2);
   scroll-snap-align: start;
   background: var(--card-bg);
-  border-radius: 0px;
+  border-radius: 2px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -862,7 +858,7 @@ ul { list-style: none; }
 .badge--secondary { background: var(--accent); color: var(--dark); }
 
 .course-body {
-  padding: 22px 22px 24px;
+  padding: 20px 22px 18px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -872,17 +868,17 @@ ul { list-style: none; }
 
 .course-stars {
   color: var(--accent);
-  font-size: 25px;
+  font-size: 22px;
   letter-spacing: 2px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .course-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 1.12;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: var(--dark);
   text-align: center;
 }
@@ -890,10 +886,10 @@ ul { list-style: none; }
 .course-desc {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14.5px;
+  line-height: 1.55;
   color: var(--text-3);
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   text-align: center;
 }
 
@@ -927,15 +923,17 @@ ul { list-style: none; }
 
 .price-placeholder {
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 22px;
   letter-spacing: .06em;
   color: var(--dark);
   /*border: 2px dashed rgba(129, 63, 43, 0.28);*/
   border-radius: 8px;
-  padding: 8px 12px;
-  margin-bottom: 16px;
+  padding: 4px 12px;
+  margin-bottom: 10px;
   display: inline-block;
 }
+
+.course-footer .btn { padding: 13px 32px; }
 
 /* Desktop: show the 3 courses side by side, centered, all matching the
    "Instrumento a tu Medida" card's size. Tablet/mobile keep the existing
@@ -945,10 +943,6 @@ ul { list-style: none; }
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: stretch;
-  }
-
-  .cursos .course-body {
-    padding-top: 38px;
   }
 }
 
@@ -967,7 +961,7 @@ ul { list-style: none; }
   position: absolute;
   left: 0;
   right: 0;
-  top: -80px;
+  top: -40px;
   bottom: 0;
   z-index: 0;
   background-image: url("../assets/instrumentos/instrumentos-background.png");
@@ -1146,7 +1140,7 @@ ul { list-style: none; }
 /* Instrument detail panel */
 .inst-ficha {
   margin-top: 14px;
-  border-radius: 24px;
+  border-radius: 2px;
   overflow: hidden;
   animation: fadeup .45s var(--ease);
   display: none;
@@ -1287,7 +1281,7 @@ ul { list-style: none; }
 .wood-item {
   background: rgba(255, 255, 255, 0.25); /* Ajustá el último valor entre 0 y 1 */
   /* border: 1px solid var(--border-light); */
-  border-radius: 0;
+  border-radius: 2;
   overflow: hidden;
   transition: box-shadow var(--t);
 }
@@ -1300,6 +1294,7 @@ ul { list-style: none; }
   transition: box-shadow var(--t);
 }*/
 .wood-item.is-open { box-shadow: 0 12px 36px rgba(27,38,50,.1); }
+.wood-item.is-open .wood-header { cursor: default; }
 
 .wood-header {
   width: 100%;
@@ -1322,7 +1317,7 @@ ul { list-style: none; }
 
 .wood-idx {
   font-family: ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--primary);
 }
 
@@ -1347,73 +1342,190 @@ ul { list-style: none; }
   transition: all var(--t);
 }
 .wood-item.is-open .wood-toggle {
-  background: var(--primary);
-  color: #fff;
-  transform: rotate(45deg);
+  display: none;
 }
 
 .wood-panel {
-  padding: 0 28px 30px;
+  padding: 0;
   animation: fadeup .4s ease;
 }
 .wood-panel[hidden] { display: none; }
 
 .wood-panel-inner {
-  display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 30px;
-  align-items: start;
+  position: relative;
+  height: 100%;
 }
 
 .wood-img-wrap {
+  position: relative;
   aspect-ratio: 4/3;
+  height: 100%;
   border-radius: 0;
   overflow: hidden;
 }
 
-.wood-fields {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 22px;
+/* ── Overlay text box (bottom-left, over the photo) ──────────── */
+.wood-overlay {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  max-width: 320px;
+  background: #c76d4423;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px 22px;
 }
 
-.field-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 11px 0;
-  border-bottom: 1px solid rgba(27,38,50,.1);
-}
-.field-row dt {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--dark);
-}
-.field-row dd {
+.wood-overlay-idx {
+  display: block;
   font-family: ui-monospace, monospace;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: .04em;
-  color: var(--text-muted);
-  margin: 0;
+  color: #fff;
+  margin-bottom: 8px;
 }
 
-.wood-indicators {
+.wood-overlay-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.wood-overlay-desc {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .82);
+  margin: 0 0 14px;
+}
+
+.wood-overlay-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .indicator-tag {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 11.5px;
   letter-spacing: .04em;
-  color: var(--dark);
-  background: var(--bg);
-  border: 1px solid rgba(163,81,57,.3);
-  padding: 8px 14px;
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .28);
+  padding: 6px 12px;
   border-radius: 30px;
 }
+
+/* ── Horizontal accordion (desktop/tablet ≥821px) ─────────────
+   Below 821px it stays the original vertical accordion above.
+   Height is fixed to match what one open "ficha" measures today
+   (header 90px + panel 381px = 471px), so the row never jumps. */
+@media (min-width: 821px) {
+  .accordion {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 18px; /* same spacing as .inst-track (instrument cards) */
+    height: 471px;
+    overflow-x: auto; /* safety valve: scroll instead of clipping if space is tight */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .accordion::-webkit-scrollbar { display: none; }
+
+  .wood-item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 clamp(84px, 7vw, 104px);
+    transition: flex-grow .5s var(--ease), background var(--t), box-shadow var(--t);
+  }
+  .wood-item.is-open {
+    flex: 1 1 auto;
+    min-width: 380px; /* just enough for the overlay text box, image fills whatever's left */
+  }
+  .wood-item:not(.is-open):hover { background: rgba(255, 255, 255, 0.4); }
+
+  .wood-header {
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 8px;
+  }
+  /* Open card: header disappears — only the photo (with its overlay) shows */
+  .wood-item.is-open .wood-header {
+    display: none;
+  }
+
+  /* Collapsed strip: idx pinned to the top, name + toggle grouped at the bottom */
+  .wood-header-left {
+    display: contents;
+  }
+  .wood-name {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    margin-top: auto;
+  }
+
+  .wood-panel {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .wood-img-wrap {
+    aspect-ratio: auto;
+  }
+}
+
+/* ============================================================
+   VIDEO BANNER
+============================================================ */
+.video-banner {
+  position: relative;
+  min-height: 420px; /* same height as .filosofia-banner */
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.video-banner-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-banner-toggle {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 12, 10, .55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t);
+}
+.video-banner-toggle:hover {
+  background: var(--primary);
+  transform: translateY(-4px);
+}
+.video-banner-toggle .icon-play { margin-left: 2px; }
+.video-banner-toggle [hidden] { display: none; }
 
 /* ============================================================
    7 · GALERÍA
@@ -1453,7 +1565,7 @@ ul { list-style: none; }
 
 .gallery-img-wrap {
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 2px;
   transition: transform .5s ease;
 }
 .gallery-item:hover .gallery-img-wrap {

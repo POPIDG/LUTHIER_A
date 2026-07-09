@@ -49,11 +49,6 @@
     min-height: 240px;
   }
 
-  /* Woods panel: side-by-side → stacked */
-  .wood-panel-inner {
-    grid-template-columns: 1fr;
-  }
-
 }
 
 /* ── 560px: Collapse remaining multi-column layouts ─────── */
@@ -93,10 +88,29 @@
     justify-content: center;
   }
 
-  /* Hero CTAs: side by side → stacked */
+  /* Hero: text left-aligned and pushed down slightly; CTAs centered and
+     pinned above the floating WhatsApp button, separated from the text */
+  .hero {
+    justify-content: center;
+    align-items: stretch;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 160px var(--pad-x) 100px;
+    margin-left: 0;
+  }
+
+  /* Hero CTAs: side by side → stacked, full-width, centered as a block,
+     pushed toward the bottom (with room above the floating WhatsApp button) */
   .hero-ctas {
+    width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: auto;
   }
   .hero-ctas .btn {
     width: 100%;
