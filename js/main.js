@@ -171,6 +171,31 @@
     });
   }
 
+  /* ── Docentes: flip cards (click/tap, not hover — works on touch) ── */
+
+  function initDocenteCards() {
+    var cards = document.querySelectorAll('.docente-card');
+
+    cards.forEach(function (card) {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-pressed', 'false');
+
+      function toggle() {
+        var flipped = card.classList.toggle('is-flipped');
+        card.setAttribute('aria-pressed', String(flipped));
+      }
+
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+
   /* ── Init ─────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -180,6 +205,7 @@
     initNavbarScroll();
     initPromoBar();
     initVideoBanner();
+    initDocenteCards();
   });
 
 }());

@@ -27,7 +27,7 @@
   <!-- ============================================================
        PROMO BAR (hide on scroll)
   ============================================================ -->
-  <a href="index.html#cursos" id="promo-bar" class="promo-bar">Aprovecha el 20% OFF y 6 cuotas sin interés en nuestros CURSOS</a>
+  <a href="index.html#cursos" id="promo-bar" class="promo-bar">Aprovecha el 20% OFF y 6 cuotas sin interés en nuestros CURSOS hasta el 17/07</a>
 
   <!-- ============================================================
        NAVBAR (sticky) — igual que index.html
@@ -168,49 +168,34 @@
       </div>
     </section>
 
-    <!-- =================== 3 · CRONOGRAMA =================== -->
-    <section id="cronograma" class="cursos" aria-label="Cronograma general">
+    <!--
+      =================== 2·5 · BANNER VIDEO ===================
+      Mismas características que "4 · BANNER" de index.html: reutiliza
+      tal cual .filosofia-banner / .filosofia-banner-overlay /
+      .filosofia-banner-content / .banner-title, e incluso los ids
+      "banner" y "filo-parallax" para heredar el mismo efecto parallax
+      de animations.js (initParallax) sin tocar ese archivo. Único
+      agregado: la imagen se reemplaza por un <video>, con su propio
+      selector de estilos en css/curso-detalle.css (no se toca la
+      regla ".filosofia-banner-bg img" compartida con index.html).
+    -->
+    <section id="banner" class="filosofia-banner" aria-label="Video del taller">
+      <div class="filosofia-banner-bg img-placeholder" id="filo-parallax">
+        <video src="assets/video/banner-curso.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="filosofia-banner-overlay"></div>
+
       <div class="container">
-        <div class="section-header" data-reveal>
-          <span class="eyebrow eyebrow--primary">Paso a paso</span>
-          <h2 class="section-title section-title--light">Cronograma general</h2>
+        <div class="filosofia-banner-content">
+          <h1 class="banner-title" data-reveal>La música en tus manos.</h1>
         </div>
-
-        <ol class="curso-timeline" data-reveal>
-          <li class="curso-timeline-item">
-            <span class="curso-timeline-tag">Mes 1</span>
-            <p class="curso-timeline-text">Diseño del proyecto y selección de materiales.</p>
-          </li>
-          <li class="curso-timeline-item">
-            <span class="curso-timeline-tag">Meses 2 y 3</span>
-            <p class="curso-timeline-text">Preparación de piezas estructurales.</p>
-          </li>
-          <li class="curso-timeline-item">
-            <span class="curso-timeline-tag">Meses 4 y 5</span>
-            <p class="curso-timeline-text">Construcción y ensamblado del instrumento.</p>
-          </li>
-          <li class="curso-timeline-item">
-            <span class="curso-timeline-tag">Meses 6 y 7</span>
-            <p class="curso-timeline-text">Perfilado, calibración y detalles constructivos.</p>
-          </li>
-          <li class="curso-timeline-item">
-            <span class="curso-timeline-tag">Meses 8 a 10</span>
-            <p class="curso-timeline-text">Terminaciones, acabado final y puesta a punto.</p>
-          </li>
-        </ol>
-
-        <p class="section-text section-text--light" style="text-align:center; margin-top:28px;">Los tiempos pueden variar según la complejidad del proyecto y la disponibilidad del alumno.</p>
       </div>
     </section>
 
-    <!-- =================== 4 · INCLUYE =================== -->
+    <!-- =================== 3 · INCLUYE =================== -->
     <section id="incluye" class="filosofia" aria-label="Qué incluye el curso">
       <div class="container">
         <div class="filosofia-layout">
-          <div class="filosofia-media img-placeholder" data-reveal>
-            <img src="assets/cursos/curso-a/seccion4-materiales.jpg" alt="Maderas, plantillas y herramientas del curso" loading="lazy">
-          </div>
-
           <div class="filosofia-copy" data-reveal>
             <span class="eyebrow eyebrow--primary">Materiales y recursos</span>
             <h2 class="section-title">Todo lo que incluye el curso</h2>
@@ -225,11 +210,311 @@
               <li><span class="check" aria-hidden="true">&#10003;</span>Evaluación técnica y sonora final.</li>
             </ul>
           </div>
+
+          <div class="filosofia-media img-placeholder" data-reveal>
+            <img src="assets/cursos/curso-a/seccion4-materiales.jpg" alt="Maderas, plantillas y herramientas del curso" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =================== 5 · TESTIMONIOS =================== -->
+    <!-- =================== 4 · CRONOGRAMA =================== -->
+    <section id="cronograma" class="cursos" aria-label="Cronograma general">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Paso a paso</span>
+          <h2 class="section-title section-title--light">Cronograma general</h2>
+        </div>
+
+        <!--
+          Acordeón horizontal de Cronograma — reutiliza la misma estructura,
+          comportamiento (accordion.js) y estilos (.wood-item / .wood-header /
+          .wood-panel / .wood-overlay, definidos en css/style.css) que la
+          sección Maderas de index.html. Implementación independiente:
+          id propio (cronograma-accordion) e ids de panel propios
+          (crono-panel-N) para no colisionar con #woods-accordion / #wood-panel-N
+          que ya usa la sección FAQ más abajo en esta misma página, ni con la
+          sección Maderas real de index.html. accordion.js ahora inicializa
+          cada .accordion de la página por separado, así que ninguno de los
+          tres (Maderas, FAQ, Cronograma) interfiere con los otros.
+
+          IMÁGENES PENDIENTES: cada bloque abajo usa un placeholder en
+          assets/cursos/curso-a/cronograma/bloque-N.jpg (carpeta a crear).
+          Reemplazar por la foto definitiva de cada etapa cuando esté lista.
+        -->
+        <div class="accordion" id="cronograma-accordion" data-reveal>
+
+          <div class="wood-item is-open" data-block="0">
+            <button class="wood-header" aria-expanded="true" aria-controls="crono-panel-0">
+              <span class="wood-header-left">
+                <span class="wood-idx">01</span>
+                <span class="wood-name">Mes 1</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="crono-panel-0">
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <!-- IMAGEN DEFINITIVA — Bloque 1 (Mes 1): reemplazar este placeholder por assets/cursos/curso-a/cronograma/bloque-1.jpg -->
+                  <img src="assets/cursos/curso-a/cronograma/bloque-1.jpg" alt="Bloque 1 — Mes 1" loading="lazy">
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">01</span>
+                    <h3 class="wood-overlay-name">Mes 1</h3>
+                    <p class="wood-overlay-desc">Diseño del proyecto y selección de materiales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wood-item" data-block="1">
+            <button class="wood-header" aria-expanded="false" aria-controls="crono-panel-1">
+              <span class="wood-header-left">
+                <span class="wood-idx">02</span>
+                <span class="wood-name">Meses 2 y 3</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="crono-panel-1" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <!-- IMAGEN DEFINITIVA — Bloque 2 (Meses 2 y 3): reemplazar este placeholder por assets/cursos/curso-a/cronograma/bloque-2.jpg -->
+                  <img src="assets/cursos/curso-a/cronograma/bloque-2.jpg" alt="Bloque 2 — Meses 2 y 3" loading="lazy">
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">02</span>
+                    <h3 class="wood-overlay-name">Meses 2 y 3</h3>
+                    <p class="wood-overlay-desc">Preparación de piezas estructurales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wood-item" data-block="2">
+            <button class="wood-header" aria-expanded="false" aria-controls="crono-panel-2">
+              <span class="wood-header-left">
+                <span class="wood-idx">03</span>
+                <span class="wood-name">Meses 4 y 5</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="crono-panel-2" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <!-- IMAGEN DEFINITIVA — Bloque 3 (Meses 4 y 5): reemplazar este placeholder por assets/cursos/curso-a/cronograma/bloque-3.jpg -->
+                  <img src="assets/cursos/curso-a/cronograma/bloque-3.jpg" alt="Bloque 3 — Meses 4 y 5" loading="lazy">
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">03</span>
+                    <h3 class="wood-overlay-name">Meses 4 y 5</h3>
+                    <p class="wood-overlay-desc">Construcción y ensamblado del instrumento.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wood-item" data-block="3">
+            <button class="wood-header" aria-expanded="false" aria-controls="crono-panel-3">
+              <span class="wood-header-left">
+                <span class="wood-idx">04</span>
+                <span class="wood-name">Meses 6 y 7</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="crono-panel-3" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <!-- IMAGEN DEFINITIVA — Bloque 4 (Meses 6 y 7): reemplazar este placeholder por assets/cursos/curso-a/cronograma/bloque-4.jpg -->
+                  <img src="assets/cursos/curso-a/cronograma/bloque-4.jpg" alt="Bloque 4 — Meses 6 y 7" loading="lazy">
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">04</span>
+                    <h3 class="wood-overlay-name">Meses 6 y 7</h3>
+                    <p class="wood-overlay-desc">Perfilado, calibración y detalles constructivos.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wood-item" data-block="4">
+            <button class="wood-header" aria-expanded="false" aria-controls="crono-panel-4">
+              <span class="wood-header-left">
+                <span class="wood-idx">05</span>
+                <span class="wood-name">Meses 8 a 10</span>
+              </span>
+              <span class="wood-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="wood-panel" id="crono-panel-4" hidden>
+              <div class="wood-panel-inner">
+                <div class="wood-img-wrap img-placeholder">
+                  <!-- IMAGEN DEFINITIVA — Bloque 5 (Meses 8 a 10): reemplazar este placeholder por assets/cursos/curso-a/cronograma/bloque-5.jpg -->
+                  <img src="assets/cursos/curso-a/cronograma/bloque-5.jpg" alt="Bloque 5 — Meses 8 a 10" loading="lazy">
+                  <div class="wood-overlay">
+                    <span class="wood-overlay-idx">05</span>
+                    <h3 class="wood-overlay-name">Meses 8 a 10</h3>
+                    <p class="wood-overlay-desc">Terminaciones, acabado final y puesta a punto.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cronograma-accordion -->
+
+        <p class="section-text section-text--light" style="text-align:center; margin-top:28px;">Los tiempos pueden variar según la complejidad del proyecto y la disponibilidad del alumno.</p>
+      </div>
+    </section>
+
+    <!-- =================== 5 · FAQ =================== -->
+    <section id="faq" class="maderas" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Antes de empezar</span>
+          <h2 class="section-title">Preguntas frecuentes</h2>
+        </div>
+
+        <!--
+          Acordeón VERTICAL de FAQ — implementación propia (clases .faq-*),
+          deliberadamente independiente del acordeón horizontal que usan
+          Maderas (index.html) y Cronograma (esta misma página, clases
+          .wood-*). No comparte ninguna clase ni la media query horizontal
+          de css/style.css, así que siempre se muestra en una sola columna,
+          sin importar el ancho de pantalla. accordion.js reconoce este
+          patrón por separado (selectores .faq-item / .faq-header /
+          .faq-panel) y aplica el comportamiento de acordeón "clásico":
+          cada pregunta se puede abrir y cerrar libremente.
+        -->
+        <div class="faq-accordion" id="faq-accordion">
+
+          <div class="faq-item" data-faq="0">
+            <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-0">
+              <span class="faq-question">¿Necesito conocimientos previos?</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel" id="faq-panel-0" hidden>
+              <p class="section-text">No. El programa está diseñado para acompañar tanto a principiantes como a aficionados con experiencia.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-faq="1">
+            <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-1">
+              <span class="faq-question">¿Puedo elegir cualquier diseño?</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel" id="faq-panel-1" hidden>
+              <p class="section-text">Sí. El proyecto se desarrolla en función de tus objetivos y preferencias.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-faq="2">
+            <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-2">
+              <span class="faq-question">¿Qué ocurre si necesito más tiempo?</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel" id="faq-panel-2" hidden>
+              <p class="section-text">Cada instrumento tiene sus propios tiempos. El acompañamiento contempla las particularidades de cada proyecto.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-faq="3">
+            <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-3">
+              <span class="faq-question">¿Las herramientas están incluidas?</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel" id="faq-panel-3" hidden>
+              <p class="section-text">Sí. El taller dispone del equipamiento necesario para todas las etapas del proceso.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--
+      =================== 5·5 · DOCENTES ===================
+      Cards con la misma estructura/dimensiones que .inst-card de
+      Biblioteca de Instrumentos (index.html): .inst-img (aspect-ratio
+      3/4) + .inst-footer/.inst-name para el nombre. Se reutilizan esas
+      clases tal cual (sin tocar su CSS) sólo para el frente de la
+      tarjeta; el mecanismo de flip (perspective/rotateY) es propio
+      (.docente-card*, ver css/curso-detalle.css) para no heredar el
+      hover-lift de .inst-card, que chocaría con la rotación 3D.
+      Fondo de sección = mismo que Testimonios (class="cursos").
+
+      Fotos definitivas ya cargadas en assets/docentes/.
+    -->
+    <section id="docentes" class="cursos" aria-label="Equipo Académico">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow eyebrow--primary">Equipo Académico</span>
+          <h2 class="section-title section-title--light">Aprendé junto a maestros luthiers y músicos especializados</h2>
+          <p class="section-text section-text--light">Tocá o hacé clic sobre cada tarjeta para conocer su trayectoria</p>
+        </div>
+
+        <div class="docentes-grid" data-reveal>
+
+          <div class="docente-card" data-docente="0">
+            <div class="docente-card-inner">
+              <div class="docente-card-front">
+                <div class="inst-img img-placeholder img-placeholder--dark">
+                  <img src="assets/docentes/tomas-herrera.png" alt="Tomás Herrera" loading="lazy">
+                </div>
+                <div class="inst-footer">
+                  <span class="inst-name">Tomás Herrera</span>
+                </div>
+              </div>
+              <div class="docente-card-back">
+                <h3 class="docente-back-name">Tomás Herrera</h3>
+                <p class="docente-back-field"><b>Especialización</b>Luthería y construcción de violines.</p>
+                <p class="docente-back-field"><b>Música preferida</b>Repertorio clásico y barroco.</p>
+                <p class="docente-back-bio">Violinista y luthier con más de quince años de experiencia en restauración y construcción artesanal de instrumentos de arco, formado en talleres especializados y con actividad docente permanente.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docente-card" data-docente="1">
+            <div class="docente-card-inner">
+              <div class="docente-card-front">
+                <div class="inst-img img-placeholder img-placeholder--dark">
+                  <img src="assets/docentes/santiago-ferrer.png" alt="Santiago Ferrer" loading="lazy">
+                </div>
+                <div class="inst-footer">
+                  <span class="inst-name">Santiago Ferrer</span>
+                </div>
+              </div>
+              <div class="docente-card-back">
+                <h3 class="docente-back-name">Santiago Ferrer</h3>
+                <p class="docente-back-field"><b>Especialización</b>Guitarra clásica y eléctrica.</p>
+                <p class="docente-back-field"><b>Música preferida</b>Folklore argentino y jazz.</p>
+                <p class="docente-back-bio">Guitarrista y luthier dedicado al diseño y ajuste de guitarras, con trayectoria en escenarios y en la enseñanza de técnicas de construcción y mantenimiento.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docente-card" data-docente="2">
+            <div class="docente-card-inner">
+              <div class="docente-card-front">
+                <div class="inst-img img-placeholder img-placeholder--dark">
+                  <img src="assets/docentes/valentina-rios.png" alt="Valentina Ríos" loading="lazy">
+                </div>
+                <div class="inst-footer">
+                  <span class="inst-name">Valentina Ríos</span>
+                </div>
+              </div>
+              <div class="docente-card-back">
+                <h3 class="docente-back-name">Valentina Ríos</h3>
+                <p class="docente-back-field"><b>Especialización</b>Piano.</p>
+                <p class="docente-back-field"><b>Música preferida</b>Impresionismo francés y música contemporánea.</p>
+                <p class="docente-back-bio">Pianista y docente con estudios superiores en interpretación y amplia experiencia en pedagogía musical y acompañamiento de ensambles.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 6 · TESTIMONIOS =================== -->
     <section id="testimonios" class="cursos" aria-label="Testimonios">
       <div class="container">
         <div class="section-header" data-reveal>
@@ -299,72 +584,6 @@
       <p class="curso-testimonials-hint">Pasá el cursor o tocá una tarjeta para detener</p>
     </section>
 
-    <!-- =================== 6 · FAQ =================== -->
-    <section id="faq" class="maderas" aria-label="Preguntas frecuentes">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <span class="eyebrow eyebrow--primary">Antes de empezar</span>
-          <h2 class="section-title">Preguntas frecuentes</h2>
-        </div>
-
-        <div class="accordion" id="woods-accordion">
-
-          <div class="wood-item" data-wood="0">
-            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-0">
-              <span class="wood-header-left">
-                <span class="wood-idx">01</span>
-                <span class="wood-name">¿Necesito conocimientos previos?</span>
-              </span>
-              <span class="wood-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="wood-panel" id="wood-panel-0" hidden>
-              <p class="section-text">No. El programa está diseñado para acompañar tanto a principiantes como a aficionados con experiencia.</p>
-            </div>
-          </div>
-
-          <div class="wood-item" data-wood="1">
-            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-1">
-              <span class="wood-header-left">
-                <span class="wood-idx">02</span>
-                <span class="wood-name">¿Puedo elegir cualquier diseño?</span>
-              </span>
-              <span class="wood-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="wood-panel" id="wood-panel-1" hidden>
-              <p class="section-text">Sí. El proyecto se desarrolla en función de tus objetivos y preferencias.</p>
-            </div>
-          </div>
-
-          <div class="wood-item" data-wood="2">
-            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-2">
-              <span class="wood-header-left">
-                <span class="wood-idx">03</span>
-                <span class="wood-name">¿Qué ocurre si necesito más tiempo?</span>
-              </span>
-              <span class="wood-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="wood-panel" id="wood-panel-2" hidden>
-              <p class="section-text">Cada instrumento tiene sus propios tiempos. El acompañamiento contempla las particularidades de cada proyecto.</p>
-            </div>
-          </div>
-
-          <div class="wood-item" data-wood="3">
-            <button class="wood-header" aria-expanded="false" aria-controls="wood-panel-3">
-              <span class="wood-header-left">
-                <span class="wood-idx">04</span>
-                <span class="wood-name">¿Las herramientas están incluidas?</span>
-              </span>
-              <span class="wood-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="wood-panel" id="wood-panel-3" hidden>
-              <p class="section-text">Sí. El taller dispone del equipamiento necesario para todas las etapas del proceso.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- =================== 7 · RESERVAR =================== -->
     <section id="reservar" class="contacto" aria-label="Reservá tu lugar">
       <div class="container">
@@ -375,7 +594,19 @@
         </div>
 
         <div class="contact-grid" id="contact-grid">
-          <form id="contact-form" class="contact-form is-open" novalidate data-reveal>
+
+          <!-- Mismo patrón que #contacto en index.html: botón primario +
+               botón secundario, este último con id="btn-reservar-entrevista"
+               reutilizando tal cual el toggle ya cableado en js/form.js
+               (initReservarToggle) para desplegar el formulario. -->
+          <div class="contact-info" data-reveal>
+            <div class="contact-ctas">
+              <a href="#" class="btn btn--primary">COMPRAR CURSO</a>
+              <button type="button" id="btn-reservar-entrevista" class="btn btn--secondary" aria-expanded="false" aria-controls="contact-form">Solicitar información</button>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form" novalidate data-reveal>
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">

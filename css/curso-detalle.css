@@ -10,7 +10,7 @@
 /* ── Hero: ficha de datos (Duración / Modalidad) ─────────── */
 .curso-hero-details {
   max-width: 420px;
-  margin: 0 auto 34px;
+  margin: 0 0 34px;
   text-align: left;
 }
 
@@ -26,46 +26,16 @@
   min-height: 220px;
 }
 
-/* ── Cronograma: línea de tiempo ──────────────────────────── */
-.curso-timeline {
-  max-width: 760px;
-  margin: 0 auto;
-}
-.curso-timeline-item {
-  position: relative;
-  padding: 22px 0 22px 32px;
-  border-left: 2px solid rgba(255, 255, 255, .18);
-}
-.curso-timeline-item::before {
-  content: "";
+/* ── Banner video (entre Modalidad e Incluye) ──────────────────
+   .filosofia-banner-bg img ya tiene object-fit:cover en style.css;
+   acá se agrega el mismo tratamiento para el <video>, sin tocar
+   esa regla compartida con index.html. */
+#banner .filosofia-banner-bg video {
   position: absolute;
-  left: -6px;
-  top: 28px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.curso-timeline-item:last-child {
-  border-left-color: transparent;
-}
-.curso-timeline-tag {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-.curso-timeline-text {
-  font-family: var(--sans);
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-light);
-  margin: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ── Testimonios: carrusel continuo (solo CSS) ───────────── */
@@ -91,7 +61,7 @@
 .curso-testimonial-card {
   flex: 0 0 320px;
   background: var(--card-bg);
-  border-radius: 18px;
+  border-radius: 2px;
   padding: 28px 26px;
 }
 .curso-testimonial-quote {
@@ -113,6 +83,283 @@
   font-size: 12.5px;
   color: var(--text-light);
   margin-top: 22px;
+}
+
+/* ── Modalidad / Incluye: fondo oscuro propio de esta página ──
+   Escopeado por id para no tocar la clase .filosofia compartida
+   con index.html. */
+#modalidad,
+#incluye {
+  background-color: #461c0c;
+}
+/* Suprime la textura de papel clara heredada de .filosofia (compartida
+   con index.html) para que se vea el fondo oscuro nuevo */
+#modalidad::before,
+#incluye::before {
+  display: none;
+}
+#modalidad .section-title,
+#incluye .section-title {
+  color: #F4F0E8;
+}
+#modalidad .section-text,
+#incluye .section-text,
+#modalidad .course-includes li,
+#incluye .course-includes li {
+  color: var(--text-light);
+}
+#modalidad .eyebrow--primary,
+#incluye .eyebrow--primary {
+  color: var(--accent);
+}
+
+/* ── Incluye: listado en grilla de 1 columna, un renglón por ítem ──
+   Escopeado por id para no tocar .course-includes de Modalidad
+   ni de index.html. */
+#incluye .course-includes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-bottom: 0;
+}
+#incluye .course-includes li {
+  position: relative;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .3s var(--ease), background-color .3s var(--ease);
+  will-change: transform;
+}
+#incluye .course-includes li:hover {
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 255, .06);
+  z-index: 1;
+}
+
+/* Imagen destacada: proporción real de seccion4-materiales.jpg,
+   la alineación vertical ya la resuelve .filosofia-layout
+   (align-items: center), compartida y sin tocar. */
+#incluye .filosofia-media {
+  aspect-ratio: 3 / 2;
+}
+
+/* ── Docentes: grilla de 3 flip-cards ───────────────────────────
+   El frente reutiliza .inst-img / .inst-footer / .inst-name tal
+   cual (misma estructura y dimensiones que Biblioteca de
+   Instrumentos), sin tocar su CSS. El mecanismo de flip es propio
+   (.docente-card*) para no heredar el hover-lift/transform de
+   .inst-card, que chocaría con la rotación 3D. Se dispara por click
+   / tap (no por :hover), así funciona igual en escritorio y táctil. */
+.docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Docentes tiene 3 columnas (Biblioteca tiene 4), así que a igual
+   ancho de contenedor cada card queda más ancha; con el aspect-ratio
+   3/4 heredado de .inst-img eso las hacía bastante más altas que las
+   de Biblioteca. Se ajusta acá (sólo para Docentes, sin tocar
+   .inst-img real) a una proporción más cuadrada para que el alto
+   total (imagen + pie) quede igual y la sección entre completa en
+   una notebook. */
+#docentes .docente-card-front .inst-img {
+  aspect-ratio: 1 / 1;
+}
+
+.docente-card {
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+}
+.docente-card-inner {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  transition: transform .6s var(--ease);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+.docente-card.is-flipped .docente-card-inner {
+  transform: rotateY(180deg);
+}
+
+.docente-card-front,
+.docente-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.docente-card-front {
+  position: relative;
+  background: var(--card-bg); /* misma caja sólida que .inst-card, para que el pie con el nombre no quede "flotando" sobre el fondo oscuro de la sección */
+}
+.docente-card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background: var(--dark-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px 24px;
+  overflow-y: auto;
+}
+
+.docente-back-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 21px;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.docente-back-field {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin: 0 0 12px;
+}
+.docente-back-field b {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.docente-back-bio {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-light);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 820px) {
+  .docentes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .docentes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Cronograma + FAQ: una misma "sábana" de papel continua ────
+   Igual que Instrumentos → Maderas en index.html: el papel
+   rasgado sólo aparece una vez arriba (entrando a Cronograma
+   desde Incluye, que es oscura) y una vez abajo (saliendo de
+   FAQ hacia Testimonios). Entre Cronograma y FAQ no hay costura:
+   fluyen como una sola superficie clara. Escopeado por id. */
+#cronograma {
+  position: relative;
+  background-color: #461c0c; /* fallback si la imagen no cubre pantallas muy anchas */
+}
+#cronograma::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -40px;
+  bottom: 0;
+  z-index: 0;
+  background-image: url("../assets/hero/hero-background.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+#cronograma .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* FAQ ya hereda de .maderas el relleno de papel continuo + el
+   borde rasgado inferior (::after) — no se agrega nada acá,
+   sólo se retoma el mismo estilo para que ambas luzcan iguales
+   a Instrumentos/Maderas. */
+
+/* Cronograma pasa de fondo oscuro a papel claro: los textos de
+   la línea de tiempo (pensados para fondo oscuro) pasan a oscuros */
+#cronograma .section-title--light {
+  color: var(--dark);
+}
+#cronograma .section-text--light {
+  color: var(--text-3);
+}
+#cronograma .eyebrow--primary {
+  color: var(--primary);
+}
+
+/* ── FAQ: acordeón vertical propio ─────────────────────────────
+   Independiente del acordeón horizontal de Maderas/Cronograma
+   (.wood-item / .accordion, con su media query de escritorio en
+   style.css): usa clases .faq-* que esa media query no reconoce,
+   así que se mantiene en una sola columna en cualquier ancho de
+   pantalla. */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, .35);
+  overflow: hidden;
+  transition: box-shadow var(--t);
+}
+.faq-item.is-open {
+  box-shadow: 0 12px 36px rgba(27, 38, 50, .1);
+}
+
+.faq-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(17px, 1.8vw, 20px);
+  color: var(--dark);
+}
+
+.faq-toggle {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all var(--t);
+}
+.faq-item.is-open .faq-toggle {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.faq-panel {
+  padding: 0 26px 24px;
+  animation: fadeup .4s ease;
+}
+.faq-panel[hidden] {
+  display: none;
 }
 
 @media (max-width: 820px) {
