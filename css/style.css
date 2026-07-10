@@ -484,7 +484,7 @@ ul { list-style: none; }
   line-height: 1.02;
   letter-spacing: -.015em;
   color: #EEE9DF;
-  margin: 0 0 26px;
+  margin: 0 0 12px;
 }
 
 .hero-subtitle {
@@ -1749,12 +1749,19 @@ ul { list-style: none; }
 
 .footer .logo-name { color: var(--bg); }
 
+/* Logo 10% más grande que en el navbar, alineado con .footer-nav
+   (ver align-items:center en .footer-top más abajo) */
+.footer .logo-badge {
+  width: 99px;
+  height: 99px;
+}
+
 .footer-top {
   display: flex;
   flex-wrap: wrap;
   gap: 36px;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255,255,255,.1);
 }

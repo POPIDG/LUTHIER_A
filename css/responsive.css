@@ -73,9 +73,33 @@
     grid-template-columns: 1fr;
   }
 
-  /* Gallery: 2 → 1 column */
+  /* Gallery: masonry columns → horizontal scroll carousel with dots,
+     same pattern as the Biblioteca de Instrumentos carousel (see
+     .inst-track / .inst-pagination / .inst-dot in style.css and
+     initGalleryCarousel() in js/main.js). */
   .gallery-grid {
-    column-count: 1;
+    display: flex;
+    align-items: flex-start;
+    column-count: unset;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 4px 0 6px;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x;
+  }
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery-grid.is-dragging {
+    cursor: grabbing;
+  }
+  .gallery-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
 
   /* Contact CTAs: side by side → stacked */

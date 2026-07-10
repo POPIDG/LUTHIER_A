@@ -196,6 +196,148 @@
     });
   }
 
+  /* ── Galería: dots + drag-to-scroll for the mobile carousel ──────
+     On desktop the grid is a masonry column layout (no horizontal
+     overflow), so the pagination naturally computes a single page and
+     stays hidden — the same generic logic just adapts once CSS turns
+     the grid into a horizontal track at ≤560px (see responsive.css /
+     curso-detalle.css). Shared by both the index.html Galería and the
+     curso page's Galería (different track/pagination ids, same markup
+     pattern). */
+
+  function initGalleryCarousel(trackId, paginationId) {
+    var track = document.getElementById(trackId);
+    var pagination = document.getElementById(paginationId);
+    if (!track) return;
+
+    function getGap() {
+      var trackStyle = getComputedStyle(track);
+      var parsedGap = parseFloat(trackStyle.columnGap || trackStyle.gap || 16);
+      return Number.isFinite(parsedGap) ? parsedGap : 16;
+    }
+
+    function getVisibleCardCount() {
+      var cards = track.querySelectorAll('.gallery-item');
+      if (!cards.length) return 1;
+
+      var rect = track.getBoundingClientRect();
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        var cardRect = card.getBoundingClientRect();
+        if (cardRect.right - 1 > rect.left && cardRect.left + 1 < rect.right) {
+          visibleCount += 1;
+        }
+      });
+
+      return Math.max(1, visibleCount || 1);
+    }
+
+    function getPageStep() {
+      var firstCard = track.querySelector('.gallery-item');
+      if (!firstCard) return Math.max(1, track.clientWidth * 0.9);
+
+      var cardWidth = firstCard.getBoundingClientRect().width;
+      var visibleCount = getVisibleCardCount();
+      var gap = getGap();
+      return Math.max(1, visibleCount * cardWidth + Math.max(0, visibleCount - 1) * gap);
+    }
+
+    function renderPagination() {
+      if (!pagination) return;
+
+      var cards = track.querySelectorAll('.gallery-item');
+      if (!cards.length) {
+        pagination.innerHTML = '';
+        pagination.hidden = true;
+        return;
+      }
+
+      var visibleCount = getVisibleCardCount();
+      var totalPages = Math.max(1, Math.ceil(cards.length / visibleCount));
+      pagination.innerHTML = '';
+
+      if (totalPages <= 1) {
+        pagination.hidden = true;
+        return;
+      }
+
+      for (var i = 0; i < totalPages; i += 1) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'inst-dot';
+        dot.setAttribute('aria-label', 'Ir a la imagen ' + (i + 1));
+        dot.dataset.page = String(i);
+        dot.addEventListener('click', function () {
+          var pageIndex = Number(this.dataset.page);
+          var maxScroll = track.scrollWidth - track.clientWidth;
+          var targetLeft = Math.min(maxScroll, pageIndex * getPageStep());
+          track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+        });
+        pagination.appendChild(dot);
+      }
+
+      pagination.hidden = false;
+      updatePagination();
+    }
+
+    function updatePagination() {
+      if (!pagination) return;
+      var dots = pagination.querySelectorAll('.inst-dot');
+      if (!dots.length) {
+        pagination.hidden = true;
+        return;
+      }
+
+      var totalPages = dots.length;
+      if (totalPages <= 1) {
+        pagination.hidden = true;
+        return;
+      }
+
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var currentPage = maxScroll > 0 ? Math.round(track.scrollLeft / getPageStep()) : 0;
+      currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
+
+      dots.forEach(function (dot, index) {
+        var isActive = index === currentPage;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+      pagination.hidden = false;
+    }
+
+    /* Drag to scroll (mobile carousel mode only — a no-op when the
+       grid has no horizontal overflow, i.e. the desktop masonry layout) */
+    var isDragging = false;
+    var startX = 0;
+    var startLeft = 0;
+
+    track.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('a, button')) return;
+      isDragging = true;
+      startX = e.pageX;
+      startLeft = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+      track.scrollLeft = startLeft - (e.pageX - startX);
+    });
+    track.addEventListener('pointerup', function () {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+    track.addEventListener('pointercancel', function () {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    renderPagination();
+    track.addEventListener('scroll', updatePagination, { passive: true });
+    window.addEventListener('resize', renderPagination, { passive: true });
+  }
+
   /* ── Init ─────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -206,6 +348,8 @@
     initPromoBar();
     initVideoBanner();
     initDocenteCards();
+    initGalleryCarousel('gallery-grid', 'gallery-pagination');
+    initGalleryCarousel('curso-gallery-grid', 'curso-gallery-pagination');
   });
 
 }());

@@ -80,7 +80,7 @@
 .curso-testimonials-hint {
   text-align: center;
   font-family: var(--sans);
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--text-light);
   margin-top: 22px;
 }
@@ -201,7 +201,8 @@
   background: var(--dark-2);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  text-align: left;
   padding: 26px 24px;
   overflow-y: auto;
 }
@@ -250,6 +251,22 @@
   }
 }
 
+/* ── Docentes + Testimonios: mismo fondo sin corte de sección ──
+   .cursos (compartida con index.html) pinta un degradado 135deg
+   propio en cada sección; al encadenar dos secciones con esa misma
+   clase, cada una reinicia su degradado y se ve una costura en el
+   límite. Se envuelve a ambas en un contenedor propio de esta
+   página que pinta un único degradado continuo a lo largo de las
+   dos, y se apaga el de cada sección (scopeado por id, sin tocar
+   .cursos ni la sección #cursos de index.html). */
+.docentes-testimonios-wrap {
+  background: linear-gradient(135deg, #461c0c 0%, #5c2511 100%);
+}
+#docentes,
+#testimonios {
+  background: none;
+}
+
 /* ── Cronograma + FAQ: una misma "sábana" de papel continua ────
    Igual que Instrumentos → Maderas en index.html: el papel
    rasgado sólo aparece una vez arriba (entrando a Cronograma
@@ -259,6 +276,12 @@
 #cronograma {
   position: relative;
   background-color: #461c0c; /* fallback si la imagen no cubre pantallas muy anchas */
+  /* #cronograma reutiliza class="cursos" (para el header/acordeón oscuros),
+     pero .cursos trae overflow:hidden — eso recortaba el rasgado superior
+     de ::before (top:-40px) antes de que llegara a superponerse a Incluye.
+     .instrumentos, de donde viene este mismo patrón en index.html, no
+     tiene overflow:hidden, por eso allá funcionaba sin este ajuste. */
+  overflow: visible;
 }
 #cronograma::before {
   content: "";
@@ -371,5 +394,36 @@
 @media (max-width: 560px) {
   .curso-modalidad-images {
     flex-direction: column;
+  }
+}
+
+/* ── Galería (curso): en mobile, la grilla masonry pasa a ser un
+   carrusel de scroll lateral con dots, igual que Biblioteca de
+   Instrumentos. Escopeado por id para no tocar .gallery-grid de
+   index.html (que sigue con su layout de columnas apiladas). ──── */
+@media (max-width: 560px) {
+  #curso-galeria .gallery-grid {
+    display: flex;
+    align-items: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin: 0;
+    padding: 4px 0 6px;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x;
+  }
+  #curso-galeria .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+  #curso-galeria .gallery-grid.is-dragging {
+    cursor: grabbing;
+  }
+  #curso-galeria .gallery-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
 }
