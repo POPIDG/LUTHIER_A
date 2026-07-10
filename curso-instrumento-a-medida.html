@@ -103,7 +103,7 @@
     <section id="curso-hero" class="hero" aria-label="Instrumento a tu Medida">
       <!-- Background image -->
       <div class="hero-bg img-placeholder" id="hero-parallax">
-        <img src="assets/cursos/curso-a/seccion1-fondo-taller.jpg" alt="Foto del taller — luthier trabajando" loading="eager">
+        <img src="assets/cursos/curso-a/seccion1-fondo-taller.png" alt="Foto del taller — luthier trabajando" loading="eager">
       </div>
       <!-- Overlay -->
       <div class="hero-overlay"></div>
@@ -111,8 +111,8 @@
       <!-- Content -->
       <div class="hero-content">
         <span class="eyebrow eyebrow--accent" data-reveal>INSTRUMENTO A TU MEDIDA</span>
-        <h1 class="hero-title" data-reveal>Diseñá la guitarra que siempre imaginaste.</h1>
-        <p class="hero-subtitle" data-reveal>Mucho más que un curso. Una experiencia de creación personalizada donde aprenderás cada etapa del proceso de construcción mientras desarrollás un instrumento único.</p>
+        <h1 class="hero-title" data-reveal>Diseño a tu medida.</h1>
+        <p class="hero-subtitle" data-reveal>Una experiencia de creación personalizada donde construís un instrumento único.</p>
 
         <dl class="contact-details curso-hero-details" data-reveal>
           <div class="contact-row">
@@ -143,13 +143,8 @@
     <section id="modalidad" class="filosofia" aria-label="Modalidad de trabajo">
       <div class="container">
         <div class="filosofia-layout">
-          <div class="curso-modalidad-images" data-reveal>
-            <div class="filosofia-media img-placeholder">
-              <img src="assets/cursos/curso-a/seccion2-taller-1.jpg" alt="Alumno trabajando en el taller" loading="lazy">
-            </div>
-            <div class="filosofia-media img-placeholder">
-              <img src="assets/cursos/curso-a/seccion2-taller-2.jpg" alt="Detalle de herramientas y maderas" loading="lazy">
-            </div>
+          <div class="filosofia-media img-placeholder" data-reveal>
+            <img src="assets/cursos/curso-a/seccion2-taller-2.png" alt="Alumno trabajando en el taller" loading="lazy">
           </div>
 
           <div class="filosofia-copy" data-reveal>
@@ -205,14 +200,13 @@
               <li><span class="check" aria-hidden="true">&#10003;</span>Asesoramiento en selección de maderas.</li>
               <li><span class="check" aria-hidden="true">&#10003;</span>Guías técnicas impresas y digitales.</li>
               <li><span class="check" aria-hidden="true">&#10003;</span>Plantillas y documentación de trabajo.</li>
-              <li><span class="check" aria-hidden="true">&#10003;</span>Seguimiento individual del proyecto.</li>
               <li><span class="check" aria-hidden="true">&#10003;</span>Espacios de consulta en plataforma virtual.</li>
               <li><span class="check" aria-hidden="true">&#10003;</span>Evaluación técnica y sonora final.</li>
             </ul>
           </div>
 
           <div class="filosofia-media img-placeholder" data-reveal>
-            <img src="assets/cursos/curso-a/seccion4-materiales.jpg" alt="Maderas, plantillas y herramientas del curso" loading="lazy">
+            <img src="assets/cursos/curso-a/seccion4-materiales.png" alt="Maderas, plantillas y herramientas del curso" loading="lazy">
           </div>
         </div>
       </div>
@@ -740,6 +734,19 @@
   </footer>
 
   <!-- ============================================================
+       LIGHTBOX — igual que index.html (requerido por js/lightbox.js
+       para ampliar las imágenes de la sección Galería)
+  ============================================================ -->
+  <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Imagen ampliada" hidden>
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Imagen ampliada" class="lightbox-img">
+      <div id="lightbox-placeholder" class="lightbox-placeholder img-placeholder img-placeholder--dark"></div>
+    </div>
+    <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar">&#10005;</button>
+  </div>
+
+  <!-- ============================================================
        WHATSAPP (floating) — sin link todavía
   ============================================================ -->
   <a href="#" class="whatsapp-float" aria-label="Contactar por WhatsApp">
@@ -758,6 +765,7 @@
   ============================================================ -->
   <script src="js/animations.js"></script>
   <script src="js/accordion.js"></script>
+  <script src="js/lightbox.js"></script>
   <script src="js/form.js"></script>
   <script src="js/main.js"></script>
 </body>

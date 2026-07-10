@@ -14,16 +14,22 @@
   text-align: left;
 }
 
-/* ── Modalidad: dos fotos apiladas dentro de la columna ──── */
-.curso-modalidad-images {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  height: 100%;
+/* ── Modalidad: imagen destacada, PNG con transparencia ────────
+   Mismo tratamiento que #incluye .filosofia-media: apaga el fondo
+   a rayas de .img-placeholder y pasa a object-fit:contain (no
+   recorta) para que el fondo real de la sección se vea a través
+   de las partes transparentes del PNG. Proporción real del PNG:
+   1429×1144. También apaga el box-shadow de tarjeta que trae
+   .filosofia-media (compartida), que no tiene sentido sobre una
+   imagen sin fondo. */
+#modalidad .filosofia-media {
+  aspect-ratio: 1429 / 1144;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
 }
-.curso-modalidad-images .filosofia-media {
-  flex: 1;
-  min-height: 220px;
+#modalidad .filosofia-media img {
+  object-fit: contain;
 }
 
 /* ── Banner video (entre Modalidad e Incluye) ──────────────────
@@ -138,11 +144,21 @@
   z-index: 1;
 }
 
-/* Imagen destacada: proporción real de seccion4-materiales.jpg,
-   la alineación vertical ya la resuelve .filosofia-layout
-   (align-items: center), compartida y sin tocar. */
+/* Imagen destacada: seccion4-materiales.png es un PNG con transparencia.
+   .img-placeholder (compartida) trae un patrón de rayas de fondo para
+   mientras carga la imagen — acá se apaga para que se vea el fondo real
+   de la sección a través de las partes transparentes del PNG. object-fit
+   pasa de cover (recorta) a contain (no recorta, no oculta transparencia).
+   Proporción real del PNG: 1629×1226. La alineación vertical ya la
+   resuelve .filosofia-layout (align-items: center), compartida y sin
+   tocar. */
 #incluye .filosofia-media {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 1629 / 1226;
+  background-image: none;
+  background-color: transparent;
+}
+#incluye .filosofia-media img {
+  object-fit: contain;
 }
 
 /* ── Docentes: grilla de 3 flip-cards ───────────────────────────
@@ -207,12 +223,18 @@
   overflow-y: auto;
 }
 
+/* Líneas divisorias entre nombre / especialización / música / texto,
+   mismo tratamiento que #incluye .course-includes li (border-bottom
+   rgba(255,255,255,.16)) — acá entre elementos, no después del último
+   (la bio no lleva línea final). */
 .docente-back-name {
   font-family: var(--serif);
   font-weight: 400;
   font-size: 21px;
   color: #fff;
   margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
 }
 .docente-back-field {
   font-family: var(--sans);
@@ -220,6 +242,8 @@
   line-height: 1.5;
   color: var(--text-light);
   margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
 }
 .docente-back-field b {
   display: block;
@@ -383,18 +407,6 @@
 }
 .faq-panel[hidden] {
   display: none;
-}
-
-@media (max-width: 820px) {
-  .curso-modalidad-images {
-    flex-direction: row;
-  }
-}
-
-@media (max-width: 560px) {
-  .curso-modalidad-images {
-    flex-direction: column;
-  }
 }
 
 /* ── Galería (curso): en mobile, la grilla masonry pasa a ser un

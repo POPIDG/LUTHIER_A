@@ -493,7 +493,7 @@ ul { list-style: none; }
   font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.75;
   color: #EEE9DF;
-  margin: 0 0 38px;
+  margin: 0 0 30px;
   max-width: 560px;
 }
 
