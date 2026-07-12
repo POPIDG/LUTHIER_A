@@ -344,14 +344,62 @@
 
     /* Instrument data for ficha panel */
     var instruments = {
-      'guitarra-clasica':  { name: 'Guitarra Clásica' },
-      'guitarra-acustica': { name: 'Guitarra Acústica' },
-      'guitarra-electrica':{ name: 'Guitarra Eléctrica' },
-      'bajo':              { name: 'Bajo' },
-      'ukelele':           { name: 'Ukelele' },
-      'chelo':             { name: 'Chelo' },
-      'violin':            { name: 'Violín' },
-      'piano-cola':        { name: 'Piano de cola' }
+      'guitarra-clasica': {
+        name: 'Guitarra Clásica',
+        construccion: 'Caja de resonancia hueca, cuerdas de nylon',
+        maderas: 'Cedro o abeto (tapa), palosanto o caoba (aros y fondo)',
+        tiempo: '8 a 10 semanas',
+        complejidad: 'Alta'
+      },
+      'guitarra-acustica': {
+        name: 'Guitarra Acústica',
+        construccion: 'Caja de resonancia hueca, cuerdas de acero',
+        maderas: 'Abeto o cedro (tapa), caoba o palosanto (aros y fondo)',
+        tiempo: '9 a 12 semanas',
+        complejidad: 'Alta'
+      },
+      'guitarra-electrica': {
+        name: 'Guitarra Eléctrica',
+        construccion: 'Cuerpo sólido o semihueco',
+        maderas: 'Aliso, fresno o caoba (cuerpo), arce o palosanto (mástil y diapasón)',
+        tiempo: '6 a 8 semanas',
+        complejidad: 'Media'
+      },
+      'bajo': {
+        name: 'Bajo',
+        construccion: 'Cuerpo sólido, 4 o 5 cuerdas',
+        maderas: 'Fresno o aliso (cuerpo), arce (mástil)',
+        tiempo: '7 a 9 semanas',
+        complejidad: 'Media'
+      },
+      'ukelele': {
+        name: 'Ukelele',
+        construccion: 'Caja de resonancia hueca, cuerdas de nylon',
+        maderas: 'Koa, caoba o cedro',
+        tiempo: '4 a 6 semanas',
+        complejidad: 'Baja'
+      },
+      'chelo': {
+        name: 'Chelo',
+        construccion: 'Caja de resonancia curva, cuerdas frotadas con arco',
+        maderas: 'Abeto (tapa), arce (aros, fondo y mástil)',
+        tiempo: '4 a 6 meses',
+        complejidad: 'Muy alta'
+      },
+      'violin': {
+        name: 'Violín',
+        construccion: 'Caja de resonancia curva, cuerdas frotadas con arco',
+        maderas: 'Abeto (tapa), arce (aros, fondo y mástil)',
+        tiempo: '6 a 8 semanas',
+        complejidad: 'Muy alta'
+      },
+      'piano-cola': {
+        name: 'Piano de cola',
+        construccion: 'Estructura de cuerdas percutidas horizontales',
+        maderas: 'Abeto (tabla armónica), arce y roble (estructura)',
+        tiempo: '8 a 12 meses',
+        complejidad: 'Muy alta'
+      }
     };
 
     var activeId = null;
@@ -454,11 +502,10 @@
             '<span class="ficha-label">Ficha técnica</span>' +
             '<h3 class="ficha-title">' + data.name + '</h3>' +
             '<dl class="ficha-fields">' +
-              '<div class="ficha-row"><dt>Historia</dt><dd>a completar</dd></div>' +
-              '<div class="ficha-row"><dt>Tipo de construcción</dt><dd>a completar</dd></div>' +
-              '<div class="ficha-row"><dt>Maderas utilizadas</dt><dd>a completar</dd></div>' +
-              '<div class="ficha-row"><dt>Tiempo estimado de fabricación</dt><dd>a completar</dd></div>' +
-              '<div class="ficha-row"><dt>Nivel de complejidad</dt><dd>a completar</dd></div>' +
+              '<div class="ficha-row"><dt>Tipo de construcción</dt><dd>' + data.construccion + '</dd></div>' +
+              '<div class="ficha-row"><dt>Maderas utilizadas</dt><dd>' + data.maderas + '</dd></div>' +
+              '<div class="ficha-row"><dt>Tiempo estimado de fabricación</dt><dd>' + data.tiempo + '</dd></div>' +
+              '<div class="ficha-row"><dt>Nivel de complejidad</dt><dd>' + data.complejidad + '</dd></div>' +
             '</dl>' +
           '</div>' +
         '</div>';

@@ -82,9 +82,9 @@
 .testimonio-bg-3 { background-image: url("../assets/cursos/curso-a/testimonios/testimonios-3.png"); }
 .curso-testimonial-quote {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 14.5px;
-  line-height: 1.7;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.65;
   color: var(--text-2);
   margin: 12px 0 16px;
 }
@@ -250,7 +250,7 @@
   font-family: var(--sans);
   font-size: 13px;
   line-height: 1.5;
-  color: var(--text-light);
+  color: #fff;
   margin: 0 0 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, .16);
@@ -270,7 +270,7 @@
   font-weight: 300;
   font-size: 13px;
   line-height: 1.65;
-  color: var(--text-light);
+  color: #fff;
   margin: 4px 0 0;
 }
 

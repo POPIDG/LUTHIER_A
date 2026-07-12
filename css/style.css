@@ -542,7 +542,7 @@ ul { list-style: none; }
 
 .hero-subtitle {
   font-family: var(--sans);
-  font-weight: 400;
+  font-weight: 550;
   font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.75;
   color: #EEE9DF;
@@ -693,7 +693,7 @@ ul { list-style: none; }
   font-size: clamp(36px, 5vw, 75px);
   line-height: 1.05;
   letter-spacing: -.02em;
-  color: #F4F0E8;
+  color: #EEE9DF;
   text-align: center;
   max-width: 760px;
   margin: 0 auto;
@@ -711,7 +711,7 @@ ul { list-style: none; }
 .servicios {
   position: relative;
   background: linear-gradient(135deg, #461c0c 0%, #5e2410 100%);
-  color: #f4f0e8;
+  color: #ffffff;
   padding: var(--pad-y) 50px;
 }
 
@@ -722,11 +722,11 @@ ul { list-style: none; }
 }
 
 .servicios .section-title {
-  color: #f4f0e8;
+  color: #EEE9DF;
 }
 
 .servicios .section-text {
-  color: #e6d8c8;
+  color: #EEE9DF;
 }
 
 .services-grid {
@@ -766,7 +766,7 @@ ul { list-style: none; }
   font-weight: 400;
   font-size: 24px;
   margin: 18px 0 12px;
-  color: #f4f0e8;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -775,7 +775,7 @@ ul { list-style: none; }
   font-weight: 300;
   font-size: 15px;
   line-height: 1.7;
-  color: #eadfd2;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -805,12 +805,12 @@ ul { list-style: none; }
 }
 
 .cursos .section-header h2 {
-  color: #ffffff;
+  color: #EEE9DF;
   text-align: center;
 }
 
 .cursos .section-header p {
-  color: #e6d8c8;
+  color: #EEE9DF;
   text-align: center;
 }
 
@@ -931,8 +931,8 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   flex: 1;
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: flex-start;
 }
 
 .course-stars {
@@ -949,17 +949,7 @@ ul { list-style: none; }
   line-height: 1.12;
   margin: 0 0 8px;
   color: var(--dark);
-  text-align: center;
-}
-
-.course-desc {
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--text-3);
-  margin: 0 0 12px;
-  text-align: center;
+  text-align: left;
 }
 
 .course-includes {
@@ -987,12 +977,12 @@ ul { list-style: none; }
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .price-placeholder {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 30px;
   letter-spacing: .06em;
   color: var(--dark);
   /*border: 2px dashed rgba(129, 63, 43, 0.28);*/
@@ -1281,7 +1271,7 @@ ul { list-style: none; }
   font-weight: 400;
   font-size: clamp(30px, 3.6vw, 46px);
   margin: 0 0 28px;
-  color: #F4F0E8;
+  color: #FFFFFF;
 }
 
 .ficha-fields {
@@ -1300,7 +1290,7 @@ ul { list-style: none; }
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .02em;
-  color: var(--text-light);
+  color: #FFFFFF;
 }
 .ficha-row dd {
   font-family: ui-monospace, monospace;
@@ -1308,6 +1298,7 @@ ul { list-style: none; }
   letter-spacing: .04em;
   color: #FFFFFF;
   margin: 0;
+  text-align: right;
 }
 
 /* ============================================================
@@ -1441,8 +1432,8 @@ ul { list-style: none; }
   bottom: 20px;
   z-index: 2;
   max-width: 320px;
-  background: #c76d4423;
-  backdrop-filter: blur(10px);
+  background: #461c0c6b;
+  backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(8px);
   padding: 20px 22px;
 }
@@ -1612,11 +1603,11 @@ ul { list-style: none; }
 }
 
 .galeria .section-title {
-  color: #f4f0e8;
+  color: #EEE9DF;
 }
 
 .galeria .section-text {
-  color: #e6d8c8;
+  color: #EEE9DF;
 }
 
 .gallery-grid {
@@ -1687,6 +1678,10 @@ ul { list-style: none; }
   text-align: center;
 }
 
+.contacto .section-title--light {
+  color: #EEE9DF;
+}
+
 .contact-grid {
   display: flex;
   flex-direction: column;
@@ -1732,7 +1727,7 @@ ul { list-style: none; }
 }
 .contact-row dd {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: .04em;
   color: #ffffff;
   margin: 0;
