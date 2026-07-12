@@ -251,6 +251,59 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   PAGE LOADER
+============================================================ */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(70, 28, 12);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.page-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.page-loader-logo {
+  position: relative;
+  width: min(280px, 55vw);
+}
+.page-loader-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+.page-loader-progress {
+  width: min(280px, 55vw);
+  height: 3px;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.page-loader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--primary);
+  animation: page-loader-progress 3s linear forwards;
+}
+@keyframes page-loader-progress {
+  to { width: 100%; }
+}
+
+/* ============================================================
    PROMO BAR (hide on scroll)
 ============================================================ */
 .promo-bar {
@@ -587,6 +640,22 @@ ul { list-style: none; }
   box-shadow: 0 24px 50px rgba(27, 38, 50, .16);
 }
 
+/* ── Filosofia: imagen destacada, PNG con transparencia ────────
+   Mismo tratamiento que #modalidad/#incluye .filosofia-media en
+   curso-detalle.css: apaga el fondo a rayas de .img-placeholder y
+   pasa a object-fit:contain (no recorta) para que el fondo real de
+   la sección se vea a través de las partes transparentes del PNG.
+   Proporción real de hero-filosofia.png: 1521×1204. */
+#filosofia .filosofia-media {
+  aspect-ratio: 1521 / 1204;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+#filosofia .filosofia-media img {
+  object-fit: contain;
+}
+
 .filosofia-banner {
   position: relative;
   overflow: hidden;
@@ -848,11 +917,11 @@ ul { list-style: none; }
   left: 16px;
   z-index: 2;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 13.2px;
   font-weight: 600;
   letter-spacing: .12em;
-  padding: 7px 14px;
-  border-radius: 30px;
+  padding: 8.4px 16.8px;
+  border-radius: 36px;
 }
 .badge--primary { background: var(--primary); color: #fff; }
 .badge--secondary { background: var(--accent); color: var(--dark); }

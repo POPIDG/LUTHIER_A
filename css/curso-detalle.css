@@ -66,10 +66,20 @@
 }
 .curso-testimonial-card {
   flex: 0 0 320px;
-  background: var(--card-bg);
+  aspect-ratio: 570 / 433; /* proporción real de los PNG de assets/cursos/curso-a/testimonios */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
   border-radius: 2px;
   padding: 28px 26px;
 }
+/* PNG irregulares (papel rasgado): sin recorte y sin relleno propio,
+   para que el degradado oscuro de la sección se vea a través de los
+   bordes transparentes. Se alternan las 3 imágenes entre tarjetas. */
+.testimonio-bg-1 { background-image: url("../assets/cursos/curso-a/testimonios/testimonios-1.png"); }
+.testimonio-bg-2 { background-image: url("../assets/cursos/curso-a/testimonios/testimonios-2.png"); }
+.testimonio-bg-3 { background-image: url("../assets/cursos/curso-a/testimonios/testimonios-3.png"); }
 .curso-testimonial-quote {
   font-family: var(--sans);
   font-weight: 300;

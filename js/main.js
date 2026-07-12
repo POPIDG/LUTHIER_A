@@ -9,6 +9,29 @@
 
   var NAV_HEIGHT = 72;
 
+  /* ── Page loader ──────────────────────────────────────────── */
+
+  function initPageLoader() {
+    var loader = document.getElementById('page-loader');
+    if (!loader) return;
+
+    var MIN_VISIBLE = 3000;
+    var start = Date.now();
+
+    function hideLoader() {
+      var wait = Math.max(MIN_VISIBLE - (Date.now() - start), 0);
+      setTimeout(function () {
+        loader.classList.add('is-hidden');
+      }, wait);
+    }
+
+    if (document.readyState === 'complete') {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader);
+    }
+  }
+
   /* ── Smooth scroll for all anchor links ─────────────────── */
 
   function initSmoothScroll() {
@@ -341,6 +364,7 @@
   /* ── Init ─────────────────────────────────────────────────── */
 
   document.addEventListener('DOMContentLoaded', function () {
+    initPageLoader();
     initSmoothScroll();
     initMobileMenu();
     initBackToTop();
