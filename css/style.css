@@ -14,11 +14,11 @@
   --accent:    #FFB162; 
   --card-bg:   #F6F2EA;
   --text:      #161616;
-  --text-2:    #56616e;
+  --text-2:    #161616;
   --text-3:    #161616;
-  --text-muted:#8a8275;
-  --text-light:#c4ccd4;
-  --text-pale: #cdd4dc;
+  --text-muted:#EEE9DF;
+  --text-light:#EEE9DF;
+  --text-pale: #ffffff;
   --border-light: rgba(27,38,50,.08);
   --border-white: rgba(255,255,255,.1);
   --serif: "Bricolage Grotesque", sans-serif;
@@ -152,7 +152,7 @@ ul { list-style: none; }
   color: var(--dark);
   margin: 0 0 20px;
 }
-.section-title--light { color: #F4F0E8; }
+.section-title--light { color: #ffffff; }
 
 .section-text {
   font-family: var(--sans);
@@ -690,7 +690,7 @@ ul { list-style: none; }
 .banner-title {
   font-family: var(--heading-font);
   font-weight: 400;
-  font-size: clamp(36px, 5vw, 68px);
+  font-size: clamp(36px, 5vw, 75px);
   line-height: 1.05;
   letter-spacing: -.02em;
   color: #F4F0E8;
@@ -773,7 +773,7 @@ ul { list-style: none; }
 .service-text {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: #eadfd2;
   text-align: center;
@@ -1306,7 +1306,7 @@ ul { list-style: none; }
   font-family: ui-monospace, monospace;
   font-size: 11.5px;
   letter-spacing: .04em;
-  color: #7d8896;
+  color: #FFFFFF;
   margin: 0;
 }
 

@@ -285,20 +285,32 @@
   }
 }
 
-/* ── Docentes + Testimonios: mismo fondo sin corte de sección ──
-   .cursos (compartida con index.html) pinta un degradado 135deg
-   propio en cada sección; al encadenar dos secciones con esa misma
-   clase, cada una reinicia su degradado y se ve una costura en el
-   límite. Se envuelve a ambas en un contenedor propio de esta
-   página que pinta un único degradado continuo a lo largo de las
-   dos, y se apaga el de cada sección (scopeado por id, sin tocar
-   .cursos ni la sección #cursos de index.html). */
-.docentes-testimonios-wrap {
+/* ── Docentes + Testimonios + Galería: mismo fondo sin corte ───
+   .cursos y .galeria (compartidas con index.html) pintan el mismo
+   degradado 135deg pero cada una lo reinicia en su propia sección;
+   al encadenar las tres se ve una costura en cada límite. Se
+   envuelven las tres en un contenedor propio de esta página que
+   pinta un único degradado continuo a lo largo de todas, y se apaga
+   el de cada sección (scopeado por id, sin tocar .cursos/.galeria
+   ni las secciones equivalentes de index.html). */
+.docentes-testimonios-galeria-wrap {
   background: linear-gradient(135deg, #461c0c 0%, #5c2511 100%);
 }
 #docentes,
-#testimonios {
+#testimonios,
+#curso-galeria {
   background: none;
+}
+
+/* ── Galería: mismo eyebrow que Docentes/Testimonios ───────────
+   .cursos .section-header .eyebrow (style.css) pinta el eyebrow en
+   #ffb162, en bloque; .galeria no tiene esa regla y usa el color
+   por defecto de .eyebrow--primary. Se replica acá, scopeada por id
+   para no tocar la sección Galería de index.html. */
+#curso-galeria .section-header .eyebrow {
+  display: block;
+  color: #ffb162;
+  margin-bottom: 20px;
 }
 
 /* ── Cronograma + FAQ: una misma "sábana" de papel continua ────
