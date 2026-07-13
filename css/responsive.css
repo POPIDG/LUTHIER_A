@@ -73,6 +73,11 @@
     grid-template-columns: 1fr;
   }
 
+  /* Contact form: 2 columns → 1 column */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   /* Gallery: masonry columns → horizontal scroll carousel with dots,
      same pattern as the Biblioteca de Instrumentos carousel (see
      .inst-track / .inst-pagination / .inst-dot in style.css and

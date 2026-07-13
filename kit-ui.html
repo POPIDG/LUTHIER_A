@@ -36,21 +36,18 @@
         <div class="swatch"><div class="swatch-color" style="background:var(--bg-alt)"></div><div class="swatch-info"><span class="swatch-name">--bg-alt</span><span class="swatch-value">#C9C1B1</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--dark)"></div><div class="swatch-info"><span class="swatch-name">--dark</span><span class="swatch-value">#161616</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--dark-2)"></div><div class="swatch-info"><span class="swatch-name">--dark-2</span><span class="swatch-value">#161616</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:var(--dark-3)"></div><div class="swatch-info"><span class="swatch-name">--dark-3</span><span class="swatch-value">#161616</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--primary)"></div><div class="swatch-info"><span class="swatch-name">--primary</span><span class="swatch-value">#c76d44</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--accent)"></div><div class="swatch-info"><span class="swatch-name">--accent</span><span class="swatch-value">#FFB162</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--card-bg)"></div><div class="swatch-info"><span class="swatch-name">--card-bg</span><span class="swatch-value">#F6F2EA</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--text)"></div><div class="swatch-info"><span class="swatch-name">--text</span><span class="swatch-value">#161616</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--text-2)"></div><div class="swatch-info"><span class="swatch-name">--text-2</span><span class="swatch-value">#161616</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--text-3)"></div><div class="swatch-info"><span class="swatch-name">--text-3</span><span class="swatch-value">#161616</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:var(--text-muted)"></div><div class="swatch-info"><span class="swatch-name">--text-muted</span><span class="swatch-value">#EEE9DF</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--text-light)"></div><div class="swatch-info"><span class="swatch-name">--text-light</span><span class="swatch-value">#EEE9DF</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:var(--text-pale)"></div><div class="swatch-info"><span class="swatch-name">--text-pale</span><span class="swatch-value">#ffffff</span></div></div>
         <div class="swatch"><div class="swatch-color" style="background:var(--dark); position:relative;"><div style="position:absolute; inset:0; background:var(--border-light);"></div></div><div class="swatch-info"><span class="swatch-name">--border-light</span><span class="swatch-value">rgba(27,38,50,.08)</span></div></div>
-        <div class="swatch"><div class="swatch-color" style="background:var(--dark); position:relative;"><div style="position:absolute; inset:0; background:var(--border-white);"></div></div><div class="swatch-info"><span class="swatch-name">--border-white</span><span class="swatch-value">rgba(255,255,255,.1)</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#461c0c"></div><div class="swatch-info"><span class="swatch-name">Fondo Contacto</span><span class="swatch-value">#461c0c</span></div></div>
       </div>
 
-      <p class="kit-note">Variables definidas en css/style.css :root. Actualizacion reciente: --dark/--dark-2/--dark-3 y --text/--text-2/--text-3 convergieron al mismo valor (#161616); --text-muted y --text-light tambien comparten valor (#EEE9DF) tras unificar el color de section-title/section-text en Servicios, Cursos, Galeria, Banner y Contacto.</p>
+      <p class="kit-note">Variables definidas en css/style.css :root. --dark/--dark-2 y --text/--text-2/--text-3 convergieron al mismo valor (#161616); --text-light se usa como color de texto claro sobre fondo oscuro. Se quitaron --dark-3, --text-muted, --text-pale y --border-white: están declaradas en :root pero ningún componente del sitio las usa. "Fondo Contacto" no es una variable: es el color sólido (#461c0c) codeado directo en .contacto, y también la base del degradado de Servicios/Cursos/Galería/Docentes.</p>
     </section>
 
     <!-- =================== TIPOGRAFÍA =================== -->
@@ -148,14 +145,7 @@
         </div>
       </div>
 
-      <span class="kit-type-label" style="display:block; margin-top:32px;">Radios de borde</span>
-      <div class="kit-radius-grid">
-        <div class="kit-radius-box" style="border-radius:var(--r)"><span>--r</span><span>12px</span></div>
-        <div class="kit-radius-box" style="border-radius:var(--rl)"><span>--rl</span><span>18px</span></div>
-        <div class="kit-radius-box" style="border-radius:var(--rxl)"><span>--rxl</span><span>22px</span></div>
-      </div>
-
-      <p class="kit-note">--r se usa hoy solo en el layout de esta guía (swatches, kit-demo-row, kit-code); --rl y --rxl están definidas en :root pero todavía no se usan en ningún componente del sitio. Las cards reales (course-card, service-card, curso-testimonial-card) usan border-radius: 2px fijo, sin variable.</p>
+      <p class="kit-note">--r, --rl y --rxl están definidas en :root pero ningún componente del sitio las usa (se quitaron de esta guía por eso). Las cards reales (course-card, service-card, curso-testimonial-card) usan border-radius: 2px fijo, sin variable.</p>
     </section>
 
     <!-- =================== CARDS =================== -->
@@ -235,6 +225,96 @@
 &lt;/dl&gt;
 &lt;!-- .ficha-row dd ahora usa text-align: right, para que un dato
      largo no deforme la caja de la ficha --&gt;</code>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:space-between;">
+          <div class="docente-card" id="kit-docente-demo" style="max-width:220px;">
+            <div class="docente-card-inner">
+              <div class="docente-card-front">
+                <div class="inst-img img-placeholder img-placeholder--dark" style="aspect-ratio:1/1;">
+                  <img src="assets/docentes/tomas-herrera.png" alt="Tomás Herrera" loading="lazy">
+                </div>
+                <div class="inst-footer">
+                  <span class="inst-name">Tomás Herrera</span>
+                </div>
+              </div>
+              <div class="docente-card-back">
+                <h3 class="docente-back-name">Tomás Herrera</h3>
+                <p class="docente-back-field"><b>Especialización</b>Luthería y construcción de violines.</p>
+                <p class="docente-back-bio">Violinista y luthier con más de quince años de experiencia en restauración y construcción artesanal.</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="kit-replay-btn" onclick="document.getElementById('kit-docente-demo').classList.toggle('is-flipped');">Voltear</button>
+        </div>
+        <code class="kit-code">&lt;div class="docente-card"&gt;
+  &lt;div class="docente-card-inner"&gt;
+    &lt;div class="docente-card-front"&gt;
+      &lt;div class="inst-img img-placeholder img-placeholder--dark"&gt;&lt;img ...&gt;&lt;/div&gt;
+      &lt;div class="inst-footer"&gt;&lt;span class="inst-name"&gt;...&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="docente-card-back"&gt;
+      &lt;h3 class="docente-back-name"&gt;...&lt;/h3&gt;
+      &lt;p class="docente-back-field"&gt;&lt;b&gt;Especialización&lt;/b&gt;...&lt;/p&gt;
+      &lt;p class="docente-back-bio"&gt;...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        <p class="kit-note">Frente: reutiliza .inst-img/.inst-footer/.inst-name tal cual (Biblioteca de Instrumentos), sin tocar su CSS. El flip 3D es propio (.docente-card-inner con perspective + rotateY) y se dispara por click/tap agregando la clase .is-flipped (js/main.js), no por :hover. Usado en la sección Docentes de curso-instrumento-a-medida.html.</p>
+      </div>
+    </section>
+
+    <!-- =================== FORMULARIOS =================== -->
+    <section class="kit-section" id="formularios">
+      <h2>Formularios</h2>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row" style="background:#461c0c; display:block;">
+          <form class="contact-form is-open" novalidate style="animation:none;">
+            <div class="form-row">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="kit-nombre">Nombre</label>
+                  <input type="text" id="kit-nombre" placeholder="Tu nombre">
+                  <span class="form-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="kit-apellido">Apellido</label>
+                  <input type="text" id="kit-apellido" placeholder="Tu apellido">
+                  <span class="form-error"></span>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="kit-email">Email</label>
+                  <input type="email" id="kit-email" placeholder="tu@email.com">
+                  <span class="form-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="kit-telefono">Teléfono</label>
+                  <input type="tel" id="kit-telefono" placeholder="+54 ...">
+                  <span class="form-error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="kit-mensaje">Mensaje</label>
+              <textarea id="kit-mensaje" rows="3" placeholder="Contanos sobre tu proyecto"></textarea>
+              <span class="form-error"></span>
+            </div>
+            <button type="button" class="btn btn--primary btn--full">Enviar</button>
+          </form>
+        </div>
+        <code class="kit-code">&lt;form class="contact-form"&gt;
+  &lt;div class="form-row"&gt;
+    &lt;div class="form-col"&gt;&lt;!-- Nombre, Apellido --&gt;&lt;/div&gt;
+    &lt;div class="form-col"&gt;&lt;!-- Email, Teléfono --&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;&lt;!-- Mensaje, ancho completo --&gt;&lt;/div&gt;
+  &lt;button class="btn btn--primary btn--full"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code>
+        <p class="kit-note">Fondo real detrás del formulario (sección Contacto): <strong>#461c0c</strong> (color sólido, sin variable). El panel del formulario usa background: #3013089c y border: 1px solid #38170af6. .form-row divide Nombre/Apellido y Email/Teléfono en 2 columnas (grid); en mobile (max-width: 560px) vuelve a 1 columna. Oculto por defecto (display:none) hasta agregar .is-open, al hacer click en "Reservar una Entrevista" (js/form.js).</p>
       </div>
     </section>
 

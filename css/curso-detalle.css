@@ -141,7 +141,7 @@
 #incluye .course-includes li {
   position: relative;
   padding: 14px 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  border-bottom: 2px solid rgba(255, 255, 255, .16);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -244,7 +244,7 @@
   color: #fff;
   margin: 0 0 16px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  border-bottom: 2px solid rgba(255, 255, 255, .16);
 }
 .docente-back-field {
   font-family: var(--sans);
@@ -253,7 +253,7 @@
   color: #fff;
   margin: 0 0 12px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  border-bottom: 2px solid rgba(255, 255, 255, .16);
 }
 .docente-back-field b {
   display: block;

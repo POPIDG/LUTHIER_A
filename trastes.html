@@ -150,7 +150,7 @@
     <section id="servicios" class="servicios" aria-label="Servicios del Taller">
       <div class="container">
         <div class="section-header" data-reveal>
-          <span class="eyebrow eyebrow--primary">Servicios del Taller</span>
+          <span class="eyebrow eyebrow--accent">Servicios del Taller</span>
           <h2 class="section-title">Soluciones profesionales para cada instrumento</h2>
         </div>
 
@@ -248,7 +248,7 @@
     <section id="cursos" class="cursos" aria-label="Academia de Luthería">
       <div class="container">
         <div class="section-header" data-reveal>
-          <span class="eyebrow eyebrow--primary">Academia de Luthería</span>
+          <span class="eyebrow eyebrow--accent">Academia de Luthería</span>
           <h2 class="section-title">Aprendé el oficio de la mano de un luthier profesional.</h2>
           <p class="section-text">Nuestros programas están orientados a aficionados, músicos y futuros luthiers que buscan comprender el oficio mediante una experiencia práctica y personalizada.</p>
         </div>
@@ -633,8 +633,8 @@
     <section id="galeria" class="galeria" aria-label="Galería">
       <div class="container">
         <div class="section-header" data-reveal>
-          <span class="eyebrow eyebrow--primary">Galería</span>
-          <h2 class="section-title">Cada instrumento cuenta una historia.</h2>
+          <span class="eyebrow eyebrow--accent">Galería</span>
+          <h2 class="section-title">Cada instrumento, una historia.</h2>
           <p class="section-text">Una selección de imágenes que muestran el proceso artesanal y el resultado final de cada proyecto.</p>
         </div>
 
@@ -763,27 +763,33 @@
 
           <!-- Right column: form -->
           <form id="contact-form" class="contact-form" novalidate data-reveal>
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
-              <span class="form-error" id="error-nombre" role="alert"></span>
+            <div class="form-row">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
+                  <span class="form-error" id="error-nombre" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
+                  <span class="form-error" id="error-apellido" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
+                  <span class="form-error" id="error-email" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
+                  <span class="form-error" id="error-telefono" role="alert"></span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="apellido">Apellido</label>
-              <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
-              <span class="form-error" id="error-apellido" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
-              <span class="form-error" id="error-email" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
-              <span class="form-error" id="error-telefono" role="alert"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group form-group--message">
               <label for="mensaje">Mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos sobre tu proyecto"></textarea>
               <span class="form-error" id="error-mensaje" role="alert"></span>
@@ -827,7 +833,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 Luthería &middot; Taller de construcción artesanal. Todos los derechos reservados.</p>
+        <p class="footer-copy">&copy; 2026 Luthería &middot; Taller de construcción artesanal. Todos los derechos reservados. DG Sofia Burna</p>
         <a href="kit-ui.html" class="back-top-link">Kit UI</a>
         <button id="footer-top-btn" class="back-top-link" aria-label="Volver al inicio">Volver arriba &#8593;</button>
       </div>

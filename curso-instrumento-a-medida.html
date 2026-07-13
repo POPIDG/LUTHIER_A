@@ -27,7 +27,7 @@
   <!-- ============================================================
        PROMO BAR (hide on scroll)
   ============================================================ -->
-  <a href="index.html#cursos" id="promo-bar" class="promo-bar">Aprovecha el 20% OFF y 6 cuotas sin interés en nuestros CURSOS hasta el 17/07</a>
+  <a href="trastes.html#cursos" id="promo-bar" class="promo-bar">Aprovecha el 20% OFF y 6 cuotas sin interés en nuestros CURSOS hasta el 17/07</a>
 
   <!-- ============================================================
        NAVBAR (sticky) — igual que index.html
@@ -36,20 +36,20 @@
     <div class="navbar-inner">
 
       <!-- Logo -->
-      <a href="index.html" class="navbar-logo" aria-label="Luthería — Inicio">
+      <a href="trastes.html" class="navbar-logo" aria-label="Luthería — Inicio">
         <div class="logo-badge"> <img src="./assets/logo/TRASTES.png"> </div>
       </a>
 
       <!-- Nav links (desktop) -->
       <nav id="nav-links" aria-label="Navegación principal">
-        <a href="index.html#inicio"       class="nav-link">Inicio</a>
-        <a href="index.html#filosofia"    class="nav-link">Filosofía</a>
-        <a href="index.html#servicios"    class="nav-link">Servicios</a>
-        <a href="index.html#cursos"       class="nav-link">Cursos</a>
-        <a href="index.html#instrumentos" class="nav-link">Instrumentos</a>
-        <a href="index.html#maderas"      class="nav-link">Maderas</a>
-        <a href="index.html#galeria"      class="nav-link">Galería</a>
-        <a href="index.html#contacto"     class="nav-link">Contacto</a>
+        <a href="trastes.html#inicio"       class="nav-link">Inicio</a>
+        <a href="trastes.html#filosofia"    class="nav-link">Filosofía</a>
+        <a href="trastes.html#servicios"    class="nav-link">Servicios</a>
+        <a href="trastes.html#cursos"       class="nav-link">Cursos</a>
+        <a href="trastes.html#instrumentos" class="nav-link">Instrumentos</a>
+        <a href="trastes.html#maderas"      class="nav-link">Maderas</a>
+        <a href="trastes.html#galeria"      class="nav-link">Galería</a>
+        <a href="trastes.html#contacto"     class="nav-link">Contacto</a>
       </nav>
 
       <!-- Icons + hamburger -->
@@ -84,14 +84,14 @@
   ============================================================ -->
   <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
   <nav id="mobile-menu" class="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
-    <a href="index.html#inicio"       class="mobile-nav-link">Inicio</a>
-    <a href="index.html#filosofia"    class="mobile-nav-link">Filosofía</a>
-    <a href="index.html#servicios"    class="mobile-nav-link">Servicios</a>
-    <a href="index.html#cursos"       class="mobile-nav-link">Cursos</a>
-    <a href="index.html#instrumentos" class="mobile-nav-link">Instrumentos</a>
-    <a href="index.html#maderas"      class="mobile-nav-link">Maderas</a>
-    <a href="index.html#galeria"      class="mobile-nav-link">Galería</a>
-    <a href="index.html#contacto"     class="mobile-nav-link">Contacto</a>
+    <a href="trastes.html#inicio"       class="mobile-nav-link">Inicio</a>
+    <a href="trastes.html#filosofia"    class="mobile-nav-link">Filosofía</a>
+    <a href="trastes.html#servicios"    class="mobile-nav-link">Servicios</a>
+    <a href="trastes.html#cursos"       class="mobile-nav-link">Cursos</a>
+    <a href="trastes.html#instrumentos" class="mobile-nav-link">Instrumentos</a>
+    <a href="trastes.html#maderas"      class="mobile-nav-link">Maderas</a>
+    <a href="trastes.html#galeria"      class="mobile-nav-link">Galería</a>
+    <a href="trastes.html#contacto"     class="mobile-nav-link">Contacto</a>
   </nav>
 
   <!-- ============================================================
@@ -666,27 +666,33 @@
           </div>
 
           <form id="contact-form" class="contact-form" novalidate data-reveal>
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
-              <span class="form-error" id="error-nombre" role="alert"></span>
+            <div class="form-row">
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
+                  <span class="form-error" id="error-nombre" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
+                  <span class="form-error" id="error-apellido" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
+                  <span class="form-error" id="error-email" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
+                  <span class="form-error" id="error-telefono" role="alert"></span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="apellido">Apellido</label>
-              <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
-              <span class="form-error" id="error-apellido" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email">
-              <span class="form-error" id="error-email" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="+54 ..." autocomplete="tel">
-              <span class="form-error" id="error-telefono" role="alert"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group form-group--message">
               <label for="mensaje">Mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos qué instrumento imaginás..."></textarea>
               <span class="form-error" id="error-mensaje" role="alert"></span>
@@ -706,19 +712,19 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-top">
-       <a href="index.html" class="navbar-logo" aria-label="Luthería — Inicio">
+       <a href="trastes.html" class="navbar-logo" aria-label="Luthería — Inicio">
         <div class="logo-badge"> <img src="./assets/logo/TRASTES.png"> </div>
        </a>
 
         <nav class="footer-nav" aria-label="Navegación del pie de página">
-          <a href="index.html#inicio"       class="footer-link">Inicio</a>
-          <a href="index.html#filosofia"    class="footer-link">Filosofía</a>
-          <a href="index.html#servicios"    class="footer-link">Servicios</a>
-          <a href="index.html#cursos"       class="footer-link">Cursos</a>
-          <a href="index.html#instrumentos" class="footer-link">Instrumentos</a>
-          <a href="index.html#maderas"      class="footer-link">Maderas</a>
-          <a href="index.html#galeria"      class="footer-link">Galería</a>
-          <a href="index.html#contacto"     class="footer-link">Contacto</a>
+          <a href="trastes.html#inicio"       class="footer-link">Inicio</a>
+          <a href="trastes.html#filosofia"    class="footer-link">Filosofía</a>
+          <a href="trastes.html#servicios"    class="footer-link">Servicios</a>
+          <a href="trastes.html#cursos"       class="footer-link">Cursos</a>
+          <a href="trastes.html#instrumentos" class="footer-link">Instrumentos</a>
+          <a href="trastes.html#maderas"      class="footer-link">Maderas</a>
+          <a href="trastes.html#galeria"      class="footer-link">Galería</a>
+          <a href="trastes.html#contacto"     class="footer-link">Contacto</a>
         </nav>
 
         <div class="footer-socials" aria-label="Redes sociales">

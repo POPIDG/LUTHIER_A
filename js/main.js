@@ -15,6 +15,12 @@
     var loader = document.getElementById('page-loader');
     if (!loader) return;
 
+    if (sessionStorage.getItem('loaderShown')) {
+      loader.classList.add('is-hidden');
+      return;
+    }
+    sessionStorage.setItem('loaderShown', '1');
+
     var MIN_VISIBLE = 3000;
     var start = Date.now();
 
