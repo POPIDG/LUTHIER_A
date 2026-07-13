@@ -6,14 +6,18 @@
    reutilizando las variables ya definidas en style.css.
 ============================================================ */
 
+body {
+  background: #461c0c;
+}
+
 .kit-header {
   padding: 48px var(--pad-x) 28px;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid rgba(238, 233, 223, .12);
 }
 .kit-header h1 {
   font-family: var(--heading-font);
   font-size: clamp(28px, 4vw, 44px);
-  color: var(--dark);
+  color: var(--text-light);
   margin-bottom: 8px;
 }
 .kit-back {
@@ -26,7 +30,7 @@
 .kit-header p {
   font-family: var(--sans);
   font-size: 15px;
-  color: #8a8275;
+  color: rgba(238, 233, 223, .6);
 }
 
 /* ── Nav (sticky, links a cada sección) ──────────────────────── */
@@ -61,9 +65,9 @@
 }
 
 .kit-main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px var(--pad-x) 140px;
+  padding: 60px calc(var(--pad-x) + 24px) 140px;
   display: flex;
   flex-direction: column;
   gap: 72px;
@@ -76,17 +80,17 @@
 .kit-section h2 {
   font-family: var(--heading-font);
   font-size: 28px;
-  color: var(--dark);
+  color: var(--text-light);
   margin-bottom: 24px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid rgba(238, 233, 223, .12);
 }
 
 .kit-note {
   font-family: var(--sans);
   font-size: 13.5px;
   font-style: italic;
-  color: #8a8275;
+  color: rgba(238, 233, 223, .55);
   margin-top: 18px;
 }
 
@@ -135,7 +139,7 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: #8a8275;
+  color: rgba(238, 233, 223, .55);
   margin-bottom: 8px;
 }
 
@@ -212,4 +216,49 @@
 .kit-replay-btn:hover {
   background: var(--primary);
   color: #fff;
+}
+
+/* ── Cards / Formularios / Animaciones: demo a la izquierda,
+   código a la derecha, para aprovechar mejor el ancho de pantalla.
+   Grid 1fr/1fr para que las dos columnas midan siempre lo mismo
+   (minmax(0,1fr) evita que un código largo empuje la columna: se
+   desborda hacia adentro, con el overflow-x:auto de .kit-code).
+   Márgenes entre bloques y notas iguales a los del resto del kit
+   (32px entre bloques, 18px sobre la nota — ver .kit-code/.kit-note). ── */
+#cards .kit-demo-block,
+#formularios .kit-demo-block,
+#animaciones .kit-demo-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  column-gap: 24px;
+  margin-bottom: 32px;
+}
+#cards .kit-demo-block:last-child,
+#formularios .kit-demo-block:last-child,
+#animaciones .kit-demo-block:last-child {
+  margin-bottom: 0;
+}
+#cards .kit-demo-block > :first-child,
+#formularios .kit-demo-block > :first-child,
+#animaciones .kit-demo-block > :first-child,
+#cards .kit-demo-block > .kit-code,
+#formularios .kit-demo-block > .kit-code,
+#animaciones .kit-demo-block > .kit-code {
+  margin-bottom: 0;
+}
+#cards .kit-demo-block > .kit-note,
+#formularios .kit-demo-block > .kit-note,
+#animaciones .kit-demo-block > .kit-note {
+  grid-column: 1 / -1;
+  margin-top: 18px;
+}
+
+@media (max-width: 820px) {
+  #cards .kit-demo-block,
+  #formularios .kit-demo-block,
+  #animaciones .kit-demo-block {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
 }

@@ -274,52 +274,6 @@
         <p class="kit-note">Frente: reutiliza .inst-img/.inst-footer/.inst-name tal cual (Biblioteca de Instrumentos), sin tocar su CSS. El flip 3D es propio (.docente-card-inner con perspective + rotateY) y se dispara por click/tap agregando la clase .is-flipped (js/main.js), no por :hover. Usado en la sección Docentes de curso-instrumento-a-medida.html.</p>
       </div>
 
-      <div class="kit-demo-block">
-        <div class="kit-demo-row kit-demo-row--dark">
-          <div class="newsletter-card" style="max-width:640px; box-shadow:none;">
-            <div class="newsletter-media img-placeholder">
-              <img src="assets/img/newsletter-postal.jpg" alt="Postal ilustrada del Club Trastes">
-            </div>
-            <div class="newsletter-divider" aria-hidden="true"></div>
-            <div class="newsletter-content">
-              <h3 class="newsletter-title">¡Suscribite a nuestro club!</h3>
-              <p class="newsletter-text">Sumate al Club Trastes para recibir descuentos y beneficios especiales en tienda, cursos y servicios del taller.</p>
-              <form class="newsletter-form" onsubmit="return false;">
-                <div class="newsletter-field">
-                  <label for="kit-newsletter-name">Nombre</label>
-                  <input type="text" id="kit-newsletter-name" placeholder="Tu nombre">
-                </div>
-                <div class="newsletter-field">
-                  <label for="kit-newsletter-email">Email</label>
-                  <input type="email" id="kit-newsletter-email" placeholder="tu@email.com">
-                </div>
-                <button type="submit" class="btn btn--primary btn--full">Quiero unirme</button>
-              </form>
-            </div>
-            <button type="button" class="newsletter-close" aria-label="Cerrar">&#10005;</button>
-          </div>
-        </div>
-        <code class="kit-code">&lt;div id="newsletter-popup" class="newsletter-popup" hidden&gt;
-  &lt;div class="newsletter-overlay" id="newsletter-overlay"&gt;&lt;/div&gt;
-  &lt;div class="newsletter-card"&gt;
-    &lt;div class="newsletter-media img-placeholder"&gt;
-      &lt;img src="assets/img/newsletter-postal.jpg" alt="..."&gt;
-    &lt;/div&gt;
-    &lt;div class="newsletter-divider"&gt;&lt;/div&gt;
-    &lt;div class="newsletter-content"&gt;
-      &lt;h3 class="newsletter-title"&gt;¡Suscribite a nuestro club!&lt;/h3&gt;
-      &lt;p class="newsletter-text"&gt;...&lt;/p&gt;
-      &lt;form class="newsletter-form"&gt;
-        &lt;div class="newsletter-field"&gt;&lt;label&gt;Nombre&lt;/label&gt;&lt;input type="text" required&gt;&lt;/div&gt;
-        &lt;div class="newsletter-field"&gt;&lt;label&gt;Email&lt;/label&gt;&lt;input type="email" required&gt;&lt;/div&gt;
-        &lt;button class="btn btn--primary btn--full"&gt;Quiero unirme&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
-    &lt;button class="newsletter-close"&gt;&#10005;&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code>
-        <p class="kit-note">Popup tipo postal de trastes.html: se dispara una sola vez por sesión (sessionStorage) al entrar en viewport la sección #maderas (IntersectionObserver, js/newsletter-popup.js), que se desconecta apenas se dispara. Cierra con el ✕, click en el overlay o Escape; al enviar el formulario muestra un mensaje de confirmación y se cierra solo. .newsletter-card usa border-radius: 2px (no var(--rl)) y fondo sólido var(--card-bg) sin textura; .newsletter-title/.newsletter-text van centrados. En mobile (≤560px, css/responsive.css) el grid de 2 columnas pasa a 1 columna y el divisor de vertical a horizontal.</p>
-      </div>
     </section>
 
     <!-- =================== FORMULARIOS =================== -->
