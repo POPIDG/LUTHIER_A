@@ -2134,6 +2134,9 @@ ul { list-style: none; }
   color: var(--text-3);
   text-align: center;
 }
+.newsletter-text--bold {
+  font-weight: 700;
+}
 
 .newsletter-form {
   display: flex;

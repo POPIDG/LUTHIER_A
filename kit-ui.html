@@ -13,6 +13,7 @@
 
   <!-- Estilos del sitio (sin modificar, sin duplicar) -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/curso-detalle.css">
   <!-- Layout exclusivo de esta guía -->
   <link rel="stylesheet" href="css/kit-ui.css">
@@ -26,13 +27,19 @@
   </header>
 
   <nav class="kit-nav" aria-label="Navegación del Kit UI">
-    <a href="#colores"     class="kit-nav-link">Colores</a>
-    <a href="#tipografia"  class="kit-nav-link">Tipografía</a>
-    <a href="#botones"     class="kit-nav-link">Botones</a>
-    <a href="#paddings"    class="kit-nav-link">Paddings</a>
-    <a href="#cards"       class="kit-nav-link">Cards</a>
-    <a href="#formularios" class="kit-nav-link">Formularios</a>
-    <a href="#animaciones" class="kit-nav-link">Animaciones</a>
+    <button type="button" class="kit-nav-burger" id="kit-nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="kit-nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="kit-nav-links" id="kit-nav-links">
+      <a href="#colores"     class="kit-nav-link">Colores</a>
+      <a href="#tipografia"  class="kit-nav-link">Tipografía</a>
+      <a href="#botones"     class="kit-nav-link">Botones</a>
+      <a href="#paddings"    class="kit-nav-link">Paddings</a>
+      <a href="#flotantes"   class="kit-nav-link">Flotantes</a>
+      <a href="#cards"       class="kit-nav-link">Cards</a>
+      <a href="#formularios" class="kit-nav-link">Formularios</a>
+      <a href="#animaciones" class="kit-nav-link">Animaciones</a>
+    </div>
   </nav>
 
   <main class="kit-main">
@@ -71,7 +78,7 @@
 
       <div class="kit-type-sample">
         <span class="kit-type-label">.section-text — var(--body-font) / Montserrat</span>
-        <p class="section-text">Cada proyecto avanza respetando los tiempos de aprendizaje y construcción del alumno.</p>
+        <p class="section-text" style="color:#fff;">Cada proyecto avanza respetando los tiempos de aprendizaje y construcción del alumno.</p>
       </div>
 
       <div class="kit-type-sample">
@@ -158,12 +165,55 @@
       <p class="kit-note">--r, --rl y --rxl están definidas en :root pero ningún componente del sitio las usa (se quitaron de esta guía por eso). Las cards reales (course-card, service-card, curso-testimonial-card) usan border-radius: 2px fijo, sin variable.</p>
     </section>
 
+    <!-- =================== FLOTANTES / FLECHAS / DESTACADOS =================== -->
+    <section class="kit-section" id="flotantes">
+      <h2>Botones flotantes, flechas y destacados</h2>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center; gap:24px;">
+          <button type="button" class="back-top is-visible" style="position:static; transform:none;" aria-label="Volver arriba">&#8593;</button>
+          <a href="#" class="whatsapp-float" style="position:static;" aria-label="Contactar por WhatsApp" onclick="return false;">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.148.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884Zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+          </a>
+        </div>
+        <code class="kit-code">&lt;button id="back-top" class="back-top" aria-label="Volver arriba"&gt;&amp;#8593;&lt;/button&gt;
+
+&lt;a href="#" class="whatsapp-float" aria-label="Contactar por WhatsApp"&gt;
+  &lt;svg viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="..."/&gt;&lt;/svg&gt;
+&lt;/a&gt;</code>
+        <p class="kit-note">Ambos usan position:fixed, bottom-right (aquí se muestran con position:static para poder listarlos en la grilla). .back-top (z-index 80) aparece recién al superar 520px de scroll — clase .is-visible agregada por initBackToTop() en js/main.js — y hace scrollTo suave al top. .whatsapp-float (z-index 81, #25D366) está siempre visible; todavía no tiene link real configurado.</p>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center; gap:24px;">
+          <button type="button" class="inst-nav-btn inst-nav-btn--prev" style="position:static;" aria-label="Instrumento anterior">&#8249;</button>
+          <button type="button" class="inst-nav-btn inst-nav-btn--next" style="position:static;" aria-label="Instrumento siguiente">&#8250;</button>
+          <button type="button" class="inst-nav-btn inst-nav-btn--next" style="position:static;" disabled aria-label="Instrumento siguiente">&#8250;</button>
+        </div>
+        <code class="kit-code">&lt;button class="inst-nav-btn inst-nav-btn--prev" id="inst-prev" aria-label="Instrumento anterior"&gt;&amp;#8249;&lt;/button&gt;
+&lt;button class="inst-nav-btn inst-nav-btn--next" id="inst-next" aria-label="Instrumento siguiente"&gt;&amp;#8250;&lt;/button&gt;</code>
+        <p class="kit-note">Flechas de avance/retroceso del carrusel de la Biblioteca de Instrumentos (.inst-track). Posición absolute a los costados del carrusel (left/right: -24px), ocultas en tablet/mobile (@media max-width:980px, css/responsive.css) donde el scroll es táctil. Se deshabilitan (opacity .35, sin pointer-events) al llegar al principio o al final del listado — lógica en js/carousel.js.</p>
+      </div>
+
+      <div class="kit-demo-block">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center; gap:24px;">
+          <span class="course-badge badge--primary" style="position:static;">DESTACADO</span>
+          <span class="course-badge badge--secondary" style="position:static;">DESTACADO</span>
+        </div>
+        <code class="kit-code">&lt;span class="course-badge badge--primary"&gt;DESTACADO&lt;/span&gt;
+&lt;span class="course-badge badge--secondary"&gt;DESTACADO&lt;/span&gt;</code>
+        <p class="kit-note">Etiqueta que marca un curso destacado dentro de .course-img (position:absolute, top/left: 16px). .badge--primary usa var(--primary) de fondo con texto #fff; .badge--secondary usa var(--accent) de fondo con texto var(--dark). font-size 13.2px, letter-spacing .12em, border-radius 36px.</p>
+      </div>
+    </section>
+
     <!-- =================== CARDS =================== -->
     <section class="kit-section" id="cards">
       <h2>Cards</h2>
 
       <div class="kit-demo-block">
-        <div class="kit-demo-row kit-demo-row--gradient">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center;">
           <article class="course-card course-card--featured" style="max-width:320px; flex:none;">
             <div class="course-img img-placeholder" style="aspect-ratio:4/3">
               <span class="course-badge badge--primary">DESTACADO</span>
@@ -203,7 +253,7 @@
       </div>
 
       <div class="kit-demo-block">
-        <div class="kit-demo-row kit-demo-row--gradient">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center;">
           <div class="curso-testimonial-card testimonio-bg-1">
             <div class="course-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="curso-testimonial-quote">"Construir mi propia guitarra cambió por completo mi forma de entender la música."</p>
@@ -238,7 +288,7 @@
       </div>
 
       <div class="kit-demo-block">
-        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:space-between;">
+        <div class="kit-demo-row kit-demo-row--gradient" style="justify-content:center;">
           <div class="docente-card" id="kit-docente-demo" style="max-width:220px;">
             <div class="docente-card-inner">
               <div class="docente-card-front">
@@ -414,6 +464,43 @@
     </section>
 
   </main>
+
+  <button id="back-top" class="back-top" aria-label="Volver arriba">&#8593;</button>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('back-top');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('is-visible', (window.scrollY || 0) > 520);
+      }, { passive: true });
+    }());
+
+    (function () {
+      var burger = document.getElementById('kit-nav-burger');
+      var links  = document.getElementById('kit-nav-links');
+      if (!burger || !links) return;
+
+      function closeMenu() {
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        links.classList.remove('is-open');
+      }
+
+      burger.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('is-open');
+        burger.classList.toggle('is-open', isOpen);
+        burger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      links.querySelectorAll('.kit-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+    }());
+  </script>
 
 </body>
 </html>
