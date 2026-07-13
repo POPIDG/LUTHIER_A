@@ -29,6 +29,37 @@
   color: #8a8275;
 }
 
+/* ── Nav (sticky, links a cada sección) ──────────────────────── */
+.kit-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 0 var(--pad-x);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-light);
+  scrollbar-width: none;
+}
+.kit-nav::-webkit-scrollbar { display: none; }
+.kit-nav-link {
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--dark);
+  padding: 16px 14px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color var(--t), border-color var(--t);
+}
+.kit-nav-link:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
 .kit-main {
   max-width: 900px;
   margin: 0 auto;
@@ -36,6 +67,10 @@
   display: flex;
   flex-direction: column;
   gap: 72px;
+}
+
+.kit-section {
+  scroll-margin-top: 64px;
 }
 
 .kit-section h2 {

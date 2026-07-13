@@ -1293,8 +1293,8 @@ ul { list-style: none; }
   color: #FFFFFF;
 }
 .ficha-row dd {
-  font-family: ui-monospace, monospace;
-  font-size: 11.5px;
+  font-family: var(--sans);
+  font-size: 12px;
   letter-spacing: .04em;
   color: #FFFFFF;
   margin: 0;
@@ -2050,5 +2050,158 @@ ul { list-style: none; }
 .whatsapp-float:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(37,211,102,.4);
+}
+
+/* ============================================================
+   NEWSLETTER POPUP — "Club Trastes" postal
+   Triggered once per session on scroll into #maderas
+   (see js/newsletter-popup.js). Uses existing tokens
+   (--card-bg, --primary, --dark, fonts, --rl, --t, --ease).
+============================================================ */
+.newsletter-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.newsletter-popup[hidden] { display: none; }
+
+.newsletter-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 22, 22, .72);
+  cursor: pointer;
+  animation: fadein .3s ease;
+}
+
+.newsletter-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1.1fr);
+  width: 100%;
+  max-width: 880px;
+  max-height: 88vh;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 30px 70px rgba(0,0,0,.4);
+  animation: fadeup .4s var(--ease);
+}
+
+.newsletter-media {
+  position: relative;
+  min-height: 260px;
+  background: var(--bg-alt);
+}
+.newsletter-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsletter-divider {
+  background: var(--border-light);
+}
+
+.newsletter-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: clamp(28px, 4vw, 48px);
+  overflow-y: auto;
+}
+
+.newsletter-title {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.15;
+  color: var(--dark);
+  text-align: center;
+}
+
+.newsletter-text {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-3);
+  text-align: center;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.newsletter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.newsletter-field label {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.newsletter-field input {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 2px;
+  border: 1px solid var(--border-light);
+  background: #fff;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: border-color var(--t);
+}
+.newsletter-field input:focus {
+  border-color: var(--primary);
+}
+.newsletter-field input:invalid:not(:placeholder-shown) {
+  border-color: var(--primary);
+}
+
+.newsletter-success {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark);
+  background: rgba(199, 109, 68, .12);
+  border-radius: 2px;
+  padding: 16px 18px;
+}
+.newsletter-success[hidden] { display: none; }
+
+.newsletter-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background: var(--card-bg);
+  color: var(--dark);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--t);
+}
+.newsletter-close:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
 }
 .whatsapp-float svg { width: 26px; height: 26px; }

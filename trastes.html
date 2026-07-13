@@ -212,7 +212,7 @@
 
           <div class="filosofia-copy" data-reveal>
             <span class="eyebrow eyebrow--primary">Nuestra Filosofía</span>
-            <h2 class="section-title">Los instrumento nacen mucho antes de ser construidos.</h2>
+            <h2 class="section-title">Los instrumento nacen mucho antes de ser construidos</h2>
             <p class="section-text">La luthería combina tradición, precisión y respeto por los materiales. Creemos que cada madera posee una voz propia y que cada instrumento debe reflejar la identidad de quien lo interpreta.</p>
             <p class="section-text">Trabajamos respetando los tiempos naturales de cada proceso para lograr instrumentos con carácter, equilibrio y una calidad que perdure en el tiempo.</p>
           </div>
@@ -249,7 +249,7 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <span class="eyebrow eyebrow--accent">Academia de Luthería</span>
-          <h2 class="section-title">Aprendé el oficio de la mano de un luthier profesional.</h2>
+          <h2 class="section-title">Aprendé el oficio de la mano de un luthier profesional</h2>
           <p class="section-text">Nuestros programas están orientados a aficionados, músicos y futuros luthiers que buscan comprender el oficio mediante una experiencia práctica y personalizada.</p>
         </div>
 
@@ -332,7 +332,7 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <span class="eyebrow eyebrow--primary">Biblioteca de Instrumentos</span>
-          <h2 class="section-title">Explorá el universo de los instrumentos.</h2>
+          <h2 class="section-title">Explorá el universo de los instrumentos</h2>
           <p class="section-text">Una biblioteca interactiva donde podrás descubrir las características, historia y proceso constructivo de distintos instrumentos.</p>
         </div>
 
@@ -439,7 +439,7 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <span class="eyebrow eyebrow--primary">Maderas</span>
-          <h2 class="section-title">El sonido comienza en la elección de la madera.</h2>
+          <h2 class="section-title">El sonido comienza en la elección de la madera</h2>
           <p class="section-text">Explorá una biblioteca interactiva con las especies más utilizadas en luthería y descubrí cómo influyen en el carácter sonoro y estético de cada instrumento.</p>
         </div>
 
@@ -634,7 +634,7 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <span class="eyebrow eyebrow--accent">Galería</span>
-          <h2 class="section-title">Cada instrumento, una historia.</h2>
+          <h2 class="section-title">Cada instrumento, una historia</h2>
           <p class="section-text">Una selección de imágenes que muestran el proceso artesanal y el resultado final de cada proyecto.</p>
         </div>
 
@@ -725,7 +725,7 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <span class="eyebrow eyebrow--accent">Contacto</span>
-          <h2 class="section-title section-title--light">Comenzá tu próximo proyecto.</h2>
+          <h2 class="section-title section-title--light">Comenzá tu próximo proyecto</h2>
           <p class="section-text section-text--light">Ya sea que desees construir tu primer instrumento, restaurar una guitarra o formar parte de nuestros cursos, estaremos encantados de acompañarte.</p>
         </div>
 
@@ -841,6 +841,38 @@
   </footer>
 
   <!-- ============================================================
+       NEWSLETTER POPUP (postal) — Club Trastes
+  ============================================================ -->
+  <div id="newsletter-popup" class="newsletter-popup" aria-hidden="true" hidden>
+    <div class="newsletter-overlay" id="newsletter-overlay"></div>
+    <div class="newsletter-card" role="dialog" aria-modal="true" aria-labelledby="newsletter-title">
+      <div class="newsletter-media img-placeholder">
+        <img src="assets/img/newsletter-postal.jpg" alt="Postal ilustrada del Club Trastes">
+      </div>
+      <div class="newsletter-divider" aria-hidden="true"></div>
+      <div class="newsletter-content">
+        <h3 id="newsletter-title" class="newsletter-title">¡Suscribite a nuestro club!</h3>
+        <p class="newsletter-text">Sumate al Club Trastes para recibir beneficios especiales en nuestra tienda y cursos. Además, serás de los primeros en disfrutar las novedades pensadas para acercarte al proceso de creación de tu instrumento desde nuestro portal.</p>
+
+        <form id="newsletter-form" class="newsletter-form">
+          <div class="newsletter-field">
+            <label for="newsletter-name">Nombre</label>
+            <input type="text" id="newsletter-name" name="nombre" required autocomplete="name">
+          </div>
+          <div class="newsletter-field">
+            <label for="newsletter-email">Email</label>
+            <input type="email" id="newsletter-email" name="email" required autocomplete="email">
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Quiero unirme</button>
+        </form>
+
+        <p id="newsletter-success" class="newsletter-success" hidden>¡Gracias por sumarte! Muy pronto vas a recibir novedades del Club Trastes.</p>
+      </div>
+      <button id="newsletter-close" class="newsletter-close" aria-label="Cerrar">&#10005;</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
        LIGHTBOX
   ============================================================ -->
   <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Imagen ampliada" hidden>
@@ -875,6 +907,7 @@
   <script src="js/masonry.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/form.js"></script>
+  <script src="js/newsletter-popup.js"></script>
   <script src="js/main.js"></script>
 
 </body>

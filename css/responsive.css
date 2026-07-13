@@ -163,6 +163,16 @@
     gap: 14px;
   }
 
+  /* Newsletter popup: two columns → stacked, divider vertical → horizontal */
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1px auto;
+    max-height: 92vh;
+  }
+  .newsletter-media {
+    min-height: 180px;
+  }
+
 }
 
 /* ── Hover states only on pointer devices ─────────────────── */
