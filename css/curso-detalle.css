@@ -339,7 +339,8 @@
   z-index: 0;
   background-image: url("../assets/hero/hero-background.png");
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: top center;
+  background-size: cover;
 }
 #cronograma .container {
   position: relative;
